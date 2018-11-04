@@ -1,0 +1,9 @@
+<app-header [header]="heading"></app-header>
+
+<mat-grid-list cols="2" rowHeight="4:2">
+    <mat-grid-tile *ngFor="let edu of educations">
+        <div class="tile-content">
+                <app-education-card [education]="edu"></app-education-card>
+        </div>            
+    </mat-grid-tile>
+</mat-grid-list>

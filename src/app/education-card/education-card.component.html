@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>
+        <a href="{{ education.url }}">{{ education.name }}</a>
+      </mat-card-title>  
+      <mat-card-subtitle>{{ education.place }}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let info of education.info">
+        {{ info }}
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,9 @@
+<app-header [header]="heading"></app-header>
+
+<mat-grid-list cols="1" rowHeight="3:1">
+    <mat-grid-tile *ngFor="let skill of skills">
+        <div class="tile-content">
+                <app-skill-card [skill]="skill"></app-skill-card>
+        </div>            
+    </mat-grid-tile>
+    </mat-grid-list>

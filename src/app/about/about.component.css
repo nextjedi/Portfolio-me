@@ -1,0 +1,34 @@
+.about {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    background-color: white;
+    line-height: 2;
+}
+
+.about p {
+    padding: 2%;
+    text-align: justify;
+}
+
+p+p {
+    text-indent: 1.5;
+}
+
+h1+p:first-letter {
+    font-size: 2em;
+    line-height: 0;
+    margin: 2%;
+    
+}
+
+.about h1{
+    color: #795548;
+    border-left: 4px solid #795548;
+    padding-left: 9px; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    
+}

@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title> {{ skill.title }}</mat-card-title>  
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  
+  <mat-card-content>
+    <mat-grid-list cols="5" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let url of skill.url">
+        <img mat-card-md-image [src]="url" alt="to be placed">                   
+    </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,99 @@
+
+  <div fxHide.gt-xs>
+      <!-- <button mat-icon-button (click)=sidenav.toggle()>
+        <mat-icon>menu</mat-icon>
+      </button> -->
+  <div class="salutation-top">
+    <p>Arunabh Priyadarshi</p>
+    Full stack develper
+  </div>
+  </div>
+
+
+<mat-sidenav-container>
+  <mat-sidenav opened=true role="navigation" mode=side>
+    <a href="#top">
+      <div class="salutation" fxHide.xs>
+        <p>Arunabh<br>Priyadarshi</p>
+        Full stack develper
+      </div>
+    </a>  
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon>face</mat-icon>
+        <a mat-list-item href=#about>About</a>
+      </mat-list-item>
+
+      <mat-list-item>
+         <mat-icon>import_contacts</mat-icon>
+         <a mat-list-item href=#experience>Experience</a>
+      </mat-list-item>
+
+      <!-- <mat-list-item>
+        <mat-icon>calendar_view_day</mat-icon>
+        <a mat-list-item href=#project>Project</a>
+      </mat-list-item> -->
+
+      <mat-list-item>
+        <mat-icon>arrow_upward</mat-icon>
+        <a mat-list-item href=#skill>Skill</a>
+      </mat-list-item>
+  
+  
+      <mat-list-item>
+        <mat-icon color="primary">star</mat-icon>
+        <a mat-list-item href=#award>Award</a>
+      </mat-list-item>
+
+              
+      <mat-list-item>
+        <mat-icon>school</mat-icon>
+        <a mat-list-item href=#education>Education</a>
+      </mat-list-item>
+
+          
+      <mat-list-item>
+        <mat-icon>alternate_email</mat-icon>
+        <a mat-list-item href=#contact>Contact</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div id="top"></div>
+    <div class="main-content">
+      <div id="top" class="image">
+          <img src="../../assets/images/arunabh.jpg" alt="Me" width="100%">
+      </div>
+
+      <div id="about">
+        <app-about></app-about>
+      </div>
+
+      <div id="experience">
+          <app-experience></app-experience>
+      </div>
+
+      <!-- <div id="project">
+        <app-project></app-project>
+      </div> -->
+
+      <div id="skill">
+        <app-skill></app-skill>
+      </div>
+
+      <div id="award">
+        <app-awards></app-awards>
+      </div>
+
+      <div id="education">
+        <app-education></app-education>
+      </div>
+
+      <div id="contact">
+        <app-contact></app-contact>
+      </div>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

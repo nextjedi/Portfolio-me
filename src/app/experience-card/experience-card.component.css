@@ -1,0 +1,33 @@
+mat-card {
+    background-color: #FFFFFF;
+}
+
+mat-card-header {
+    display: flex;
+    
+    margin: 0;
+}
+
+
+
+mat-card-content {
+    padding: 2%;
+}
+
+
+mat-card-title {
+    display: flex;
+}
+
+mat-card-subtitle {
+    display: flex;
+}
+
+mat-card-footer {
+    padding: 3%;
+    background-color: #fafafa;
+}
+
+.flex {
+    float: right;
+}

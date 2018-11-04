@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+html {
+        scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    background-color: silver;
+background-image: linear-gradient(335deg, #b00 23px, transparent 23px),
+linear-gradient(155deg, #d00 23px, transparent 23px),
+linear-gradient(335deg, #b00 23px, transparent 23px),
+linear-gradient(155deg, #d00 23px, transparent 23px);
+background-size: 58px 58px;
+background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+}
+
+.header-component {
+    height: 150;
+    background-color: #008073;
+    margin: 0%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+mat-grid-tile {
+    
+  }
+
+mat-grid-list {
+    
+}
+
+.tile-content {
+    background-color: aquamarine;
+    width: 100%;
+    margin: 3%;
+
+}
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:visited {
+    text-decoration: none;
+    color: black;
+
+}
+
+ul {
+    
+}
+
+li {
+    font-size: 15px;
+    padding:0.5%;
+}
+
+li:before
+		{
+			
+		}

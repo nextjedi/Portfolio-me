@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>{{ award.title }}</mat-card-title>  
+      <mat-card-subtitle>{{ award.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let point of award.points">
+        {{ point }}
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>

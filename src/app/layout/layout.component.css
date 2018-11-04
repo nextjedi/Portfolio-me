@@ -1,0 +1,45 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 180px;
+}
+
+
+.cont{
+    height: 100%;
+    background-color: green;
+}
+
+.salutation {
+    height: 15%;
+    background-color: #FAFAFA;
+    text-align: justify;
+    
+    padding: 10%;
+    font-size: medium;
+    color: #B19D95;
+}
+
+.salutation p {
+    color: #63B0A8;
+    margin: 0;
+    font-size: x-large
+    
+}
+
+.salutation-top {
+    text-align: center;    
+    padding: 0;
+    font-size: medium;
+    color: #B19D95;
+    background-color: #FAFAFA;
+}
+
+.salutation-top p {
+    color: #63B0A8;
+    margin: 0;
+    font-size: large
+    
+}
