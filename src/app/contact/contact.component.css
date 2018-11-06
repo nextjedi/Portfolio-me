@@ -1,0 +1,18 @@
+.contact {
+    height: 450px;
+    padding:5%;
+    background-color: #fafafa;
+}
+
+mat-list {
+    width: 40%;
+}
+
+mat-list-item img{
+    background-color: aqua;
+    margin-bottom: 2%;
+}
+
+mat-list-item tooltip{
+    color:aquamarine
+}

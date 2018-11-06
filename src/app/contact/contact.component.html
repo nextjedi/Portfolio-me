@@ -1,8 +1,18 @@
 <app-header [header]="heading"></app-header>
 
-<div class="content">
-    <ul>
-        <li><a href="https://github.com/nextjedi" target="">github</a></li>
-        <li><a href="https://www.linkedin.com/in/arunabhpriyadarshi/">linkedin</a></li>
-    </ul>
+<div class="contact">
+    <mat-list>
+        <mat-list-item *ngFor="let contact of contacts">
+            <img matListAvatar 
+            [matTooltip]="contact.tooltip"
+            matTooltipPosition="above"
+            src="{{contact.icon}}" alt="...">
+            <h3 matLine> {{contact.type}} </h3>
+            <p matLine>
+              <a href="{{ contact.link.url }}"> {{ contact.link.name }} </a>
+            </p>        
+            
+          </mat-list-item>
+          
+    </mat-list>
   </div>
