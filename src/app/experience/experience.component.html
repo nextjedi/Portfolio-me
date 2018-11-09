@@ -1,25 +1,8 @@
 <app-header [header]="heading"></app-header>
 
-<mat-grid-list cols="1" rowHeight="4:2">
-    <mat-grid-tile>
-        <div class="tile-content">
-                <app-experience-card [experience]="experience1"></app-experience-card>
+
+        <div class="tile-content" *ngFor="let experience of experiences">
+                <app-experience-card [experience]="experience"></app-experience-card>
         </div>            
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="tile-content">
-            <app-experience-card [experience]="experience2"></app-experience-card>
-        </div> 
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="tile-content">
-            <app-experience-card [experience]="experience3"></app-experience-card>
-        </div> 
-    </mat-grid-tile>
-    <mat-grid-tile>
-            <div class="tile-content">
-                <app-experience-card [experience]="experience4"></app-experience-card>
-            </div> 
-        </mat-grid-tile>
-    </mat-grid-list>
+    
 

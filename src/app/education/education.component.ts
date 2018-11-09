@@ -11,10 +11,18 @@ export class EducationComponent implements OnInit {
   heading:string ="EDUCATION"
   education:EducationModel = new EducationModel();
   educations:EducationModel[]=[];
+
+  col:number;
+  rowHieght:string;
   constructor() { }
 
   ngOnInit() {
     this.data();
+    this.decide();
+  }
+  decide(){
+    this.col=2;
+    this.rowHieght='2:1'
   }
 
   data(){

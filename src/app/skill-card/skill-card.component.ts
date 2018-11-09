@@ -11,9 +11,14 @@ export class SkillCardComponent implements OnInit {
   @Input()
   skill:Skillmodel =new Skillmodel();
 
+  col:number;
+  rowHeight:string;
+
   constructor() { }
 
   ngOnInit() {
+    this.col=5;
+    this.rowHeight="1:1"
     
   }
 

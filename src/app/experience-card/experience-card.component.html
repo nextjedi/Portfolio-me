@@ -1,16 +1,11 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>
-          <div class="title" fxFlex>
+          <div  fxFlex>
               <a href="{{ experience.url }}">{{ experience.company }}</a> 
           </div>
-          
-          <div >
-              {{ experience.role }}
-          </div>  
-          
         </mat-card-title>  
-        <mat-card-subtitle>{{ experience.team }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ experience.role }}</mat-card-subtitle>
     </mat-card-header>
     <mat-divider></mat-divider>
     
@@ -25,3 +20,4 @@
         {{ experience.tenure }} | {{ experience.location }}
     </mat-card-footer>
 </mat-card>
+

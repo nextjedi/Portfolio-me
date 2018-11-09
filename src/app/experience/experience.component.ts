@@ -14,9 +14,13 @@ export class ExperienceComponent implements OnInit {
   experience2:ExperienceModel = new ExperienceModel();
   experience3:ExperienceModel = new ExperienceModel();
   experience4:ExperienceModel = new ExperienceModel();
+
+
   constructor() { }
 
   ngOnInit() {
+
+
     this.data();
     this.experiences[0]=this.experience1;
     this.experiences[1]=this.experience2;

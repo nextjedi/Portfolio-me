@@ -24,3 +24,8 @@ mat-card-footer {
     padding: 3%;
     background-color: #FAFAFA;
 }
+
+mat-grid-tile-footer {
+    text-align: center;
+    width: 100%;
+}

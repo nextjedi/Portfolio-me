@@ -1,0 +1,14 @@
+.header-component {
+    height: 150;
+    background-color: #008073;
+    margin: 0%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    color: antiquewhite;
+
+}
+.header-component h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+

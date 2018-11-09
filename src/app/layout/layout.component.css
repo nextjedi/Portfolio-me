@@ -43,3 +43,32 @@ mat-sidenav {
     font-size: large
     
 }
+
+a:hover,
+  a:active {
+    color: brown;
+  }
+
+.about {
+    color: #1D8E83;
+}
+
+.experience {
+    color: #3F51B5;
+}
+
+.skill {
+    color: #9C27B0;
+}
+
+.award {
+    color: #F44336;
+}
+
+.education {
+    color: #FF9800;
+}
+
+.contact {
+    color: #795548;
+}

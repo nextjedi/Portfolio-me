@@ -1,5 +1,7 @@
+import { ImageModel } from "./skill/image.model";
+
 export class Skillmodel {
     title:string
-    url:string[]=[];
+    images:ImageModel[]=new Array<ImageModel>();
     
 }

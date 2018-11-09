@@ -13,22 +13,14 @@ html {
 body{
     margin: 0;
     background-color: silver;
-background-image: linear-gradient(335deg, #b00 23px, transparent 23px),
+/* background-image: linear-gradient(335deg, #b00 23px, transparent 23px),
 linear-gradient(155deg, #d00 23px, transparent 23px),
 linear-gradient(335deg, #b00 23px, transparent 23px),
 linear-gradient(155deg, #d00 23px, transparent 23px);
 background-size: 58px 58px;
-background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px; */
 }
 
-.header-component {
-    height: 150;
-    background-color: #008073;
-    margin: 0%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-}
 
 mat-grid-tile {
     
@@ -46,6 +38,10 @@ mat-grid-list {
 }
 a {
     text-decoration: none;
+}
+mat-list-item:active {
+    background-color: BLUE;
+    color: green;
 }
 
 a:link, a:visited, a:visited {
@@ -66,4 +62,20 @@ li {
 li:before
 		{
 			
-		}
+        }
+        
+        .header-component {
+            height: 150;
+            background-color: #008073;
+            margin: 0%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5%;
+            color: antiquewhite;
+        
+        }
+        .header-component h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        

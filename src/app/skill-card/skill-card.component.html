@@ -5,10 +5,14 @@
   <mat-divider></mat-divider>
   
   <mat-card-content>
-    <mat-grid-list cols="5" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let url of skill.url">
-        <img mat-card-md-image [src]="url" alt="to be placed">                   
+    <mat-grid-list [cols]="col" [rowHeight]="rowHeight">
+    <mat-grid-tile *ngFor="let image of skill.images">
+        <img mat-card-sm-image [src]="image.location" [alt]="image.alt">     
+        <mat-grid-tile-footer >
+          {{ image.caption }}
+        </mat-grid-tile-footer>
     </mat-grid-tile>
+    
     </mat-grid-list>
   </mat-card-content>
 </mat-card>

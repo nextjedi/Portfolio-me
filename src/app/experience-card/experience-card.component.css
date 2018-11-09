@@ -17,6 +17,10 @@ mat-card-content {
 
 mat-card-title {
     display: flex;
+    
+}
+mat-card-title a{
+    color: #63B0A8;
 }
 
 mat-card-subtitle {
