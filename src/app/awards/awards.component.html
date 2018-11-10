@@ -1,10 +1,14 @@
 <app-header [header]="heading"></app-header>
 
 
-<mat-grid-list cols="2" rowHeight="3:1">
+<mat-grid-list [cols]="col" [rowHeight]="rowHieght" fxHide.lt-md>
     <mat-grid-tile *ngFor="let award of awards">
         <div class="tile-content">
                 <app-award-card [award]=award></app-award-card>
         </div>            
     </mat-grid-tile>
 </mat-grid-list>
+
+<div class="tile-content" *ngFor="let award of awards" fxHide.gt-sm>
+    <app-award-card [award]=award></app-award-card>
+</div> 

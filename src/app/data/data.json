@@ -1,0 +1,251 @@
+{
+	"name": "Arunabh Priyadarshi",
+	"role": "Full stack developer",
+	"awards": [{
+		"points": ["Secured a position in top 250 coders of India out of 2.5lakh competitor"],
+		"title": "Code Gladiator - Open Coding Contest 2018",
+		"subtitle": "A National level competitive Coding contest by techgig"
+	}, {
+		"points": ["Secured a position in top 25 teams in the country"],
+		"title": "Code Gladiator - Alexa Hackathon 2018",
+		"subtitle": "A National level Hackathon by techgig (sponsered by Amazon)"
+	}, {
+		"points": ["Secured a position in top 300 coders of India out of 2.5lakh competitor"],
+		"title": "Code Gladiator - Open Coding Contest 2017",
+		"subtitle": "A National level competitive Coding contest by techgig"
+	}, {
+		"points": [],
+		"title": "IBM Bluemix - Hackathon 2015",
+		"subtitle": "A National level Hackathon by IBM"
+	}, {
+		"points": ["Secured 3rd positon in the event"],
+		"title": "Richie Rich - coding contest 2014",
+		"subtitle": "An inter College coding contest by BVB college"
+	}, {
+		"points": ["Certified for outstanding performance in data structure labs"],
+		"title": "Data Structure and Algorithms - 2013",
+		"subtitle": "by Lab Instructor BVB college"
+	}],
+	"contatcs": [{
+		"link": {
+			"url": "https://github.com/nextjedi",
+			"name": "github.com/nextjedi"
+		},
+		"type": "Github",
+		"icon": "./../../assets/images/contact/github.png",
+		"tooltip": "View Me on Github"
+	}, {
+		"link": {
+			"url": "https://www.linkedin.com/in/arunabhpriyadarshi/",
+			"name": "linkedin.com/in/arunabhpriyadarshi/"
+		},
+		"type": "LinkedIn",
+		"icon": "./../../assets/images/contact/linkedin.png",
+		"tooltip": "View Me on LinkedIn"
+	}, {
+		"link": {
+			"url": "https://github.com/nextjedi",
+			"name": "arunabhpriyadarshi@live.com"
+		},
+		"type": "Email",
+		"icon": "./../../assets/images/contact/email.png",
+		"tooltip": "Email Me"
+	}],
+	"educations": [{
+		"info": ["B.E in information science and engineering"],
+		"name": "B.V. Bhoomaraddi College of Engineering & Technology",
+		"url": "https://www.kletech.ac.in/",
+		"place": "Hubli, Karnataka, India"
+	}, {
+		"info": ["Completed 10th and 12th standard (CBSE affiliated)"],
+		"name": "St. Karens Secondary School ( CBSE Affiliated )",
+		"place": "Patna, Bihar, India",
+		"url": "http://www.stkarenssecondaryschool.com/"
+	}],
+	"experiences": [{
+		"description": ["POC for an application to share and verify documents over blockchain", "Explored hyperledger projects by IBM foundation and Ethereum smart contract (in a team of 2)", "Hyperledger: Implemented the chaincode (logic behind hyperledger Blockchain) on hyperledger composer which was developed over the infrastructure created by hyperledger fabric. hyperledger explorer was used to generate the dashboard of the transactions.", "Ethereum smart contract: Designed and developed the application in solidity (language used to develop Ethereum smart contract) and deployed it on a test network. currently exploring the privbate implementation of ethereum blockchain quorum"],
+		"company": "KPIT Technologies Ltd.",
+		"role": "Blockchain R&d",
+		"team": "KPIT centre of excellence",
+		"url": "https://www.kpit.com/",
+		"tenure": "May 2018 to July 2018",
+		"location": "Pune, India"
+	}, {
+		"description": ["A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.", "Strictly followed the design principles, so the applications become scalable as well as maintainable.", "Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.", "To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.", "To maintain longer session in a secure way, implemented HTTP interceptor.", "We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process", "Shared thoughts behind the process with teams responsible to develop further applications."],
+		"company": "KPIT Technologies Ltd.",
+		"role": "Consulting Developer",
+		"team": "KPIT centre of excellence",
+		"url": "https://www.kpit.com/",
+		"tenure": "February 2018 to July 2018",
+		"location": "Pune, India"
+	}, {
+		"description": ["Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only", "Designed and implemented a generic workflow that can be configured and generated for any scenarios."],
+		"company": "KPIT Technologies Ltd.",
+		"role": "Full stack developer",
+		"team": "KPIT Java centre of excellence",
+		"url": "https://www.kpit.com/",
+		"tenure": "March 2017 to April 2018",
+		"location": "Pune, India"
+	}, {
+		"description": ["Core as well as advance java and its framework ‘Java server faces (JSF)’", "Responsive user interface design using Bootstrap, Skeleton grid on top of scripting languages like HTML, CSS, and jQuery", "MySQL database"],
+		"company": "KPIT Technologies Ltd.",
+		"role": "Trainee",
+		"team": "Digital Transformation SBU",
+		"url": "https://www.kpit.com/",
+		"tenure": "September 2016 to January 2017",
+		"location": "Pune, India"
+	}],
+	"skills": [{
+		"images": [{
+			"location": "../../assets/images/skill/htmlcss/html5.png",
+			"caption": "HTML5",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/htmlcss/css3.png",
+			"caption": "CSS3",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/htmlcss/bootstrap.png",
+			"caption": "Bootstrap",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/htmlcss/materialize.png",
+			"caption": "Materialize",
+			"alt": "NotFound"
+		}],
+		"title": "HTML & CSS"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/javascript/javascript.png",
+			"caption": "JavaScript",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/javascript/jquery.png",
+			"caption": "Jquery",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/javascript/angular.png",
+			"caption": "Angular",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/javascript/primeng.png",
+			"caption": "PrimeNg",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/javascript/nodejs.png",
+			"caption": "Node js",
+			"alt": "NotFound"
+		}],
+		"title": "JavaScript"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/java/core-java.png",
+			"caption": "Core Java",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/java/advance-java.png",
+			"caption": "Advance Java",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/java/spring-boot.png",
+			"caption": "Spring-Boot",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/java/spring-jpa.png",
+			"caption": "Spring-jpa",
+			"alt": "NotFound"
+		}],
+		"title": "Java"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/database/mysql.png",
+			"caption": "MySQL",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/database/mssql.png",
+			"caption": "Ms-SQL",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/database/mongodb.png",
+			"caption": "MongoDb",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/database/sequalize.png",
+			"caption": "Sequalize",
+			"alt": "NotFound"
+		}],
+		"title": "Database & ORM"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/principles/rest.png",
+			"caption": "REST architecture",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/principles/Solid-design principle.png",
+			"caption": "SOLID design principle",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/principles/design patterns.png",
+			"caption": "Design Patterns",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/principles/mvc.png",
+			"caption": "MVC",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/principles/oauth2.png",
+			"caption": "OAuth 2",
+			"alt": "NotFound"
+		}],
+		"title": "Principles and architecture"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/buildtools/webpack.png",
+			"caption": "Webpack",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/buildtools/maven.png",
+			"caption": "Maven",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/buildtools/npm.png",
+			"caption": "NPM",
+			"alt": "NotFound"
+		}],
+		"title": "build tools"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/blockchain/hyperledger.png",
+			"caption": "HyperLedger",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/blockchain/ethereum.png",
+			"caption": "Ethereum",
+			"alt": "NotFound"
+		}],
+		"title": "Blockchain"
+	}, {
+		"images": [{
+			"location": "../../assets/images/skill/others/github.png",
+			"caption": "Github",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/others/svn.png",
+			"caption": "SVN",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/others/photoshop.png",
+			"caption": "Photoshop",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/others/cpp.png",
+			"caption": "C++",
+			"alt": "NotFound"
+		}, {
+			"location": "../../assets/images/skill/others/alexa.png",
+			"caption": "Alexa",
+			"alt": "NotFound"
+		}],
+		"title": "Others"
+	}]
+}

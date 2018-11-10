@@ -1,31 +1,34 @@
-<div fxHide.gt-xs>
-    <!-- <button mat-icon-button (click)=sidenav.toggle()>
+
+<div class="stay-top" fxHide.gt-sm >
+    <button mat-icon-button  (click)=toggleSidenav()>
       <mat-icon>menu</mat-icon>
-    </button> -->
-<div class="salutation-top">
-  <p>Arunabh Priyadarshi</p>
-  Full stack develper
+    </button>
+<div class="salutation-top" fxFlex>
+  <a href="#top">
+    <p>{{ portfolio.name }}</p>
+    {{ portfolio.role }}
+  </a>
 </div>
 </div>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav  [opened]="!media.isActive('xs')" role="navigation" [mode]="mode">
+  <mat-sidenav #sidenav  [opened]="sidenavButon" role="navigation" [mode]="mode">
     <a href="#top">
-      <div class="salutation" fxHide.xs>
-        <p>Arunabh<br>Priyadarshi</p>
-        Full stack develper
+      <div class="salutation" fxHide.lt-md>
+          <p>{{ portfolio.name }}</p>
+          {{ portfolio.role }}
       </div>
     </a>  
     <mat-divider></mat-divider>
     <mat-nav-list>
       <mat-list-item >
         <mat-icon class="about">face</mat-icon>
-        <a mat-list-item href=#about (click)="(!media.isActive('xs'))">About</a>
+        <a mat-list-item href=#about (click)="closeSidenav()">About</a>
       </mat-list-item>
 
       <mat-list-item>
          <mat-icon class="experience">import_contacts</mat-icon>
-         <a mat-list-item href=#experience>Experience</a>
+         <a mat-list-item href=#experience (click)="closeSidenav()">Experience</a>
       </mat-list-item>
 
       <!-- <mat-list-item>
@@ -35,25 +38,25 @@
 
       <mat-list-item>
         <mat-icon class="skill">arrow_upward</mat-icon>
-        <a mat-list-item href=#skill>Skill</a>
+        <a mat-list-item href=#skill (click)="closeSidenav()">Skill</a>
       </mat-list-item>
   
   
       <mat-list-item>
         <mat-icon class="award">star</mat-icon>
-        <a mat-list-item href=#award>Award</a>
+        <a mat-list-item href=#award (click)="closeSidenav()">Award</a>
       </mat-list-item>
 
               
       <mat-list-item>
         <mat-icon class="education">school</mat-icon>
-        <a mat-list-item href=#education>Education</a>
+        <a mat-list-item href=#education (click)="closeSidenav()">Education</a>
       </mat-list-item>
 
           
       <mat-list-item>
         <mat-icon class="contact">alternate_email</mat-icon>
-        <a mat-list-item href=#contact>Contact</a>
+        <a mat-list-item href=#contact (click)="closeSidenav()">Contact</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
@@ -71,7 +74,7 @@
       </div>
 
       <div id="experience">
-          <app-experience></app-experience>
+          <app-experience [experiences]="portfolio.experiences"></app-experience>
       </div>
 
       <!-- <div id="project">
@@ -79,21 +82,29 @@
       </div> -->
 
       <div id="skill">
-        <app-skill></app-skill>
+        <app-skill [skills]="portfolio.skills"></app-skill>
       </div>
 
       <div id="award">
-        <app-awards></app-awards>
+        <app-awards [awards]="portfolio.awards"></app-awards>
       </div>
 
       <div id="education">
-        <app-education></app-education>
+        <app-education [educations]="portfolio.educations"></app-education>
       </div>
 
       <div id="contact">
-        <app-contact></app-contact>
+        <app-contact [contacts]="portfolio.contacts"></app-contact>
       </div>
 
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<div class="stay-bottom" fxHide.lt-md >
+  <div class="salutation-top" fxFlex>
+      <p>{{ portfolio.name }}</p>
+      {{ portfolio.role }}
+  </div>
+</div>
+

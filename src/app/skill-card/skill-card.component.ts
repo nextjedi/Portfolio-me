@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Skillmodel } from '../skill.model';
+import { ObservableMedia } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-skill-card',
@@ -11,15 +12,34 @@ export class SkillCardComponent implements OnInit {
   @Input()
   skill:Skillmodel =new Skillmodel();
 
-  col:number;
-  rowHeight:string;
+  
 
-  constructor() { }
+  col:number;
+  rowHieght:string;
+
+  constructor(public media: ObservableMedia) {
+    
+   }
 
   ngOnInit() {
-    this.col=5;
-    this.rowHeight="1:1"
+    this.decide();
+    window.onresize = () => {
+      this.decide();
+    }
     
   }
+
+  decide(){
+    if(this.media.isActive('gt-xs')){
+      this.col=5;
+      this.rowHieght='1:1'
+    }else {
+      this.col=3;
+      this.rowHieght='1:1'
+    }
+    
+  
+  
+}
 
 }
