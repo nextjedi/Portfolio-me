@@ -134,7 +134,7 @@ export class LayoutComponent implements OnInit {
     this.contacts[1].tooltip="View Me on LinkedIn";
 
     this.contacts[2]=new ContactModel();
-    this.contacts[2].link.url="https://github.com/nextjedi";
+    this.contacts[2].link.url="mailto:arunabhpriyadarshi@live.com";
     this.contacts[2].link.name="arunabhpriyadarshi@live.com";
     this.contacts[2].type="Email";
     this.contacts[2].icon="./../../assets/images/contact/email.png";
