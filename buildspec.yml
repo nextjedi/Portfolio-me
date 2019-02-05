@@ -1,7 +1,7 @@
 version: 0.1
 environment_variables:
     plaintext:
-        S3_BUCKET: "cv.schreck.berlin"
+        S3_BUCKET: "arunabh.me"
 phases:
     install:
         commands:
