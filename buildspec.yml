@@ -2,7 +2,6 @@ version: 0.1
 environment_variables:
     plaintext:
         S3_BUCKET: "arunabh.me"
-        #lest see
 phases:
     install:
         commands:
