@@ -63,8 +63,8 @@ export class LayoutComponent implements OnInit {
   }
 
   data(){
-    this.portfolio.name="Arunabh Priyadarshi"
-    this.portfolio.role="Full stack developer"
+    this.portfolio.name="Mohit Vashistha"
+    this.portfolio.role="Blockchain Engineer"
     this.award();
     this.portfolio.awards=this.awards;
     this.contact();
@@ -118,49 +118,49 @@ export class LayoutComponent implements OnInit {
   }
 
   contact() {
-    this.contacts[0]=new ContactModel();
-    this.contacts[0].link.url="https://github.com/nextjedi";
-    this.contacts[0].link.name="github.com/nextjedi";
-    this.contacts[0].type="Github";
-    this.contacts[0].icon="./../../assets/images/contact/github.png";
-    this.contacts[0].tooltip="View Me on Github";
+    this.contacts[2]=new ContactModel();
+    this.contacts[2].link.url="https://github.com/nextjedi";
+    this.contacts[2].link.name="github.com/nextjedi";
+    this.contacts[2].type="Github";
+    this.contacts[2].icon="./../../assets/images/contact/github.png";
+    this.contacts[2].tooltip="View Me on Github";
 
 
     this.contacts[1]=new ContactModel();
-    this.contacts[1].link.url="https://www.linkedin.com/in/arunabhpriyadarshi/";
-    this.contacts[1].link.name="linkedin.com/in/arunabhpriyadarshi/";
+    this.contacts[1].link.url="https://www.linkedin.com/in/mohit-vashistha-316869114/";
+    this.contacts[1].link.name="linkedin.com/in/mohitvashistha/";
     this.contacts[1].type="LinkedIn";
     this.contacts[1].icon="./../../assets/images/contact/linkedin.png";
     this.contacts[1].tooltip="View Me on LinkedIn";
 
-    this.contacts[2]=new ContactModel();
-    this.contacts[2].link.url="mailto:arunabhpriyadarshi@live.com";
-    this.contacts[2].link.name="arunabhpriyadarshi@live.com";
-    this.contacts[2].type="Email";
-    this.contacts[2].icon="./../../assets/images/contact/email.png";
-    this.contacts[2].tooltip="Email Me";
+    this.contacts[0]=new ContactModel();
+    this.contacts[0].link.url="mailto:mohit6b@gmail.com";
+    this.contacts[0].link.name="mohit6b@gmail.com";
+    this.contacts[0].type="Email";
+    this.contacts[0].icon="./../../assets/images/contact/email.png";
+    this.contacts[0].tooltip="Email Me";
   }
 
   education(){
     this.educations[0]=new EducationModel();
-    this.educations[0].name="B.V. Bhoomaraddi College of Engineering & Technology";
-    this.educations[0].url="https://www.kletech.ac.in/";
-    this.educations[0].place="Hubli, Karnataka, India";
-    this.educations[0].info[0]="B.E in information science and engineering";
+    this.educations[0].name="Indian Institute of Information Technology Guwahati";
+    this.educations[0].url="http://iiitg.ac.in/";
+    this.educations[0].place="Guwahati, Assam, India";
+    this.educations[0].info[0]="B.Tech. in Computer Science and Engineering";
     
     this.educations[1]=new EducationModel();
-    this.educations[1].name="St. Karens Secondary School ( CBSE Affiliated )";
-    this.educations[1].place="Patna, Bihar, India";
-    this.educations[1].url="http://www.stkarenssecondaryschool.com/";
-    this.educations[1].info[0]="Completed 10th and 12th standard (CBSE affiliated)";
+    this.educations[1].name="R.P.S. Sr. Secondary School ( CBSE Affiliated )";
+    this.educations[1].place="Rewari, Haryana, India";
+    this.educations[1].url="https://www.rpsrewari.edu.in/";
+    this.educations[1].info[0]="Completed 12th standard (CBSE affiliated)";
   }
 
   experience() {
     this.experiences[0] = new ExperienceModel();
-    this.experiences[0].company="KPIT Technologies Ltd.";
-    this.experiences[0].role="Blockchain R&d";
-    this.experiences[0].team="KPIT centre of excellence";
-    this.experiences[0].url="https://www.kpit.com/";
+    this.experiences[0].company="Curl Analytics";
+    this.experiences[0].role="Blockchain Engineer";
+    this.experiences[0].team="Blockchain Research and Development Team";
+    this.experiences[0].url="https://www.curlanalytics.com/";
     this.experiences[0].description[0]="POC for an application to share and verify documents over blockchain";
     this.experiences[0].description[1]="Explored hyperledger projects by IBM foundation and Ethereum smart contract (in a team of 2)";
     this.experiences[0].description[2]="Hyperledger: Implemented the chaincode (logic behind hyperledger Blockchain) on hyperledger composer which was developed over the infrastructure created by hyperledger fabric. hyperledger explorer was used to generate the dashboard of the transactions."
