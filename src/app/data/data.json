@@ -62,37 +62,31 @@
 		"place": "Patna, Bihar, India",
 		"url": "http://www.stkarenssecondaryschool.com/"
 	}],
-	"experiences": [{
-		"description": ["POC for an application to share and verify documents over blockchain", "Explored hyperledger projects by IBM foundation and Ethereum smart contract (in a team of 2)", "Hyperledger: Implemented the chaincode (logic behind hyperledger Blockchain) on hyperledger composer which was developed over the infrastructure created by hyperledger fabric. hyperledger explorer was used to generate the dashboard of the transactions.", "Ethereum smart contract: Designed and developed the application in solidity (language used to develop Ethereum smart contract) and deployed it on a test network. currently exploring the privbate implementation of ethereum blockchain quorum"],
-		"company": "KPIT Technologies Ltd.",
-		"role": "Blockchain R&d",
-		"team": "KPIT centre of excellence",
-		"url": "https://www.kpit.com/",
-		"tenure": "May 2018 to July 2018",
-		"location": "Pune, India"
+	"experiences": [
+		{
+			"description": ["Developed and enhanced the main product of the company. Was majorly part of the ‘run the business’ team where we would solve the bugs and issues being faced by the customers in Realtime"],
+			"company": "Upland software (via Crossover for work)",
+			"role": "Full stack developer",
+			"url": "https://uplandsoftware.com/",
+			"tenure": "November 2021 to Present",
+			"location": "Remote"
+		},{
+		"description": ["Designed, architecture and lead the development of microservice based application interacting with deep learning models (AI) on multiple fronts.",
+		"Designed and contributed in development of asset tokenization use case (it was a very extensive and challenging exercise)"],
+		"company": "Curl Tech",
+		"role": "Lead Full-Stack developer",
+		"team": "",
+		"url": "https://www.curl.tech/",
+		"tenure": "February 2019 to August 2021",
+		"location": "Bangalore, India"
 	}, {
-		"description": ["A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.", "Strictly followed the design principles, so the applications become scalable as well as maintainable.", "Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.", "To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.", "To maintain longer session in a secure way, implemented HTTP interceptor.", "We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process", "Shared thoughts behind the process with teams responsible to develop further applications."],
+		"description": ["Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only", "Designed and implemented a generic workflow that can be configured and generated for any scenarios.",
+		"A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.", "Strictly followed the design principles, so the applications become scalable as well as maintainable.", "Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.", "To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.", "To maintain longer session in a secure way, implemented HTTP interceptor.", "We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process", "Shared thoughts behind the process with teams responsible to develop further applications."],
 		"company": "KPIT Technologies Ltd.",
 		"role": "Consulting Developer",
 		"team": "KPIT centre of excellence",
 		"url": "https://www.kpit.com/",
-		"tenure": "February 2018 to July 2018",
-		"location": "Pune, India"
-	}, {
-		"description": ["Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only", "Designed and implemented a generic workflow that can be configured and generated for any scenarios."],
-		"company": "KPIT Technologies Ltd.",
-		"role": "Full stack developer",
-		"team": "KPIT Java centre of excellence",
-		"url": "https://www.kpit.com/",
-		"tenure": "March 2017 to April 2018",
-		"location": "Pune, India"
-	}, {
-		"description": ["Core as well as advance java and its framework ‘Java server faces (JSF)’", "Responsive user interface design using Bootstrap, Skeleton grid on top of scripting languages like HTML, CSS, and jQuery", "MySQL database"],
-		"company": "KPIT Technologies Ltd.",
-		"role": "Trainee",
-		"team": "Digital Transformation SBU",
-		"url": "https://www.kpit.com/",
-		"tenure": "September 2016 to January 2017",
+		"tenure": "September 2016 to november 2018",
 		"location": "Pune, India"
 	}],
 	"skills": [{

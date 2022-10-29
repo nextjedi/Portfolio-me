@@ -31,20 +31,15 @@
          <a mat-list-item href=#experience (click)="closeSidenav()">Experience</a>
       </mat-list-item>
 
-      <!-- <mat-list-item>
-        <mat-icon>calendar_view_day</mat-icon>
-        <a mat-list-item href=#project>Project</a>
-      </mat-list-item> -->
+      <mat-list-item>
+        <mat-icon class="award">star</mat-icon>
+        <a mat-list-item href=#award (click)="closeSidenav()">Award</a>
+      </mat-list-item>
+
 
       <mat-list-item>
         <mat-icon class="skill">arrow_upward</mat-icon>
         <a mat-list-item href=#skill (click)="closeSidenav()">Skill</a>
-      </mat-list-item>
-  
-  
-      <mat-list-item>
-        <mat-icon class="award">star</mat-icon>
-        <a mat-list-item href=#award (click)="closeSidenav()">Award</a>
       </mat-list-item>
 
               
@@ -81,12 +76,12 @@
         <app-project></app-project>
       </div> -->
 
-      <div id="skill">
-        <app-skill [skills]="portfolio.skills"></app-skill>
-      </div>
-
       <div id="award">
         <app-awards [awards]="portfolio.awards"></app-awards>
+      </div>
+
+      <div id="skill">
+        <app-skill [skills]="portfolio.skills"></app-skill>
       </div>
 
       <div id="education">

@@ -134,8 +134,8 @@ export class LayoutComponent implements OnInit {
     this.contacts[1].tooltip="View Me on LinkedIn";
 
     this.contacts[2]=new ContactModel();
-    this.contacts[2].link.url="mailto:arunabhpriyadarshi@live.com";
-    this.contacts[2].link.name="arunabhpriyadarshi@live.com";
+    this.contacts[2].link.url="mailto:arunabhmaster@gmail.com";
+    this.contacts[2].link.name="arunabhmaster@gmail.com";
     this.contacts[2].type="Email";
     this.contacts[2].icon="./../../assets/images/contact/email.png";
     this.contacts[2].tooltip="Email Me";
@@ -156,57 +156,85 @@ export class LayoutComponent implements OnInit {
   }
 
   experience() {
-    this.experiences[0] = new ExperienceModel();
-    this.experiences[0].company="KPIT Technologies Ltd.";
-    this.experiences[0].role="Blockchain R&d";
-    this.experiences[0].team="KPIT centre of excellence";
-    this.experiences[0].url="https://www.kpit.com/";
-    this.experiences[0].description[0]="POC for an application to share and verify documents over blockchain";
-    this.experiences[0].description[1]="Explored hyperledger projects by IBM foundation and Ethereum smart contract (in a team of 2)";
-    this.experiences[0].description[2]="Hyperledger: Implemented the chaincode (logic behind hyperledger Blockchain) on hyperledger composer which was developed over the infrastructure created by hyperledger fabric. hyperledger explorer was used to generate the dashboard of the transactions."
-    this.experiences[0].description[3]="Ethereum smart contract: Designed and developed the application in solidity (language used to develop Ethereum smart contract) and deployed it on a test network. currently exploring the privbate implementation of ethereum blockchain quorum";
-    this.experiences[0].tenure="May 2018 to July 2018";
-    this.experiences[0].location="Pune, India";
+    this.experiences = [
+      {
+        "description": ["Developed and enhanced the main product of the company. Was majorly part of the ‘run the business’ team where we would solve the bugs and issues being faced by the customers in Realtime"],
+        "company": "Upland software (via Crossover for work)",
+        "role": "Full stack developer",
+        "team":"",
+        "url": "https://uplandsoftware.com/",
+        "tenure": "November 2021 to Present",
+        "location": "Remote"
+      },{
+      "description": ["Designed, architecture and lead the development of microservice based application interacting with deep learning models (AI) on multiple fronts.",
+      "Designed and contributed in development of asset tokenization use case (it was a very extensive and challenging exercise)"],
+      "company": "Curl Tech",
+      "role": "Lead Full-Stack developer",
+      "team": "",
+      "url": "https://www.curl.tech/",
+      "tenure": "February 2019 to August 2021",
+      "location": "Bangalore, India"
+    }, {
+      "description": ["Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only", "Designed and implemented a generic workflow that can be configured and generated for any scenarios.",
+      "A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.", "Strictly followed the design principles, so the applications become scalable as well as maintainable.", "Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.", "To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.", "To maintain longer session in a secure way, implemented HTTP interceptor.", "We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process", "Shared thoughts behind the process with teams responsible to develop further applications."],
+      "company": "KPIT Technologies Ltd.",
+      "role": "Consulting Developer",
+      "team": "KPIT centre of excellence",
+      "url": "https://www.kpit.com/",
+      "tenure": "September 2016 to november 2018",
+      "location": "Pune, India"
+    }]
+    // this.experiences[0] = new ExperienceModel();
+    // this.experiences[0].company="KPIT Technologies Ltd.";
+    // this.experiences[0].role="Blockchain R&d";
+    // this.experiences[0].team="KPIT centre of excellence";
+    // this.experiences[0].url="https://www.kpit.com/";
+    // this.experiences[0].description[0]="POC for an application to share and verify documents over blockchain";
+    // this.experiences[0].description[1]="Explored hyperledger projects by IBM foundation and Ethereum smart contract (in a team of 2)";
+    // this.experiences[0].description[2]="Hyperledger: Implemented the chaincode (logic behind hyperledger Blockchain) on hyperledger composer which was developed over the infrastructure created by hyperledger fabric. hyperledger explorer was used to generate the dashboard of the transactions."
+    // this.experiences[0].description[3]="Ethereum smart contract: Designed and developed the application in solidity (language used to develop Ethereum smart contract) and deployed it on a test network. currently exploring the privbate implementation of ethereum blockchain quorum";
+    // this.experiences[0].tenure="May 2018 to July 2018";
+    // this.experiences[0].location="Pune, India";
 
 
-    this.experiences[1] = new ExperienceModel();
-    this.experiences[1].company="KPIT Technologies Ltd.";
-    this.experiences[1].role="Consulting Developer";
-    this.experiences[1].team="KPIT centre of excellence";
-    this.experiences[1].url="https://www.kpit.com/";
-    this.experiences[1].description[0]="A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.";
-    this.experiences[1].description[1]="Strictly followed the design principles, so the applications become scalable as well as maintainable.";
-    this.experiences[1].description[2]="Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.";
-    this.experiences[1].description[3]="To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.";
-    this.experiences[1].description[4]="To maintain longer session in a secure way, implemented HTTP interceptor.";
-    this.experiences[1].description[5]="We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process";
-    this.experiences[1].description[6]="Shared thoughts behind the process with teams responsible to develop further applications.";
+    // this.experiences[1] = new ExperienceModel();
+    // this.experiences[1].company="KPIT Technologies Ltd.";
+    // this.experiences[1].role="Consulting Developer";
+    // this.experiences[1].team="KPIT centre of excellence";
+    // this.experiences[1].url="https://www.kpit.com/";
+    // this.experiences[1].description[0]="A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.";
+    // this.experiences[1].description[1]="Strictly followed the design principles, so the applications become scalable as well as maintainable.";
+    // this.experiences[1].description[2]="Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.";
+    // this.experiences[1].description[3]="To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.";
+    // this.experiences[1].description[4]="To maintain longer session in a secure way, implemented HTTP interceptor.";
+    // this.experiences[1].description[5]="We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process";
+    // this.experiences[1].description[6]="Shared thoughts behind the process with teams responsible to develop further applications.";
 
-    this.experiences[1].tenure="February 2018 to July 2018";
-    this.experiences[1].location="Pune, India";
-
-
-    this.experiences[2] = new ExperienceModel();
-    this.experiences[2].company="KPIT Technologies Ltd.";
-    this.experiences[2].role="Full stack developer";
-    this.experiences[2].team="KPIT Java centre of excellence";
-    this.experiences[2].url="https://www.kpit.com/";
-    this.experiences[2].description[0]="Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only";
-    this.experiences[2].description[1]="Designed and implemented a generic workflow that can be configured and generated for any scenarios.";
-    this.experiences[2].tenure="March 2017 to April 2018";
-    this.experiences[2].location="Pune, India";
+    // this.experiences[1].tenure="February 2018 to July 2018";
+    // this.experiences[1].location="Pune, India";
 
 
-    this.experiences[3] = new ExperienceModel();
-    this.experiences[3].company="KPIT Technologies Ltd.";
-    this.experiences[3].role="Trainee";
-    this.experiences[3].team="Digital Transformation SBU";
-    this.experiences[3].url="https://www.kpit.com/";
-    this.experiences[3].description[0]="Core as well as advance java and its framework ‘Java server faces (JSF)’";
-    this.experiences[3].description[1]="Responsive user interface design using Bootstrap, Skeleton grid on top of scripting languages like HTML, CSS, and jQuery";
-    this.experiences[3].description[2]="MySQL database"; 
-    this.experiences[3].tenure="September 2016 to January 2017";
-    this.experiences[3].location="Pune, India";
+    // this.experiences[2] = new ExperienceModel();
+    // this.experiences[2].company="KPIT Technologies Ltd.";
+    // this.experiences[2].role="Full stack developer";
+    // this.experiences[2].team="KPIT Java centre of excellence";
+    // this.experiences[2].url="https://www.kpit.com/";
+    // this.experiences[2].description[0]="Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only";
+    // this.experiences[2].description[1]="Designed and implemented a generic workflow that can be configured and generated for any scenarios.";
+    // this.experiences[2].tenure="March 2017 to April 2018";
+    // this.experiences[2].location="Pune, India";
+
+
+    // this.experiences[3] = new ExperienceModel();
+    // this.experiences[3].company="KPIT Technologies Ltd.";
+    // this.experiences[3].role="Trainee";
+    // this.experiences[3].team="Digital Transformation SBU";
+    // this.experiences[3].url="https://www.kpit.com/";
+    // this.experiences[3].description[0]="Core as well as advance java and its framework ‘Java server faces (JSF)’";
+    // this.experiences[3].description[1]="Responsive user interface design using Bootstrap, Skeleton grid on top of scripting languages like HTML, CSS, and jQuery";
+    // this.experiences[3].description[2]="MySQL database"; 
+    // this.experiences[3].tenure="September 2016 to January 2017";
+    // this.experiences[3].location="Pune, India";
   }
 
   skill() {
