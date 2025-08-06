@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-about',
+  standalone: true,
+  imports: [HeaderComponent],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
-
-  heading:string ="ABOUT"
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class AboutComponent {
+  heading = 'About';
 }

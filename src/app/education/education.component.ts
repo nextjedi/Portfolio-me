@@ -1,42 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { EducationModel } from '../education-card/education.model';
-import { ObservableMedia } from '@angular/flex-layout';
+import { Component, Input } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
+import { EducationCardComponent } from '../education-card/education-card.component';
+import { Education } from '../models/portfolio.models';
 
 @Component({
   selector: 'app-education',
-  templateUrl: './education.component.html',
+  standalone: true,
+  imports: [HeaderComponent, EducationCardComponent],
+  template: `
+    <app-header [header]="heading"></app-header>
+    
+    @for (education of educations; track education.name) {
+      <div class="tile-content">
+        <app-education-card [education]="education"></app-education-card>
+      </div>
+    }
+  `,
   styleUrls: ['./education.component.css']
 })
-export class EducationComponent implements OnInit {
-
-  heading:string ="EDUCATION"
-  
-  @Input()
-  educations:EducationModel[]=[];
-
-  col:number;
-  rowHieght:string;
-  constructor(public media: ObservableMedia) { }
-
-  ngOnInit() {
-    this.data();
-    this.decide();
-    window.onresize = () => {
-      this.decide();
-    }
-  }
-
-  
-  decide(){
-    
-      this.col=2;
-      this.rowHieght='2:1'
-    
-    
-  }
-
-  data(){
-    
-  }
-
+export class EducationComponent {
+  @Input() educations: Education[] = [];
+  heading = 'Education';
 }

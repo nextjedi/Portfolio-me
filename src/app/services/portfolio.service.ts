@@ -1,0 +1,341 @@
+import { Injectable, signal, computed } from '@angular/core';
+import { Portfolio } from '../models/portfolio.models';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PortfolioService {
+  private portfolioData = signal<Portfolio>({
+    name: "Arunabh Priyadarshi",
+    role: "Full stack developer",
+    awards: [
+      {
+        points: ["Secured a position in top 250 coders of India out of 2.5lakh competitor"],
+        title: "Code Gladiator - Open Coding Contest 2018",
+        subtitle: "A National level competitive Coding contest by techgig"
+      },
+      {
+        points: ["Secured a position in top 25 teams in the country"],
+        title: "Code Gladiator - Alexa Hackathon 2018",
+        subtitle: "A National level Hackathon by techgig (sponsered by Amazon)"
+      },
+      {
+        points: ["Secured a position in top 300 coders of India out of 2.5lakh competitor"],
+        title: "Code Gladiator - Open Coding Contest 2017",
+        subtitle: "A National level competitive Coding contest by techgig"
+      },
+      {
+        points: [],
+        title: "IBM Bluemix - Hackathon 2015",
+        subtitle: "A National level Hackathon by IBM"
+      },
+      {
+        points: ["Secured 3rd positon in the event"],
+        title: "Richie Rich - coding contest 2014",
+        subtitle: "An inter College coding contest by BVB college"
+      },
+      {
+        points: ["Certified for outstanding performance in data structure labs"],
+        title: "Data Structure and Algorithms - 2013",
+        subtitle: "by Lab Instructor BVB college"
+      }
+    ],
+    contatcs: [
+      {
+        link: {
+          url: "https://github.com/nextjedi",
+          name: "github.com/nextjedi"
+        },
+        type: "Github",
+        icon: "./../../assets/images/contact/github.png",
+        tooltip: "View Me on Github"
+      },
+      {
+        link: {
+          url: "https://www.linkedin.com/in/arunabhpriyadarshi/",
+          name: "linkedin.com/in/arunabhpriyadarshi/"
+        },
+        type: "LinkedIn",
+        icon: "./../../assets/images/contact/linkedin.png",
+        tooltip: "View Me on LinkedIn"
+      },
+      {
+        link: {
+          url: "mailto:arunabhpriyadarshi@live.com",
+          name: "arunabhpriyadarshi@live.com"
+        },
+        type: "Email",
+        icon: "./../../assets/images/contact/email.png",
+        tooltip: "Email Me"
+      }
+    ],
+    educations: [
+      {
+        info: ["B.E in information science and engineering"],
+        name: "B.V. Bhoomaraddi College of Engineering & Technology",
+        url: "https://www.kletech.ac.in/",
+        place: "Hubli, Karnataka, India"
+      },
+      {
+        info: ["Completed 10th and 12th standard (CBSE affiliated)"],
+        name: "St. Karens Secondary School ( CBSE Affiliated )",
+        place: "Patna, Bihar, India",
+        url: "http://www.stkarenssecondaryschool.com/"
+      }
+    ],
+    experiences: [
+      {
+        description: ["Developed and enhanced the main product of the company. Was majorly part of the 'run the business' team where we would solve the bugs and issues being faced by the customers in Realtime"],
+        company: "Upland software (via Crossover for work)",
+        role: "Full stack developer",
+        url: "https://uplandsoftware.com/",
+        tenure: "November 2021 to Present",
+        location: "Remote"
+      },
+      {
+        description: [
+          "Designed, architecture and lead the development of microservice based application interacting with deep learning models (AI) on multiple fronts.",
+          "Designed and contributed in development of asset tokenization use case (it was a very extensive and challenging exercise)"
+        ],
+        company: "Curl Tech",
+        role: "Lead Full-Stack developer",
+        team: "",
+        url: "https://www.curl.tech/",
+        tenure: "February 2019 to August 2021",
+        location: "Bangalore, India"
+      },
+      {
+        description: [
+          "Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code based on Use-Case for an end to end multilingual application, such that the developer just need to implement specific business logic only",
+          "Designed and implemented a generic workflow that can be configured and generated for any scenarios.",
+          "A client needed to migrate several hundred applications from lotus script to the above mentioned technology stack and needed an applicatipon to govern them all. So I developed the application to govern all other application and defined the standard to bew followed by the team created around the project for each applications.",
+          "Strictly followed the design principles, so the applications become scalable as well as maintainable.",
+          "Due to the potential load the server might face have used techniques like caching mechanism and server side paginatioon.",
+          "To provide security and manage users for all applications, fully utilized the authentication guard feature provided by the angular following OAuth standards.",
+          "To maintain longer session in a secure way, implemented HTTP interceptor.",
+          "We studied all the application and identified 22 category of use case that covers 75% the entire list. We created templates to be referred to implement those use cases to fast-pace the development process",
+          "Shared thoughts behind the process with teams responsible to develop further applications."
+        ],
+        company: "KPIT Technologies Ltd.",
+        role: "Consulting Developer",
+        team: "KPIT centre of excellence",
+        url: "https://www.kpit.com/",
+        tenure: "September 2016 to november 2018",
+        location: "Pune, India"
+      }
+    ],
+    skills: [
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/htmlcss/html5.png",
+            caption: "HTML5",
+            alt: "HTML5"
+          },
+          {
+            location: "../../assets/images/skill/htmlcss/css3.png",
+            caption: "CSS3",
+            alt: "CSS3"
+          },
+          {
+            location: "../../assets/images/skill/htmlcss/bootstrap.png",
+            caption: "Bootstrap",
+            alt: "Bootstrap"
+          },
+          {
+            location: "../../assets/images/skill/htmlcss/materialize.png",
+            caption: "Materialize",
+            alt: "Materialize"
+          }
+        ],
+        title: "HTML & CSS"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/javascript/javascript.png",
+            caption: "JavaScript",
+            alt: "JavaScript"
+          },
+          {
+            location: "../../assets/images/skill/javascript/jquery.png",
+            caption: "Jquery",
+            alt: "Jquery"
+          },
+          {
+            location: "../../assets/images/skill/javascript/angular.png",
+            caption: "Angular",
+            alt: "Angular"
+          },
+          {
+            location: "../../assets/images/skill/javascript/primeng.png",
+            caption: "PrimeNg",
+            alt: "PrimeNg"
+          },
+          {
+            location: "../../assets/images/skill/javascript/nodejs.png",
+            caption: "Node js",
+            alt: "Node js"
+          }
+        ],
+        title: "JavaScript"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/java/core-java.png",
+            caption: "Core Java",
+            alt: "Core Java"
+          },
+          {
+            location: "../../assets/images/skill/java/advance-java.png",
+            caption: "Advance Java",
+            alt: "Advance Java"
+          },
+          {
+            location: "../../assets/images/skill/java/spring-boot.png",
+            caption: "Spring-Boot",
+            alt: "Spring-Boot"
+          },
+          {
+            location: "../../assets/images/skill/java/spring-jpa.png",
+            caption: "Spring-jpa",
+            alt: "Spring-jpa"
+          }
+        ],
+        title: "Java"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/database/mysql.png",
+            caption: "MySQL",
+            alt: "MySQL"
+          },
+          {
+            location: "../../assets/images/skill/database/mssql.png",
+            caption: "Ms-SQL",
+            alt: "Ms-SQL"
+          },
+          {
+            location: "../../assets/images/skill/database/mongodb.png",
+            caption: "MongoDb",
+            alt: "MongoDb"
+          },
+          {
+            location: "../../assets/images/skill/database/sequalize.png",
+            caption: "Sequalize",
+            alt: "Sequalize"
+          }
+        ],
+        title: "Database & ORM"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/principles/rest.png",
+            caption: "REST architecture",
+            alt: "REST architecture"
+          },
+          {
+            location: "../../assets/images/skill/principles/Solid-design principle.png",
+            caption: "SOLID design principle",
+            alt: "SOLID design principle"
+          },
+          {
+            location: "../../assets/images/skill/principles/design patterns.png",
+            caption: "Design Patterns",
+            alt: "Design Patterns"
+          },
+          {
+            location: "../../assets/images/skill/principles/mvc.png",
+            caption: "MVC",
+            alt: "MVC"
+          },
+          {
+            location: "../../assets/images/skill/principles/oauth2.png",
+            caption: "OAuth 2",
+            alt: "OAuth 2"
+          }
+        ],
+        title: "Principles and architecture"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/buildtools/webpack.png",
+            caption: "Webpack",
+            alt: "Webpack"
+          },
+          {
+            location: "../../assets/images/skill/buildtools/maven.png",
+            caption: "Maven",
+            alt: "Maven"
+          },
+          {
+            location: "../../assets/images/skill/buildtools/npm.png",
+            caption: "NPM",
+            alt: "NPM"
+          }
+        ],
+        title: "build tools"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/blockchain/hyperledger.png",
+            caption: "HyperLedger",
+            alt: "HyperLedger"
+          },
+          {
+            location: "../../assets/images/skill/blockchain/ethereum.png",
+            caption: "Ethereum",
+            alt: "Ethereum"
+          }
+        ],
+        title: "Blockchain"
+      },
+      {
+        images: [
+          {
+            location: "../../assets/images/skill/others/github.png",
+            caption: "Github",
+            alt: "Github"
+          },
+          {
+            location: "../../assets/images/skill/others/svn.png",
+            caption: "SVN",
+            alt: "SVN"
+          },
+          {
+            location: "../../assets/images/skill/others/photoshop.png",
+            caption: "Photoshop",
+            alt: "Photoshop"
+          },
+          {
+            location: "../../assets/images/skill/others/cpp.png",
+            caption: "C++",
+            alt: "C++"
+          },
+          {
+            location: "../../assets/images/skill/others/alexa.png",
+            caption: "Alexa",
+            alt: "Alexa"
+          }
+        ],
+        title: "Others"
+      }
+    ]
+  });
+
+  // Computed signals for different sections
+  readonly awards = computed(() => this.portfolioData().awards);
+  readonly contacts = computed(() => this.portfolioData().contatcs);
+  readonly educations = computed(() => this.portfolioData().educations);
+  readonly experiences = computed(() => this.portfolioData().experiences);
+  readonly skills = computed(() => this.portfolioData().skills);
+  readonly personalInfo = computed(() => ({
+    name: this.portfolioData().name,
+    role: this.portfolioData().role
+  }));
+}

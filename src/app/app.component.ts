@@ -1,10 +1,11 @@
-import { isPlatformBrowser , DOCUMENT} from '@angular/common';
-import { environment } from '../environments/environment';
-import { Component , OnInit, Inject, PLATFORM_ID} from '@angular/core';
+import { Component } from '@angular/core';
+import { LayoutComponent } from './layout/layout.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [LayoutComponent],
+  template: `<app-layout></app-layout>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
