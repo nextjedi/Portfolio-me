@@ -1,39 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { AwardModel } from '../award-card/award.model';
-import { ObservableMedia } from '@angular/flex-layout';
+import { Component, Input } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
+import { AwardCardComponent } from '../award-card/award-card.component';
+import { Award } from '../models/portfolio.models';
 
 @Component({
   selector: 'app-awards',
-  templateUrl: './awards.component.html',
+  standalone: true,
+  imports: [HeaderComponent, AwardCardComponent],
+  template: `
+    <app-header [header]="heading"></app-header>
+    
+    @for (award of awards; track award.title) {
+      <div class="tile-content">
+        <app-award-card [award]="award"></app-award-card>
+      </div>
+    }
+  `,
   styleUrls: ['./awards.component.css']
 })
-export class AwardsComponent implements OnInit {
-
-  heading:string ="AWARDS"
-
-  @Input()
-  awards:AwardModel[]=[];
-
-  col:number;
-  rowHieght:string;
-
-  constructor(public media: ObservableMedia) {
-    
-   }
-
-  ngOnInit() {
-    
-    this.decide();
-    
-  }
-
-  decide(){
-      this.col=2;
-      this.rowHieght='2:1'
-    
-    
-  }
-
-  
-
+export class AwardsComponent {
+  @Input() awards: Award[] = [];
+  heading = 'Awards';
 }

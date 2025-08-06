@@ -1,23 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Skillmodel } from '../skill.model';
-import { ImageModel } from './image.model';
+import { Component, Input } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
+import { SkillCardComponent } from '../skill-card/skill-card.component';
+import { Skill } from '../models/portfolio.models';
 
 @Component({
   selector: 'app-skill',
-  templateUrl: './skill.component.html',
+  standalone: true,
+  imports: [HeaderComponent, SkillCardComponent],
+  template: `
+    <app-header [header]="heading"></app-header>
+    
+    @for (skill of skills; track skill.title) {
+      <div class="tile-content">
+        <app-skill-card [skill]="skill"></app-skill-card>
+      </div>
+    }
+  `,
   styleUrls: ['./skill.component.css']
 })
-export class SkillComponent implements OnInit {
-
-  heading:string ="SKILLS"
-  @Input()
-  skills:Skillmodel[]=[];
-  constructor() { }
-
-  ngOnInit() {
-    
-   
-  }
-  
-
+export class SkillComponent {
+  @Input() skills: Skill[] = [];
+  heading = 'Skills';
 }
