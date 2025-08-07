@@ -1,0 +1,39 @@
+
+// Portfolio Custom Angular Material Theme
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define theme using Material 3 syntax
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$green-palette,
+    tertiary: mat.$red-palette,
+  )
+));
+
+@include mat.all-component-themes($theme);
+
+html {  
+  // Custom CSS variables for our portfolio theme
+  --portfolio-primary: #1a472a;
+  --portfolio-primary-light: #2c5f3d;
+  --portfolio-accent: #e74c3c;
+  --portfolio-accent-light: #f39c95;
+  --portfolio-success: #27ae60;
+  --portfolio-neutral: #95a5a6;
+  --portfolio-text: #2c3e50;
+  --portfolio-text-secondary: #6c757d;
+  --portfolio-background-light: #f8f9fa;
+}
+
+body {
+  color-scheme: light;
+  background-color: var(--portfolio-background-light);
+  color: var(--portfolio-text);
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

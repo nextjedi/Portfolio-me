@@ -1,103 +1,323 @@
-/* You can add global styles to this file, and also import other style files */
-@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+/* Portfolio Global Styles with Angular Material */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap');
 
-html,body {
-    font-family: 'Roboto', sans-serif;
-    height: 100%;
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Portfolio Colors - Synced with Angular Material theme */
+  --color-primary: var(--portfolio-primary);
+  --color-primary-light: var(--portfolio-primary-light);
+  --color-accent: var(--portfolio-accent);
+  --color-success: var(--portfolio-success);
+  --color-neutral: var(--portfolio-neutral);
+  --color-light: var(--portfolio-background-light);
+  --color-text: var(--portfolio-text);
+  --color-text-secondary: var(--portfolio-text-secondary);
+  
+  /* Typography */
+  --font-primary: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-heading: 'Inter Tight', 'Inter', sans-serif;
+  --font-size-hero: 52px;
+  --font-size-section: 36px;
+  --font-size-card: 22px;
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+  
+  /* Spacing */
+  --spacing-section: 80px;
+  --spacing-card: 30px;
+  --spacing-gap: 20px;
+  
+  /* Effects */
+  --border-radius: 12px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --box-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-body{
-    margin: 0;
-    
-/* background-image: linear-gradient(335deg, #b00 23px, transparent 23px),
-linear-gradient(155deg, #d00 23px, transparent 23px),
-linear-gradient(335deg, #b00 23px, transparent 23px),
-linear-gradient(155deg, #d00 23px, transparent 23px);
-background-size: 58px 58px;
-background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px; */
+/* Base Styles */
+* {
+  box-sizing: border-box;
 }
 
-.header-component {
-    height: 150;
-    background-color: #2096ba;
-    margin: 0%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    color: antiquewhite;
-
-}
-.header-component h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
-.mat-sidenav-container {
-    background-color: #fafafd;
+body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.mat-card {
-    background-color: white;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 1rem;
 }
 
-mat-card-header {
-    background-color: #fafafa   ;
+h1 {
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-mat-card-title {
-
+h2 {
+  font-size: var(--font-size-section);
+  font-weight: 600;
 }
 
-mat-card-subtitle {
-    
+h3 {
+  font-size: var(--font-size-card);
+  font-weight: 600;
 }
 
-mat-divider {
-
+p {
+  margin-bottom: 1rem;
+  color: var(--color-text);
 }
 
-mat-card-content {
-    padding: 2%;
-}
-
-mat-card-footer {
-    padding: 3%;
-    background-color: #fafafa;
-}
-
-
-.tile-content {
-    
-    margin: 3%;
-}
 a {
-    text-decoration: none;
-}
-mat-list-item:active {
-    background-color: BLUE;
-    color: green;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-a:link, a:visited, a:visited {
-    text-decoration: none;
-    color: black;
-
+a:hover {
+  color: var(--color-accent);
 }
 
-ul {
-    
+/* Material Design Integration */
+.mat-mdc-button {
+  font-family: var(--font-primary) !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: none !important;
+  transition: var(--transition) !important;
 }
 
-li {
-    font-size: 15px;
-    padding:0.5%;
+.mat-mdc-raised-button {
+  box-shadow: var(--box-shadow) !important;
 }
 
-li:before
-		{
-			
-        }
-        
-        
-        
-        
+.mat-mdc-raised-button:hover {
+  box-shadow: var(--box-shadow-hover) !important;
+  transform: translateY(-2px);
+}
+
+.mat-mdc-outlined-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom Button Classes for Portfolio */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-secondary.light {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-secondary.light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Layout Components */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-gap);
+}
+
+.section {
+  padding: var(--spacing-section) 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: var(--font-size-section);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card Components */
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.card-content {
+  padding: var(--spacing-card);
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+  
+  :root {
+    --spacing-section: 60px;
+    --spacing-card: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  :root {
+    --font-size-hero: 36px;
+    --font-size-section: 28px;
+    --font-size-card: 20px;
+    --spacing-section: 40px;
+    --spacing-card: 20px;
+    --spacing-gap: 16px;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  :root {
+    --font-size-hero: 28px;
+    --font-size-section: 24px;
+    --spacing-section: 32px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --box-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card {
+    border: 2px solid var(--color-neutral);
+  }
+}

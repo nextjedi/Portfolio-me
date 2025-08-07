@@ -1,0 +1,16 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="profileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a472a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5f3d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#profileGrad)"/>
+  <circle cx="150" cy="120" r="40" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="2"/>
+  <circle cx="130" cy="110" r="5" fill="white"/>
+  <circle cx="170" cy="110" r="5" fill="white"/>
+  <path d="M 120 140 Q 150 160 180 140" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="100" y="180" width="100" height="80" rx="10" fill="rgba(255,255,255,0.2)"/>
+  <text x="150" y="270" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">ARUNABH</text>
+  <text x="150" y="290" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, Arial, sans-serif" font-size="12">Senior Engineer</text>
+</svg>

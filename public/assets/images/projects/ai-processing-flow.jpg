@@ -1,0 +1,42 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c5f3d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a472a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5f3d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#aiGrad)"/>
+  
+  <!-- Processing Flow -->
+  <rect x="50" y="100" width="100" height="60" rx="10" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)"/>
+  <text x="100" y="125" text-anchor="middle" fill="white" font-family="Inter" font-size="12">Documents</text>
+  <text x="100" y="145" text-anchor="middle" fill="white" font-family="Inter" font-size="12">1000+/night</text>
+  
+  <!-- Arrow -->
+  <path d="M 160 130 L 200 130" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none"/>
+  <path d="M 195 125 L 200 130 L 195 135" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none"/>
+  
+  <!-- AI Models -->
+  <rect x="220" y="60" width="80" height="40" rx="5" fill="rgba(231,76,60,0.3)"/>
+  <rect x="220" y="110" width="80" height="40" rx="5" fill="rgba(231,76,60,0.3)"/>
+  <rect x="220" y="160" width="80" height="40" rx="5" fill="rgba(231,76,60,0.3)"/>
+  <rect x="220" y="210" width="80" height="40" rx="5" fill="rgba(231,76,60,0.3)"/>
+  
+  <text x="260" y="85" text-anchor="middle" fill="white" font-family="Inter" font-size="10">ML Model 1</text>
+  <text x="260" y="135" text-anchor="middle" fill="white" font-family="Inter" font-size="10">ML Model 2</text>
+  <text x="260" y="185" text-anchor="middle" fill="white" font-family="Inter" font-size="10">ML Model N</text>
+  <text x="260" y="235" text-anchor="middle" fill="white" font-family="Inter" font-size="10">11 Models</text>
+  
+  <!-- Arrow -->
+  <path d="M 310 130 L 350 130" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none"/>
+  <path d="M 345 125 L 350 130 L 345 135" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none"/>
+  
+  <!-- Output -->
+  <rect x="370" y="100" width="100" height="60" rx="10" fill="rgba(39,174,96,0.3)" stroke="rgba(39,174,96,0.6)"/>
+  <text x="420" y="125" text-anchor="middle" fill="white" font-family="Inter" font-size="12">99% Accuracy</text>
+  <text x="420" y="145" text-anchor="middle" fill="white" font-family="Inter" font-size="12">Processed</text>
+  
+  <text x="300" y="350" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="16" font-weight="600">AI Document Processing Pipeline</text>
+  <text x="300" y="370" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Inter" font-size="12">11 ML Models • 1000+ Documents/Night • 99% Accuracy</text>
+</svg>
