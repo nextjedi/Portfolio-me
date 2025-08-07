@@ -154,9 +154,9 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
              style="animation-delay: 1s;">
           <p>&copy; 2025 Arunabh Priyadarshi. Built with Angular & passion for clean code.</p>
           <div class="footer-links">
-            <a href="/privacy">Privacy Policy</a>
+            <a href="#" (click)="showPrivacyPolicy($event)">Privacy Policy</a>
             <span class="separator">•</span>
-            <a href="/terms">Terms of Service</a>
+            <a href="#" (click)="showTermsOfService($event)">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -371,6 +371,7 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
     .footer-info p {
       margin-bottom: 1rem;
       font-size: 14px;
+      color: rgba(255, 255, 255, 0.8) !important;
     }
 
     .footer-links {
@@ -573,5 +574,15 @@ export class ContactComponent implements OnInit {
         observer.observe(section);
       }
     }, 100);
+  }
+
+  protected showPrivacyPolicy(event: Event): void {
+    event.preventDefault();
+    alert('Privacy Policy:\n\nThis is a personal portfolio website showcasing professional work and experience. No personal data is collected, stored, or transmitted. All images are from Unsplash or are professional work samples used with appropriate permissions.');
+  }
+
+  protected showTermsOfService(event: Event): void {
+    event.preventDefault();
+    alert('Terms of Service:\n\nThis portfolio website is for informational purposes only. All work examples and case studies are presented with appropriate permissions and represent actual professional achievements. Content is protected by standard copyright laws.');
   }
 }
