@@ -2,13 +2,8 @@ import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-// Import all components
+// Import navigation component
 import { NavigationComponent } from '../components/navigation.component';
-import { HeroComponent } from '../components/hero.component';
-import { StoryComponent } from '../components/story.component';
-import { ProjectsComponent } from '../components/projects.component';
-import { BlogComponent } from '../components/blog.component';
-import { ContactComponent } from '../components/contact.component';
 
 // Import services
 import { PortfolioService } from '../services/portfolio.service';
@@ -20,12 +15,7 @@ import { ThemeService } from '../services/theme.service';
   imports: [
     CommonModule,
     RouterOutlet,
-    NavigationComponent,
-    HeroComponent,
-    StoryComponent,
-    ProjectsComponent,
-    BlogComponent,
-    ContactComponent
+    NavigationComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

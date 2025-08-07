@@ -72,15 +72,14 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
                 >
                   Let's Talk
                 </button>
-                <a 
+                <button 
                   mat-outlined-button
                   color="primary"
-                  [href]="personalInfo()!.resumeUrl" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  (click)="downloadResume()"
+                  type="button"
                 >
                   Download Resume
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -255,15 +254,63 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       flex-wrap: wrap;
     }
 
+    .cta-group {
+      align-items: center;
+    }
+
     .cta-group button,
     .cta-group a {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       margin-right: 8px;
+      font-family: var(--font-primary) !important;
+      font-weight: 600 !important;
+      text-transform: none !important;
+      border-radius: 8px !important;
     }
 
     .cta-group button:hover,
     .cta-group a:hover {
       transform: translateY(-2px);
+    }
+
+    /* Specific Material Button styling for hero section */
+    .cta-group .mat-mdc-outlined-button {
+      border-color: rgba(255, 255, 255, 0.6) !important;
+      color: white !important;
+    }
+
+    .cta-group .mat-mdc-outlined-button:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .cta-group .mat-mdc-raised-button {
+      background-color: var(--color-accent) !important;
+      color: white !important;
+    }
+
+    .cta-group .mat-mdc-raised-button:hover {
+      background-color: #c0392b !important;
+    }
+
+    /* Fallback styling for buttons that may not get Material styles */
+    .cta-group button:not([class*="mat-mdc"]),
+    .cta-group a:not([class*="mat-mdc"]) {
+      padding: 12px 24px !important;
+      border: 2px solid rgba(255, 255, 255, 0.6) !important;
+      background-color: transparent !important;
+      color: white !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 48px !important;
+    }
+
+    .cta-group button:not([class*="mat-mdc"]):hover,
+    .cta-group a:not([class*="mat-mdc"]):hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.8) !important;
     }
 
     /* Loading and Error States */
@@ -429,5 +476,16 @@ export class HeroComponent implements OnInit {
     const img = event.target as HTMLImageElement;
     // Fallback to a placeholder or default image
     img.src = 'assets/images/profile-placeholder.jpg';
+  }
+
+  protected downloadResume(): void {
+    const resumeUrl = this.personalInfo()?.resumeUrl;
+    if (resumeUrl) {
+      // Open resume in new tab
+      window.open(resumeUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      console.error('Resume URL not found');
+      alert('Resume is currently unavailable. Please contact me directly.');
+    }
   }
 }

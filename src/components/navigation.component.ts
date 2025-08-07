@@ -1,5 +1,6 @@
 import { Component, OnInit, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { PortfolioService } from '../services/portfolio.service';
 import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
 
@@ -16,7 +17,7 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
           <div class="nav-content">
             <!-- Logo/Brand -->
             <div class="nav-brand">
-              <a href="#" class="brand-link" (click)="scrollToTop($event)">
+              <a href="#" class="brand-link" (click)="goToHome($event)">
                 @if (personalInfo()) {
                   <div class="brand-text">
                     <span class="brand-initials">{{ getInitials() }}</span>
@@ -35,10 +36,10 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
             <div class="nav-links desktop-nav">
               @if (navItems() && navItems()!.length > 0) {
                 @for (item of navItems(); track item.href) {
-                  <a [href]="item.href" 
+                  <a href="#" 
                      class="nav-link"
                      [class.active]="isActiveSection(item.section)"
-                     (click)="scrollToSection($event, item.section)">
+                     (click)="navigateToSection($event, item.section)">
                     {{ item.label }}
                   </a>
                 }
@@ -75,10 +76,10 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
           <div class="mobile-nav-content">
             @if (navItems() && navItems()!.length > 0) {
               @for (item of navItems(); track item.href) {
-                <a [href]="item.href" 
+                <a href="#" 
                    class="mobile-nav-link"
                    [class.active]="isActiveSection(item.section)"
-                   (click)="scrollToSection($event, item.section); closeMobileMenu()">
+                   (click)="navigateToSection($event, item.section); closeMobileMenu()">
                   {{ item.label }}
                 </a>
               }
@@ -148,6 +149,11 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
       color: var(--color-primary);
     }
 
+    .brand-link:hover .brand-initials {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 4px 15px rgba(26, 71, 42, 0.3);
+    }
+
     .brand-text {
       display: flex;
       align-items: center;
@@ -163,9 +169,13 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+      font-family: var(--font-logo);
+      text-transform: uppercase;
+      font-style: italic;
+      letter-spacing: 1px;
+      transition: var(--transition);
     }
 
     .brand-name {
@@ -398,7 +408,10 @@ export class NavigationComponent implements OnInit {
 
   private intersectionObserver?: IntersectionObserver;
   
-  constructor(protected portfolioService: PortfolioService) {}
+  constructor(
+    protected portfolioService: PortfolioService,
+    private router: Router
+  ) {}
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
@@ -486,22 +499,45 @@ export class NavigationComponent implements OnInit {
   }
 
   protected isActiveSection(section: string): boolean {
+    // If we're not on the home page, no section is active
+    if (this.router.url !== '/') {
+      return false;
+    }
+    
     return this.activeSection() === section || 
-           (this.activeSection() === '' && section === 'home');
+           (this.activeSection() === '' && section === 'about');
   }
 
-  protected scrollToTop(event: Event): void {
+  protected goToHome(event: Event): void {
     event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 100);
     });
     this.closeMobileMenu();
   }
 
-  protected scrollToSection(event: Event, sectionId: string): void {
+  protected navigateToSection(event: Event, sectionId: string): void {
     event.preventDefault();
     
+    // If we're already on the home page, just scroll to section
+    if (this.router.url === '/') {
+      this.scrollToSection(sectionId);
+    } else {
+      // Navigate to home first, then scroll to section
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          this.scrollToSection(sectionId);
+        }, 100);
+      });
+    }
+  }
+
+  private scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
       const navHeight = 70; // Navigation height

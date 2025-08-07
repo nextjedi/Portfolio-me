@@ -99,4 +99,32 @@ export class PortfolioService {
     this.loadPortfolioData();
     return of(this.portfolioData());
   }
+
+  // Utility method to generate URL-friendly slugs from project titles
+  generateSlug(title: string): string {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .trim() // Remove leading/trailing spaces
+      .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+  }
+
+  // Get project by URL slug
+  getProjectBySlug(slug: string) {
+    const projects = this.getProjects();
+    return projects.find(project => {
+      const projectSlug = this.generateSlug(project.title);
+      return projectSlug === slug;
+    }) || null;
+  }
+
+  // Get all projects with their generated slugs
+  getProjectsWithSlugs() {
+    return this.getProjects().map(project => ({
+      ...project,
+      slug: this.generateSlug(project.title)
+    }));
+  }
 }

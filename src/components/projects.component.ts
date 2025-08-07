@@ -1,29 +1,57 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { PortfolioService } from '../services/portfolio.service';
 import { Project } from '../models/portfolio.interface';
 import { ProjectCardComponent } from './project-card.component';
 
+type ProjectCategory = 'professional' | 'side-project' | 'freelance';
+
+interface CategoryInfo {
+  key: ProjectCategory | 'all';
+  label: string;
+  count: number;
+}
+
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, ProjectCardComponent],
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatTabsModule, ProjectCardComponent],
   template: `
     <section class="projects-section section" id="projects">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Featured Projects</h2>
           <p class="section-subtitle">
-            Enterprise solutions that drive business results
+            Enterprise solutions, side projects, and freelance work
           </p>
         </div>
 
-        @if (projects() && projects()!.length > 0) {
+        @if (allProjects() && allProjects()!.length > 0) {
+          
+          <!-- Category Tabs - Only show if multiple categories exist -->
+          @if (shouldShowCategories()) {
+            <div class="category-tabs">
+              <mat-tab-group 
+                [selectedIndex]="selectedCategoryIndex()"
+                (selectedIndexChange)="onCategoryChange($event)"
+                mat-align-tabs="center"
+                animationDuration="300ms">
+                @for (category of availableCategories(); track category.key) {
+                  <mat-tab [label]="category.label + ' (' + category.count + ')'">
+                  </mat-tab>
+                }
+              </mat-tab-group>
+            </div>
+          }
+
+          <!-- Projects Grid -->
           <div class="projects-grid" 
                [class.visible]="isVisible">
-            @for (project of projects(); track project.id) {
+            @for (project of filteredProjects(); track project.id) {
               <app-project-card 
                 [project]="project"
                 [isVisible]="isVisible"
@@ -34,14 +62,15 @@ import { ProjectCardComponent } from './project-card.component';
 
           <!-- View All Projects Button -->
           <div class="projects-actions">
-            <a mat-outlined-button
-               color="primary"
-               href="/projects" 
-               [class.animate-fade-in-up]="isVisible"
-               style="animation-delay: 1s;">
+            <button mat-outlined-button
+                    color="primary"
+                    (click)="showAllProjects()"
+                    [class.animate-fade-in-up]="isVisible"
+                    style="animation-delay: 1s;"
+                    type="button">
               <span>View All Projects</span>
               <mat-icon>arrow_forward</mat-icon>
-            </a>
+            </button>
           </div>
 
         } @else if (portfolioService.isLoading()) {
@@ -119,9 +148,29 @@ import { ProjectCardComponent } from './project-card.component';
 
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
       position: relative;
       z-index: 1;
+    }
+
+    .category-tabs {
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-tabs .mat-mdc-tab-group {
+      --mdc-tab-indicator-active-indicator-color: var(--color-primary);
+    }
+
+    .category-tabs .mat-mdc-tab {
+      --mdc-secondary-navigation-tab-label-text-color: var(--color-text-secondary);
+      --mdc-secondary-navigation-tab-active-label-text-color: var(--color-primary);
+      --mdc-secondary-navigation-tab-hover-label-text-color: var(--color-primary);
+    }
+
+    .category-tabs .mat-mdc-tab-body-content {
+      overflow: visible;
     }
 
     .projects-grid {
@@ -333,10 +382,16 @@ import { ProjectCardComponent } from './project-card.component';
   `]
 })
 export class ProjectsComponent implements OnInit {
-  protected readonly projects = signal<Project[] | null>(null);
+  protected readonly allProjects = signal<Project[] | null>(null);
+  protected readonly selectedCategory = signal<ProjectCategory | 'all'>('all');
+  protected readonly availableCategories = signal<CategoryInfo[]>([]);
+  protected readonly selectedCategoryIndex = signal<number>(0);
   protected isVisible = false;
 
-  constructor(protected portfolioService: PortfolioService) {}
+  constructor(
+    protected portfolioService: PortfolioService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -349,8 +404,8 @@ export class ProjectsComponent implements OnInit {
   private loadData(): void {
     const data = this.portfolioService.data();
     if (data && data.projects) {
-      // Get featured projects (first 3)
-      this.projects.set(data.projects.slice(0, 3));
+      this.allProjects.set(data.projects);
+      this.setupCategories(data.projects);
     }
   }
   
@@ -359,13 +414,62 @@ export class ProjectsComponent implements OnInit {
     const checkInterval = setInterval(() => {
       const data = this.portfolioService.data();
       if (data && data.projects) {
-        this.projects.set(data.projects.slice(0, 3));
+        this.allProjects.set(data.projects);
+        this.setupCategories(data.projects);
         clearInterval(checkInterval);
       }
     }, 100);
     
     // Clear interval after 10 seconds to prevent memory leak
     setTimeout(() => clearInterval(checkInterval), 10000);
+  }
+
+  private setupCategories(projects: Project[]): void {
+    // Count projects by category
+    const categoryCounts = projects.reduce((acc, project) => {
+      acc[project.category] = (acc[project.category] || 0) + 1;
+      return acc;
+    }, {} as Record<ProjectCategory, number>);
+
+    // Get unique categories that exist in data
+    const existingCategories = Object.keys(categoryCounts) as ProjectCategory[];
+    
+    // Category labels mapping
+    const categoryLabels: Record<ProjectCategory, string> = {
+      'professional': 'Professional',
+      'side-project': 'Side Projects',
+      'freelance': 'Freelance'
+    };
+
+    // Create category info array
+    const categories: CategoryInfo[] = [];
+    
+    // Add "All" category only if we have multiple categories
+    if (existingCategories.length > 1) {
+      categories.push({
+        key: 'all',
+        label: 'All Projects',
+        count: projects.length
+      });
+    }
+
+    // Add individual categories
+    existingCategories.forEach(category => {
+      categories.push({
+        key: category,
+        label: categoryLabels[category],
+        count: categoryCounts[category]
+      });
+    });
+
+    this.availableCategories.set(categories);
+    
+    // Set initial category: if only one category exists, select it automatically
+    if (existingCategories.length === 1) {
+      this.selectedCategory.set(existingCategories[0]);
+    } else {
+      this.selectedCategory.set('all');
+    }
   }
 
   private setupIntersectionObserver(): void {
@@ -397,5 +501,65 @@ export class ProjectsComponent implements OnInit {
     this.portfolioService.refreshData().subscribe(() => {
       this.loadData();
     });
+  }
+
+  // Category management methods
+  protected shouldShowCategories(): boolean {
+    const categories = this.availableCategories();
+    return categories.length > 1; // Show tabs only if multiple categories or "All" exists
+  }
+
+  protected filteredProjects(): Project[] {
+    const allProjects = this.allProjects();
+    const selectedCategory = this.selectedCategory();
+    
+    if (!allProjects) return [];
+    
+    if (selectedCategory === 'all') {
+      // Show featured projects (first 3) when "All" is selected
+      return allProjects.slice(0, 3);
+    } else {
+      // Show all projects from the selected category
+      return allProjects.filter(project => project.category === selectedCategory);
+    }
+  }
+
+  protected onCategoryChange(categoryIndex: number): void {
+    const categories = this.availableCategories();
+    if (categoryIndex >= 0 && categoryIndex < categories.length) {
+      const selectedCategoryKey = categories[categoryIndex].key;
+      this.selectedCategory.set(selectedCategoryKey);
+      this.selectedCategoryIndex.set(categoryIndex);
+    }
+  }
+
+  protected showAllProjects(): void {
+    // For now, show all projects in individual detail pages
+    // In the future, this could navigate to a dedicated projects listing page
+    const allProjects = this.portfolioService.getProjects();
+    
+    if (allProjects.length === 0) {
+      alert('No projects are currently available.');
+      return;
+    }
+    
+    // Create a more interactive experience
+    const projectOptions = allProjects.map((project, index) => 
+      `${index + 1}. ${project.title}`
+    ).join('\n');
+    
+    const choice = prompt(
+      `Select a project to view in detail:\n\n${projectOptions}\n\nEnter the project number (1-${allProjects.length}):`
+    );
+    
+    const projectIndex = parseInt(choice || '') - 1;
+    
+    if (projectIndex >= 0 && projectIndex < allProjects.length) {
+      const selectedProject = allProjects[projectIndex];
+      const projectSlug = this.portfolioService.generateSlug(selectedProject.title);
+      this.router.navigate([projectSlug, 'detail']);
+    } else if (choice !== null) {
+      alert('Invalid selection. Please try again.');
+    }
   }
 }

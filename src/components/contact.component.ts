@@ -34,7 +34,8 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
                    [class]="'btn btn-' + cta.type + (cta.type === 'secondary' ? ' light' : '')"
                    [target]="getTargetForUrl(cta.url)"
                    [rel]="getRelForUrl(cta.url)"
-                   (click)="trackCTAClick(cta.text)">
+                   (click)="trackCTAClick(cta.text)"
+                   [title]="cta.url.startsWith('mailto:') ? 'Send email to ' + cta.url.substring(7) : cta.text">
                   <span>{{ cta.text }}</span>
                   @if (getCTAIcon(cta.text)) {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -546,6 +547,12 @@ export class ContactComponent implements OnInit {
 
   protected trackCTAClick(ctaText: string): void {
     console.log(`Contact CTA clicked: ${ctaText}`);
+    // Check if this is an email link
+    const cta = this.contactInfo()?.cta?.find(c => c.text === ctaText);
+    if (cta?.url.startsWith('mailto:')) {
+      console.log('Email link clicked:', cta.url);
+    }
+    // Allow default behavior for email links
   }
 
   protected trackSocialClick(platform: string): void {

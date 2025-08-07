@@ -1,5 +1,5 @@
 /* Portfolio Global Styles with Angular Material */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap');
 
 /* CSS Custom Properties for Theme System */
 :root {
@@ -16,6 +16,7 @@
   /* Typography */
   --font-primary: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
   --font-heading: 'Inter Tight', 'Inter', sans-serif;
+  --font-logo: 'Dancing Script', 'Pacifico', cursive;
   --font-size-hero: 52px;
   --font-size-section: 36px;
   --font-size-card: 22px;

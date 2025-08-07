@@ -33,12 +33,15 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  metrics: {
+  category: 'professional' | 'side-project' | 'freelance';
+  metrics?: {
     [key: string]: string;
   };
-  techStack: string[];
-  caseStudyUrl: string;
-  highlights: string[];
+  techStack?: string[];
+  caseStudyUrl?: string;
+  highlights?: string[];
+  demoUrl?: string;
+  githubUrl?: string;
 }
 
 export interface SkillCategory {

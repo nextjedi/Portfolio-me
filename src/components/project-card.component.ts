@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { Project } from '../models/portfolio.interface';
+import { PortfolioService } from '../services/portfolio.service';
 
 @Component({
   selector: 'app-project-card',
@@ -17,7 +19,7 @@ import { Project } from '../models/portfolio.interface';
                 [style.animation-delay]="animationDelay">
         
         <!-- Project Image -->
-        <mat-card-header class="project-image">
+        <mat-card-header class="project-image" (click)="showCaseStudy()">
           <img 
             [src]="project.image" 
             [alt]="project.title + ' screenshot'"
@@ -72,15 +74,13 @@ import { Project } from '../models/portfolio.interface';
         
         <!-- Action Button -->
         <mat-card-actions class="project-actions">
-          <a mat-raised-button
-             color="accent"
-             [href]="project.caseStudyUrl" 
-             target="_blank"
-             rel="noopener noreferrer"
-             (click)="trackCaseStudyClick()">
+          <button mat-raised-button
+                  color="accent"
+                  (click)="showCaseStudy()"
+                  type="button">
             <span>View Case Study</span>
             <mat-icon>open_in_new</mat-icon>
-          </a>
+          </button>
         </mat-card-actions>
       </mat-card>
     }
@@ -112,6 +112,7 @@ import { Project } from '../models/portfolio.interface';
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     .project-image img {
@@ -309,12 +310,17 @@ export class ProjectCardComponent {
   @Input() isVisible = false;
   @Input() animationDelay = '0s';
 
+  constructor(
+    private router: Router,
+    private portfolioService: PortfolioService
+  ) {}
+
   protected hasMetrics(): boolean {
-    return this.project?.metrics && Object.keys(this.project.metrics).length > 0;
+    return !!(this.project?.metrics && Object.keys(this.project.metrics).length > 0);
   }
 
   protected getMetricsArray(): string[] {
-    if (!this.hasMetrics()) return [];
+    if (!this.hasMetrics() || !this.project?.metrics) return [];
     return Object.values(this.project.metrics);
   }
 
@@ -327,8 +333,18 @@ export class ProjectCardComponent {
     }
   }
 
+  protected showCaseStudy(): void {
+    console.log('Case study clicked for project:', this.project.title);
+    
+    // Generate slug from project title
+    const projectSlug = this.portfolioService.generateSlug(this.project.title);
+    
+    // Navigate to project detail page
+    this.router.navigate([projectSlug, 'detail']);
+  }
+
   protected trackCaseStudyClick(): void {
-    // Analytics tracking can be added here
-    console.log(`Case study clicked: ${this.project.title}`);
+    // Keep for backward compatibility
+    this.showCaseStudy();
   }
 }
