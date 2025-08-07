@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for Arunabh Priyadarshi (Senior Software Engineer) built with Angular 20. The project is currently on the `fresh-angular-redesign` branch and represents a complete redesign from an older Angular implementation to a modern Angular standalone components architecture.
+This is a personal portfolio website for Arunabh Priyadarshi (Senior Software Engineer) built with Angular 20. The project represents a modern Angular standalone components architecture showcasing enterprise software development experience.
 
-The portfolio showcases enterprise software development experience, with sections for:
+The portfolio includes:
 - Hero section with professional metrics and CTAs
 - Personal story and background
-- Featured projects with case studies
+- Featured projects with detailed case studies
 - Blog integration (Medium RSS)
 - Contact information and availability status
 
@@ -18,100 +18,139 @@ The portfolio showcases enterprise software development experience, with section
 ```bash
 # Start development server
 npm start
-# or
 ng serve
 
 # Build for production
 npm run build
-# or 
 ng build
 
 # Run tests
 npm test
-# or
 ng test
 
 # Watch build (development mode)
 npm run watch
+ng build --watch --configuration development
+
+# Test single file (example)
+ng test --include="**/hero.component.spec.ts"
+
+# Build with specific configuration
+ng build --configuration=production
 ```
 
-## Project Architecture
+## Architecture Overview
 
-### Current State (Angular 20 Standalone)
-- **Main Component**: `src/app/app.ts` - Root component using signals and standalone architecture
-- **Routing**: `src/app/app.routes.ts` - Currently empty, single-page application
-- **Configuration**: `src/app/app.config.ts` - Application providers and configuration
-- **Styling**: Global styles in `src/styles.css`
+### Core Structure
+- **Angular 20 Standalone Components**: No NgModule, uses standalone component architecture
+- **Signal-based State Management**: Modern reactive patterns with Angular signals
+- **Lazy Loading Routes**: Components loaded on-demand via dynamic imports
+- **Material Design Integration**: Angular Material components for UI consistency
 
-### Design Requirements
-The instruction file (`instruction.htm`) contains comprehensive design specifications including:
-- **Color Palette**: Primary dark green (#1a472a), accent red (#e74c3c), success green (#27ae60)
-- **Typography**: Inter font family with specific size scales (48px hero, 32px sections, 24px cards)
-- **Component Structure**: Hero, story, projects, blog, and contact sections
-- **Responsive Design**: Mobile-first approach with specific breakpoints
+### Key Files and Patterns
 
-### Key Implementation Notes
-- Uses Angular 20 with standalone components (no NgModule)
-- Implements signals for reactive state management
-- Requires integration with Medium RSS feed for blog posts
-- Needs professional assets (headshot, project screenshots, resume PDF)
-- Targets enterprise audience with focus on revenue impact and technical leadership
+**Application Core:**
+- `src/app/app.ts` - Root component with theme service integration
+- `src/app/app.routes.ts` - Route configuration with lazy loading
+- `src/app/app.config.ts` - Application providers and configuration
 
-### Removed Legacy Components
-The git status shows many deleted files from the previous implementation, indicating this is a fresh rewrite. The old structure included:
-- Component-based architecture with separate modules
-- Material Design components
-- Multiple route-based pages
-- Legacy Angular patterns (pre-standalone)
+**Data Architecture:**
+- `public/data/portfolio.json` - Hierarchical data structure with zero repetition
+- `src/services/portfolio.service.ts` - Central data service with reference resolution
+- `src/models/portfolio.interface.ts` - TypeScript interfaces for type safety
 
-## Allowed Tools
+**Component Structure:**
+- `src/components/home.component.ts` - Main portfolio page container
+- `src/components/navigation.component.ts` - Smart navigation with route awareness  
+- `src/components/project-detail.component.ts` - Dynamic project detail pages
+- Individual section components (hero, projects, story, contact, blog)
 
-When working with this codebase, these tools and dependencies are approved:
+### Data Reference System
 
-### Core Framework
-- Angular 20 (latest stable version)
-- Angular CLI for scaffolding and builds
-- TypeScript
-- RxJS for reactive programming
+The portfolio uses a sophisticated reference resolution system to eliminate data duplication:
 
-### Styling & UI
-- CSS3 with CSS Grid and Flexbox
-- Angular Animations
-- No specific UI library required (custom implementation preferred)
+```json
+{
+  "shared": {
+    "contact": { "email": "user@example.com" },
+    "social": { "github": { "url": "..." } }
+  },
+  "personal": {
+    "email": "@shared.contact.email",
+    "resumeUrl": "@shared.contact.resume"
+  }
+}
+```
 
-### Development Tools
-- Angular DevKit
-- Karma + Jasmine for testing
-- Angular build system
-- Standard Angular development server
-- Bash commands for file operations, git, npm, and Angular CLI
-- File editing tools (Read, Write, Edit, MultiEdit) for all project files
+References like `@shared.contact.email` are automatically resolved by `PortfolioService.resolveReferences()`.
 
-### External Integrations
-- Medium RSS API (via rss2json.com) for blog posts
-- Standard HTTP client for API calls
+### Routing Architecture
 
-### Assets & Content
-- Professional headshot image
-- Project screenshots/mockups  
-- Resume PDF
-- Icon assets (FontAwesome or similar if needed)
+- **Home Route** (`/`): Loads `HomeComponent` with all portfolio sections
+- **Project Detail Routes** (`/:projectSlug/detail`): Dynamic project showcase pages
+- **Navigation System**: Smart navigation that works from any route, with smooth scrolling on home page and route navigation from project pages
+
+### Component Communication
+
+- **PortfolioService**: Central data provider using signals for reactivity
+- **ThemeService**: Handles light/dark mode with system preference detection
+- **Project Management**: Hierarchical categorization (Professional, Side Projects, Freelance) with smart tab display
 
 ## Development Guidelines
 
-When working on this project:
-1. **Use standalone components** - Follow Angular 20 patterns, not legacy module-based architecture
-2. **Implement responsive design** - Mobile-first approach with the specified breakpoints
-3. **Follow color scheme** - Stick to the defined palette in the instruction file
-4. **Focus on performance** - Target 90+ Lighthouse score
-5. **Professional presentation** - This is a senior engineer's portfolio targeting enterprise roles
-6. **Stick to approved tools** - Only use dependencies and tools listed in the allowed tools section
+### Angular 20 Patterns
+- Use standalone components exclusively
+- Leverage Angular signals for reactive state
+- Implement lazy loading for optimal performance
+- Follow Material Design guidelines
 
-## Missing Implementation
+### Data Management
+- All content managed through `portfolio.json`
+- Use reference system (`@shared.xxx`) to avoid duplication
+- Service methods handle category-based filtering and project retrieval
 
-The current codebase is minimal and needs full implementation of:
-- Component structure (hero, story, projects, blog, contact)
-- Medium RSS integration service
-- Asset management (images, resume, project screenshots)
-- Responsive styling with the specified design system
-- Production deployment configuration
+### Styling Approach
+- CSS custom properties for theming
+- Mobile-first responsive design
+- Material Design component customization
+- Animation and intersection observers for enhanced UX
+
+### Testing Strategy
+- Jasmine + Karma for unit testing
+- Component testing with Material Design mocks
+- Service testing with HTTP interceptors
+
+## Key Implementation Features
+
+**Smart Project Categorization:**
+- Dynamic tab display (hide tabs if single category)
+- Category-based filtering with project counts
+- Featured project highlighting within categories
+
+**Professional Project Detail Pages:**
+- SEO-friendly URL slugs (`/project-name/detail`)
+- Comprehensive project information display
+- Navigation between projects and back to home
+
+**Reference Resolution System:**
+- Eliminates data duplication across JSON structure
+- Supports nested reference paths (`@shared.level1.level2.value`)
+- Graceful handling of missing references
+
+**Navigation Intelligence:**
+- Route-aware navigation (scroll on home, navigate + scroll from other pages)
+- Active section highlighting on home page only
+- Mobile menu with proper state management
+
+## Current State
+
+The application is fully implemented with:
+- ✅ Complete component architecture with Angular Material integration
+- ✅ Hierarchical data structure with zero repetition
+- ✅ Professional project detail routing
+- ✅ Smart category management and filtering
+- ✅ Mobile-responsive design with animations
+- ✅ Reference resolution system for data management
+- ✅ Navigation system that works across all routes
+
+All major features are implemented and functional. The codebase follows modern Angular patterns and is ready for production deployment.

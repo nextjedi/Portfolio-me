@@ -12,7 +12,27 @@
       "Bash(mkdir:*)",
       "Bash(curl:*)",
       "Bash(ng build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(ng test:*)",
+      "Bash(ng lint:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run watch:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(tasklist:*)",
+      "Bash(ps:*)",
+      "Bash(kill:*)"
     ],
     "deny": []
   }
