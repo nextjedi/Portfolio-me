@@ -142,11 +142,40 @@ export interface Theme {
   spacing: ThemeSpacing;
 }
 
+export interface SharedData {
+  contact: {
+    email: string;
+    resume: string;
+  };
+  social: {
+    [key: string]: {
+      url: string;
+      icon: string;
+      platform?: string;
+    };
+  };
+}
+
+export interface ProjectCategory {
+  label: string;
+  description: string;
+  icon: string;
+  featured: string[];
+  projects: {
+    [key: string]: Project;
+  };
+}
+
+export interface ProjectCategories {
+  [categoryKey: string]: ProjectCategory;
+}
+
 export interface PortfolioData {
+  shared: SharedData;
   personal: PersonalInfo;
   metrics: Metric[];
   story: Story;
-  projects: Project[];
+  projectCategories: ProjectCategories;
   skills: Skills;
   contact: Contact;
   navigation: NavigationItem[];

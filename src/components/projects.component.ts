@@ -403,9 +403,10 @@ export class ProjectsComponent implements OnInit {
 
   private loadData(): void {
     const data = this.portfolioService.data();
-    if (data && data.projects) {
-      this.allProjects.set(data.projects);
-      this.setupCategories(data.projects);
+    if (data && data.projectCategories) {
+      const allProjects = this.portfolioService.getProjects();
+      this.allProjects.set(allProjects);
+      this.setupCategories(allProjects);
     }
   }
   
@@ -413,9 +414,10 @@ export class ProjectsComponent implements OnInit {
     // Check for data periodically until loaded
     const checkInterval = setInterval(() => {
       const data = this.portfolioService.data();
-      if (data && data.projects) {
-        this.allProjects.set(data.projects);
-        this.setupCategories(data.projects);
+      if (data && data.projectCategories) {
+        const allProjects = this.portfolioService.getProjects();
+        this.allProjects.set(allProjects);
+        this.setupCategories(allProjects);
         clearInterval(checkInterval);
       }
     }, 100);
@@ -425,27 +427,14 @@ export class ProjectsComponent implements OnInit {
   }
 
   private setupCategories(projects: Project[]): void {
-    // Count projects by category
-    const categoryCounts = projects.reduce((acc, project) => {
-      acc[project.category] = (acc[project.category] || 0) + 1;
-      return acc;
-    }, {} as Record<ProjectCategory, number>);
-
-    // Get unique categories that exist in data
-    const existingCategories = Object.keys(categoryCounts) as ProjectCategory[];
+    // Get categories from the service
+    const serviceCategories = this.portfolioService.getAvailableCategories();
     
-    // Category labels mapping
-    const categoryLabels: Record<ProjectCategory, string> = {
-      'professional': 'Professional',
-      'side-project': 'Side Projects',
-      'freelance': 'Freelance'
-    };
-
     // Create category info array
     const categories: CategoryInfo[] = [];
     
     // Add "All" category only if we have multiple categories
-    if (existingCategories.length > 1) {
+    if (serviceCategories.length > 1) {
       categories.push({
         key: 'all',
         label: 'All Projects',
@@ -453,20 +442,20 @@ export class ProjectsComponent implements OnInit {
       });
     }
 
-    // Add individual categories
-    existingCategories.forEach(category => {
+    // Add individual categories from service
+    serviceCategories.forEach(category => {
       categories.push({
-        key: category,
-        label: categoryLabels[category],
-        count: categoryCounts[category]
+        key: category.key,
+        label: category.label,
+        count: category.count
       });
     });
 
     this.availableCategories.set(categories);
     
     // Set initial category: if only one category exists, select it automatically
-    if (existingCategories.length === 1) {
-      this.selectedCategory.set(existingCategories[0]);
+    if (serviceCategories.length === 1) {
+      this.selectedCategory.set(serviceCategories[0].key);
     } else {
       this.selectedCategory.set('all');
     }
@@ -510,17 +499,14 @@ export class ProjectsComponent implements OnInit {
   }
 
   protected filteredProjects(): Project[] {
-    const allProjects = this.allProjects();
     const selectedCategory = this.selectedCategory();
-    
-    if (!allProjects) return [];
     
     if (selectedCategory === 'all') {
       // Show featured projects (first 3) when "All" is selected
-      return allProjects.slice(0, 3);
+      return this.portfolioService.getFeaturedProjects(3);
     } else {
       // Show all projects from the selected category
-      return allProjects.filter(project => project.category === selectedCategory);
+      return this.portfolioService.getProjectsByCategory(selectedCategory);
     }
   }
 

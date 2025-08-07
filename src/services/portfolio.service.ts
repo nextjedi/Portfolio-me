@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { PortfolioData } from '../models/portfolio.interface';
+import { PortfolioData, Project } from '../models/portfolio.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +34,11 @@ export class PortfolioService {
 
     this.http.get<PortfolioData>('/data/portfolio.json').pipe(
       map(data => {
-        this.portfolioData.set(data);
+        // Resolve all references in the data
+        const resolvedData = this.resolveReferences(data);
+        this.portfolioData.set(resolvedData);
         this.loading.set(false);
-        return data;
+        return resolvedData;
       }),
       catchError(error => {
         console.error('Failed to load portfolio data:', error);
@@ -45,6 +47,48 @@ export class PortfolioService {
         return of(null);
       })
     ).subscribe();
+  }
+
+  private resolveReferences(data: any): any {
+    if (!data || typeof data !== 'object') {
+      return data;
+    }
+
+    if (Array.isArray(data)) {
+      return data.map(item => this.resolveReferences(item));
+    }
+
+    const resolved: any = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (typeof value === 'string' && value.startsWith('@shared.')) {
+        // Resolve reference
+        resolved[key] = this.resolveReference(value, data);
+      } else if (typeof value === 'object') {
+        // Recursively resolve nested objects
+        resolved[key] = this.resolveReferences(value);
+      } else {
+        resolved[key] = value;
+      }
+    }
+
+    return resolved;
+  }
+
+  private resolveReference(reference: string, data: any): any {
+    // Remove @ and split by dots
+    const path = reference.substring(1).split('.');
+    
+    let current = data;
+    for (const segment of path) {
+      if (current && typeof current === 'object' && segment in current) {
+        current = current[segment];
+      } else {
+        console.warn(`Reference ${reference} could not be resolved`);
+        return reference; // Return original reference if resolution fails
+      }
+    }
+    
+    return current;
   }
 
   getPersonalInfo() {
@@ -60,11 +104,42 @@ export class PortfolioService {
   }
 
   getProjects() {
-    return this.portfolioData()?.projects || [];
+    const data = this.portfolioData();
+    if (!data?.projectCategories) return [];
+
+    // Flatten all projects from all categories
+    const allProjects: Project[] = [];
+    Object.values(data.projectCategories).forEach(category => {
+      Object.values(category.projects).forEach(project => {
+        allProjects.push(project);
+      });
+    });
+
+    return allProjects;
+  }
+
+  getProjectCategories() {
+    return this.portfolioData()?.projectCategories || {};
+  }
+
+  getProjectsByCategory(categoryKey: string) {
+    const categories = this.getProjectCategories();
+    if (!categories[categoryKey]) return [];
+    
+    return Object.values(categories[categoryKey].projects);
   }
 
   getFeaturedProjects(limit: number = 3) {
     return this.getProjects().slice(0, limit);
+  }
+
+  getFeaturedProjectsByCategory(categoryKey: string) {
+    const categories = this.getProjectCategories();
+    const category = categories[categoryKey];
+    
+    if (!category) return [];
+    
+    return category.featured.map(projectId => category.projects[projectId]).filter(Boolean);
   }
 
   getProjectById(id: string) {
@@ -125,6 +200,19 @@ export class PortfolioService {
     return this.getProjects().map(project => ({
       ...project,
       slug: this.generateSlug(project.title)
+    }));
+  }
+
+  // Get available categories with metadata for UI components
+  getAvailableCategories() {
+    const categories = this.getProjectCategories();
+    return Object.entries(categories).map(([key, category]) => ({
+      key: key as 'professional' | 'side-project' | 'freelance',
+      label: category.label,
+      description: category.description,
+      icon: category.icon,
+      count: Object.keys(category.projects).length,
+      featured: category.featured
     }));
   }
 }

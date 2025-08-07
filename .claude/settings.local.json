@@ -10,7 +10,9 @@
       "Bash(npm start)",
       "Bash(ng serve:*)",
       "Bash(mkdir:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ng build:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }

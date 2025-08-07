@@ -1,9 +1,38 @@
 {
+  "shared": {
+    "contact": {
+      "email": "arunabhmaster@gmail.com",
+      "resume": "assets/resume/Arunabh-Priyadarshi-Resume.pdf"
+    },
+    "social": {
+      "github": {
+        "url": "https://github.com/nextjedi",
+        "icon": "github",
+        "platform": "GitHub"
+      },
+      "linkedin": {
+        "url": "https://linkedin.com/in/arunabhpriyadarshi", 
+        "icon": "linkedin",
+        "platform": "LinkedIn"
+      },
+      "medium": {
+        "url": "https://medium.com/@ap2",
+        "icon": "medium", 
+        "platform": "Medium"
+      },
+      "calendly": {
+        "url": "https://calendly.com/nextjedi/15min",
+        "icon": "calendar",
+        "platform": "Calendly"
+      }
+    }
+  },
+
   "personal": {
     "name": "ARUNABH PRIYADARSHI",
     "title": "Senior Software Engineer & Technical Leader",
     "tagline": "Building enterprise products that drive revenue and scale",
-    "email": "arunabhmaster@gmail.com",
+    "email": "@shared.contact.email",
     "location": "Available for Remote Roles",
     "availability": {
       "status": "available",
@@ -11,7 +40,7 @@
       "type": "remote-only"
     },
     "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
-    "resumeUrl": "assets/resume/Arunabh-Priyadarshi-Resume.pdf"
+    "resumeUrl": "@shared.contact.resume"
   },
   
   "metrics": [
@@ -45,173 +74,197 @@
     "highlight": "What drives me: Solving complex technical challenges that have measurable business impact, while mentoring teams and sharing knowledge through speaking and writing."
   },
 
-  "projects": [
-    {
-      "id": "cybersecurity-platform",
-      "title": "Enterprise Cybersecurity Platform",
-      "description": "Single-handedly built backend serving 720+ CISOs across Fortune 500 companies, integrating AI for insights and automated reporting.",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop",
-      "category": "professional",
-      "metrics": {
-        "revenue": "$M+ Revenue Driver",
-        "users": "2,500+ Users",
-        "renewals": "15+ Enterprise Renewals"
-      },
-      "techStack": [
-        "Spring Boot",
-        "React",
-        "PostgreSQL",
-        "ChatGPT",
-        "AWS"
-      ],
-      "caseStudyUrl": "#cybersecurity-case-study",
-      "highlights": [
-        "Built complete backend infrastructure serving Fortune 500 CISOs",
-        "Integrated OpenAI GPT for automated security insights",
-        "Achieved $M+ in enterprise contract renewals",
-        "Served 2,500+ users across multiple enterprises"
-      ],
-      "demoUrl": "https://demo.cybersecurity-platform.com",
-      "githubUrl": "https://github.com/nextjedi/cybersecurity-platform"
+  "projectCategories": {
+    "professional": {
+      "label": "Professional Work",
+      "description": "Enterprise solutions that drive business results",
+      "icon": "work",
+      "featured": ["cybersecurity-platform", "ai-document-processing"],
+      "projects": {
+        "cybersecurity-platform": {
+          "id": "cybersecurity-platform",
+          "title": "Enterprise Cybersecurity Platform",
+          "description": "Single-handedly built backend serving 720+ CISOs across Fortune 500 companies, integrating AI for insights and automated reporting.",
+          "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop",
+          "category": "professional",
+          "metrics": {
+            "revenue": "$M+ Revenue Driver",
+            "users": "2,500+ Users",
+            "renewals": "15+ Enterprise Renewals"
+          },
+          "techStack": [
+            "Spring Boot",
+            "React",
+            "PostgreSQL",
+            "ChatGPT",
+            "AWS"
+          ],
+          "caseStudyUrl": "#cybersecurity-case-study",
+          "highlights": [
+            "Built complete backend infrastructure serving Fortune 500 CISOs",
+            "Integrated OpenAI GPT for automated security insights",
+            "Achieved $M+ in enterprise contract renewals",
+            "Served 2,500+ users across multiple enterprises"
+          ],
+          "demoUrl": "https://demo.cybersecurity-platform.com",
+          "githubUrl": "https://github.com/nextjedi/cybersecurity-platform"
+        },
+        "ai-document-processing": {
+          "id": "ai-document-processing",
+          "title": "AI Document Processing System",
+          "description": "Orchestrated 11 ML models to process 1,000+ documents/night with 99% accuracy. System success led to formation of new company.",
+          "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+          "category": "professional",
+          "metrics": {
+            "accuracy": "99% Accuracy",
+            "throughput": "1000+ Docs/Night",
+            "impact": "Company Formation"
+          },
+          "techStack": [
+            "Python",
+            "Kafka",
+            "ML Models",
+            "Redis",
+            "Docker"
+          ],
+          "caseStudyUrl": "#ai-processing-case-study",
+          "highlights": [
+            "Orchestrated 11 different ML models in production pipeline",
+            "Achieved 99% accuracy in document classification and extraction",
+            "Processed 1,000+ documents nightly without manual intervention",
+            "Success led to spin-off company formation"
+          ],
+          "demoUrl": "https://demo.ai-document-processor.com",
+          "githubUrl": "https://github.com/nextjedi/ai-document-processing"
+        }
+      }
     },
-    {
-      "id": "ai-document-processing",
-      "title": "AI Document Processing System",
-      "description": "Orchestrated 11 ML models to process 1,000+ documents/night with 99% accuracy. System success led to formation of new company.",
-      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-      "category": "professional",
-      "metrics": {
-        "accuracy": "99% Accuracy",
-        "throughput": "1000+ Docs/Night",
-        "impact": "Company Formation"
-      },
-      "techStack": [
-        "Python",
-        "Kafka",
-        "ML Models",
-        "Redis",
-        "Docker"
-      ],
-      "caseStudyUrl": "#ai-processing-case-study",
-      "highlights": [
-        "Orchestrated 11 different ML models in production pipeline",
-        "Achieved 99% accuracy in document classification and extraction",
-        "Processed 1,000+ documents nightly without manual intervention",
-        "Success led to spin-off company formation"
-      ],
-      "demoUrl": "https://demo.ai-document-processor.com",
-      "githubUrl": "https://github.com/nextjedi/ai-document-processing"
+    "side-project": {
+      "label": "Side Projects",
+      "description": "Open-source and personal projects",
+      "icon": "code",
+      "featured": ["code-generation-framework"],
+      "projects": {
+        "code-generation-framework": {
+          "id": "code-generation-framework",
+          "title": "Code Generation Framework",
+          "description": "Created framework automating 75% of application development, enabling migration of 150+ legacy systems across 15+ teams.",
+          "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
+          "category": "side-project",
+          "metrics": {
+            "automation": "75% Automation",
+            "applications": "150+ Apps",
+            "teams": "15+ Teams"
+          },
+          "techStack": [
+            "Java",
+            "Templates",
+            "Maven",
+            "Spring Boot",
+            "Angular"
+          ],
+          "caseStudyUrl": "#code-framework-case-study",
+          "highlights": [
+            "Automated 75% of standard application development workflows",
+            "Enabled migration of 150+ legacy applications to modern stack",
+            "Adopted by 15+ development teams across the organization",
+            "Reduced development time by 60% for standard enterprise applications"
+          ],
+          "demoUrl": "https://demo.code-generator.com",
+          "githubUrl": "https://github.com/nextjedi/code-generation-framework"
+        },
+        "portfolio-generator": {
+          "id": "portfolio-generator",
+          "title": "Developer Portfolio Generator",
+          "description": "Open-source tool that generates professional developer portfolios from GitHub data and resume information.",
+          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+          "category": "side-project",
+          "metrics": {
+            "stars": "250+ GitHub Stars",
+            "downloads": "1.2K+ Downloads",
+            "contributors": "12+ Contributors"
+          },
+          "techStack": [
+            "Vue.js",
+            "GitHub API",
+            "Tailwind CSS",
+            "Netlify",
+            "Node.js"
+          ],
+          "highlights": [
+            "Open-sourced tool with 250+ GitHub stars",
+            "Automated portfolio generation from GitHub profile",
+            "Responsive templates with dark/light mode",
+            "Community-driven with 12+ contributors"
+          ],
+          "demoUrl": "https://portfolio-generator.dev",
+          "githubUrl": "https://github.com/nextjedi/portfolio-generator"
+        }
+      }
     },
-    {
-      "id": "code-generation-framework",
-      "title": "Code Generation Framework",
-      "description": "Created framework automating 75% of application development, enabling migration of 150+ legacy systems across 15+ teams.",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-      "category": "side-project",
-      "metrics": {
-        "automation": "75% Automation",
-        "applications": "150+ Apps",
-        "teams": "15+ Teams"
-      },
-      "techStack": [
-        "Java",
-        "Templates",
-        "Maven",
-        "Spring Boot",
-        "Angular"
-      ],
-      "caseStudyUrl": "#code-framework-case-study",
-      "highlights": [
-        "Automated 75% of standard application development workflows",
-        "Enabled migration of 150+ legacy applications to modern stack",
-        "Adopted by 15+ development teams across the organization",
-        "Reduced development time by 60% for standard enterprise applications"
-      ],
-      "demoUrl": "https://demo.code-generator.com",
-      "githubUrl": "https://github.com/nextjedi/code-generation-framework"
-    },
-    {
-      "id": "e-commerce-platform",
-      "title": "E-Commerce Platform",
-      "description": "Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard for local business client.",
-      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      "category": "freelance",
-      "metrics": {
-        "revenue": "$50K+ Generated",
-        "conversion": "3.2% Conversion Rate",
-        "orders": "500+ Monthly Orders"
-      },
-      "techStack": [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Stripe API",
-        "AWS"
-      ],
-      "highlights": [
-        "Built complete e-commerce solution from scratch",
-        "Integrated Stripe payment processing with 99.9% uptime",
-        "Implemented real-time inventory tracking system",
-        "Created comprehensive analytics dashboard"
-      ],
-      "demoUrl": "https://demo.ecommerce-client.com",
-      "githubUrl": "https://github.com/nextjedi/ecommerce-platform"
-    },
-    {
-      "id": "portfolio-generator",
-      "title": "Developer Portfolio Generator",
-      "description": "Open-source tool that generates professional developer portfolios from GitHub data and resume information.",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      "category": "side-project",
-      "metrics": {
-        "stars": "250+ GitHub Stars",
-        "downloads": "1.2K+ Downloads",
-        "contributors": "12+ Contributors"
-      },
-      "techStack": [
-        "Vue.js",
-        "GitHub API",
-        "Tailwind CSS",
-        "Netlify",
-        "Node.js"
-      ],
-      "highlights": [
-        "Open-sourced tool with 250+ GitHub stars",
-        "Automated portfolio generation from GitHub profile",
-        "Responsive templates with dark/light mode",
-        "Community-driven with 12+ contributors"
-      ],
-      "demoUrl": "https://portfolio-generator.dev",
-      "githubUrl": "https://github.com/nextjedi/portfolio-generator"
-    },
-    {
-      "id": "restaurant-management",
-      "title": "Restaurant Management System",
-      "description": "Comprehensive system for restaurant operations including POS, inventory, staff management, and customer analytics for chain of restaurants.",
-      "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop",
-      "category": "freelance",
-      "metrics": {
-        "restaurants": "5 Locations",
-        "transactions": "10K+ Daily",
-        "efficiency": "40% Time Saved"
-      },
-      "techStack": [
-        "Angular",
-        "Spring Boot",
-        "PostgreSQL",
-        "Redis",
-        "Docker"
-      ],
-      "highlights": [
-        "Deployed across 5 restaurant locations",
-        "Handles 10,000+ daily transactions",
-        "Reduced operational time by 40%",
-        "Real-time inventory and analytics dashboard"
-      ],
-      "demoUrl": "https://demo.restaurant-mgmt.com",
-      "githubUrl": "https://github.com/nextjedi/restaurant-management"
+    "freelance": {
+      "label": "Freelance Work",
+      "description": "Client projects and consulting work",
+      "icon": "business",
+      "featured": ["e-commerce-platform"],
+      "projects": {
+        "e-commerce-platform": {
+          "id": "e-commerce-platform",
+          "title": "E-Commerce Platform",
+          "description": "Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard for local business client.",
+          "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+          "category": "freelance",
+          "metrics": {
+            "revenue": "$50K+ Generated",
+            "conversion": "3.2% Conversion Rate",
+            "orders": "500+ Monthly Orders"
+          },
+          "techStack": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Stripe API",
+            "AWS"
+          ],
+          "highlights": [
+            "Built complete e-commerce solution from scratch",
+            "Integrated Stripe payment processing with 99.9% uptime",
+            "Implemented real-time inventory tracking system",
+            "Created comprehensive analytics dashboard"
+          ],
+          "demoUrl": "https://demo.ecommerce-client.com",
+          "githubUrl": "https://github.com/nextjedi/ecommerce-platform"
+        },
+        "restaurant-management": {
+          "id": "restaurant-management",
+          "title": "Restaurant Management System",
+          "description": "Comprehensive system for restaurant operations including POS, inventory, staff management, and customer analytics for chain of restaurants.",
+          "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop",
+          "category": "freelance",
+          "metrics": {
+            "restaurants": "5 Locations",
+            "transactions": "10K+ Daily",
+            "efficiency": "40% Time Saved"
+          },
+          "techStack": [
+            "Angular",
+            "Spring Boot",
+            "PostgreSQL",
+            "Redis",
+            "Docker"
+          ],
+          "highlights": [
+            "Deployed across 5 restaurant locations",
+            "Handles 10,000+ daily transactions",
+            "Reduced operational time by 40%",
+            "Real-time inventory and analytics dashboard"
+          ],
+          "demoUrl": "https://demo.restaurant-mgmt.com",
+          "githubUrl": "https://github.com/nextjedi/restaurant-management"
+        }
+      }
     }
-  ],
+  },
 
   "skills": {
     "categories": [
@@ -245,43 +298,31 @@
   "contact": {
     "title": "Let's Build Something Great Together",
     "subtitle": "Open to remote Tech Lead & Senior Architect opportunities",
-    "email": "arunabhmaster@gmail.com",
+    "email": "@shared.contact.email",
     "social": [
-      {
-        "platform": "LinkedIn",
-        "url": "https://linkedin.com/in/arunabhpriyadarshi",
-        "icon": "linkedin"
-      },
-      {
-        "platform": "GitHub", 
-        "url": "https://github.com/nextjedi",
-        "icon": "github"
-      },
-      {
-        "platform": "Medium",
-        "url": "https://medium.com/@arunabhpriyadarshi",
-        "icon": "medium"
-      }
+      "@shared.social.linkedin",
+      "@shared.social.github", 
+      "@shared.social.medium"
     ],
     "cta": [
       {
         "text": "Email Me",
-        "url": "mailto:arunabhmaster@gmail.com",
+        "url": "mailto:@shared.contact.email",
         "type": "primary"
       },
       {
         "text": "LinkedIn",
-        "url": "https://linkedin.com/in/arunabhpriyadarshi",
+        "url": "@shared.social.linkedin.url",
         "type": "secondary"
       },
       {
         "text": "Schedule Call",
-        "url": "https://calendly.com/nextjedi/15min",
+        "url": "@shared.social.calendly.url",
         "type": "secondary"
       },
       {
         "text": "Download Resume",
-        "url": "assets/resume/Arunabh-Priyadarshi-Resume.pdf",
+        "url": "@shared.contact.resume",
         "type": "secondary"
       }
     ]
@@ -314,7 +355,7 @@
     "title": "Technical Insights & Thoughts",
     "subtitle": "Sharing knowledge about architecture, AI, and engineering leadership",
     "mediumRssUrl": "https://medium.com/@ap2/feed",
-    "mediumProfileUrl": "https://medium.com/@ap2",
+    "mediumProfileUrl": "@shared.social.medium.url",
     "fallbackPosts": [
       {
         "title": "How I Built a Code Generation Framework",
