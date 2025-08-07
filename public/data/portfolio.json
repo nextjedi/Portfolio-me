@@ -164,7 +164,7 @@
       },
       {
         "platform": "GitHub", 
-        "url": "https://github.com/arunabhpriyadarshi",
+        "url": "https://github.com/nextjedi",
         "icon": "github"
       },
       {
@@ -223,8 +223,8 @@
   "blog": {
     "title": "Technical Insights & Thoughts",
     "subtitle": "Sharing knowledge about architecture, AI, and engineering leadership",
-    "mediumRssUrl": "https://medium.com/@arunabhpriyadarshi/feed",
-    "mediumProfileUrl": "https://medium.com/@arunabhpriyadarshi",
+    "mediumRssUrl": "https://medium.com/@ap2/feed",
+    "mediumProfileUrl": "https://medium.com/@ap2",
     "fallbackPosts": [
       {
         "title": "How I Built a Code Generation Framework",
