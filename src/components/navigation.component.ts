@@ -18,17 +18,10 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
             <!-- Logo/Brand -->
             <div class="nav-brand">
               <a href="#" class="brand-link" (click)="goToHome($event)">
-                @if (personalInfo()) {
-                  <div class="brand-text">
-                    <span class="brand-initials">{{ getInitials() }}</span>
-                    <span class="brand-name">{{ getFirstName() }}</span>
-                  </div>
-                } @else {
-                  <div class="brand-text">
-                    <span class="brand-initials">AP</span>
-                    <span class="brand-name">Portfolio</span>
-                  </div>
-                }
+                <div class="brand-text">
+                  <span class="brand-initials">{{ getInitials() }}</span>
+                  <span class="brand-name">{{ getFirstName() }}</span>
+                </div>
               </a>
             </div>
 
@@ -43,6 +36,12 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
                     {{ item.label }}
                   </a>
                 }
+              } @else {
+                <!-- Default navigation items while loading -->
+                <a href="#" class="nav-link" (click)="navigateToSection($event, 'about')">About</a>
+                <a href="#" class="nav-link" (click)="navigateToSection($event, 'projects')">Projects</a>
+                <a href="#" class="nav-link" (click)="navigateToSection($event, 'blog')">Blog</a>
+                <a href="#" class="nav-link" (click)="navigateToSection($event, 'contact')">Contact</a>
               }
               
               <!-- Resume CTA -->
@@ -83,6 +82,12 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
                   {{ item.label }}
                 </a>
               }
+            } @else {
+              <!-- Default navigation items while loading -->
+              <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'about'); closeMobileMenu()">About</a>
+              <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'projects'); closeMobileMenu()">Projects</a>
+              <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'blog'); closeMobileMenu()">Blog</a>
+              <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'contact'); closeMobileMenu()">Contact</a>
             }
             
             @if (personalInfo()?.resumeUrl) {

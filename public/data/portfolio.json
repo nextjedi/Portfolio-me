@@ -32,15 +32,15 @@
     "name": "ARUNABH PRIYADARSHI",
     "title": "Senior Software Engineer & Technical Leader",
     "tagline": "Building enterprise products that drive revenue and scale",
-    "email": "@shared.contact.email",
-    "location": "Available for Remote Roles",
+    "email": "arunabhmaster@gmail.com",
+    "location": "Patna, India",
     "availability": {
       "status": "available",
-      "message": "Available for Remote Roles",
+      "message": "Available for Remote Tech Lead & Architect Roles",
       "type": "remote-only"
     },
-    "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
-    "resumeUrl": "@shared.contact.resume"
+    "profileImage": "/assets/images/arunabh-profile.jpg",
+    "resumeUrl": "/assets/resume/Arunabh-Priyadarshi-Resume.pdf"
   },
   
   "metrics": [
@@ -48,19 +48,19 @@
       "id": "revenue",
       "value": "$M+",
       "label": "Revenue Impact",
-      "description": "Generated millions in enterprise revenue through technical leadership"
+      "description": "Built products driving millions in enterprise contract renewals"
     },
     {
       "id": "users",
       "value": "2,500+",
-      "label": "Enterprise Users",
-      "description": "Built systems serving thousands of enterprise users globally"
+      "label": "Enterprise Users", 
+      "description": "Served Fortune 500 CISOs and enterprise executives globally"
     },
     {
       "id": "achievement",
       "value": "3x",
       "label": "Code Champion",
-      "description": "3-time national finalist in India's largest coding competition"
+      "description": "National finalist in Code Gladiators - Top 300 of 250,000+"
     }
   ],
 
@@ -79,188 +79,267 @@
       "label": "Professional Work",
       "description": "Enterprise solutions that drive business results",
       "icon": "work",
-      "featured": ["cybersecurity-platform", "ai-document-processing"],
+      "featured": ["cybersecurity-platform", "ai-document-processing", "code-generation-framework", "enterprise-maven-libraries"],
       "projects": {
         "cybersecurity-platform": {
           "id": "cybersecurity-platform",
-          "title": "Enterprise Cybersecurity Platform",
-          "description": "Single-handedly built backend serving 720+ CISOs across Fortune 500 companies, integrating AI for insights and automated reporting.",
-          "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop",
+          "title": "Enterprise Cybersecurity Benchmarking Platform (CSBVB)",
+          "description": "Single-handedly built backend serving 720+ CISOs across Fortune 500 companies, integrating ChatGPT for AI insights and automated quarterly reporting across 16 research-backed metrics.",
+          "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
           "category": "professional",
+          "company": "Gartner",
+          "duration": "Feb 2023 - March 2025",
           "metrics": {
             "revenue": "$M+ Revenue Driver",
-            "users": "2,500+ Users",
-            "renewals": "15+ Enterprise Renewals"
+            "users": "720+ CISOs, 2,500+ Total Users",
+            "renewals": "15+ Enterprise Renewals",
+            "reports": "500+ Quarterly Reports"
           },
           "techStack": [
             "Spring Boot",
-            "React",
+            "React", 
             "PostgreSQL",
-            "ChatGPT",
+            "Elasticsearch",
+            "ChatGPT API",
             "AWS"
           ],
-          "caseStudyUrl": "#cybersecurity-case-study",
+          "caseStudyUrl": "/case-studies/cybersecurity-platform",
           "highlights": [
             "Built complete backend infrastructure serving Fortune 500 CISOs",
-            "Integrated OpenAI GPT for automated security insights",
-            "Achieved $M+ in enterprise contract renewals",
-            "Served 2,500+ users across multiple enterprises"
+            "Integrated OpenAI ChatGPT for automated security insights and recommendations",
+            "Became primary driver for $M+ enterprise contract renewals",
+            "Dashboard delegation feature extended reach to 2,500+ users",
+            "Automated 500+ quarterly reports, replacing manual processes"
           ],
-          "demoUrl": "https://demo.cybersecurity-platform.com",
-          "githubUrl": "https://github.com/nextjedi/cybersecurity-platform"
+          "impact": "15+ clients explicitly cited platform as primary reason for Gartner license renewal",
+          "architecture": "Microservices with Spring Boot backend, React frontend, PostgreSQL + Elasticsearch for data, AWS hosting",
+          "challenges": [
+            "Integrating 16 different research-backed security metrics",
+            "Building scalable dashboard delegation system", 
+            "Implementing ChatGPT for contextual insights",
+            "Handling enterprise-scale data processing"
+          ]
         },
         "ai-document-processing": {
-          "id": "ai-document-processing",
-          "title": "AI Document Processing System",
-          "description": "Orchestrated 11 ML models to process 1,000+ documents/night with 99% accuracy. System success led to formation of new company.",
-          "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-          "category": "professional",
+          "id": "ai-document-processing", 
+          "title": "AI-Powered Document Processing System",
+          "description": "Orchestrated 11 ML models (Python/Julia) via Kafka to process bills, receipts, and letters of credit with 99% accuracy, processing 1,000+ documents nightly. Success led to formation of Curl HG.",
+          "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop",
+          "category": "professional", 
+          "company": "Curl Tech",
+          "duration": "Mar 2020 - Aug 2021",
           "metrics": {
-            "accuracy": "99% Accuracy",
-            "throughput": "1000+ Docs/Night",
-            "impact": "Company Formation"
+            "accuracy": "99% Accuracy (85% for damaged docs)",
+            "throughput": "1,000+ Documents/Night",
+            "impact": "Led to Curl HG Formation",
+            "models": "11 ML Models Orchestrated"
           },
           "techStack": [
             "Python",
-            "Kafka",
-            "ML Models",
+            "Julia", 
+            "Apache Kafka",
+            "Spring Boot",
             "Redis",
-            "Docker"
+            "Docker",
+            "Raspberry Pi (Edge Computing)"
           ],
-          "caseStudyUrl": "#ai-processing-case-study",
+          "caseStudyUrl": "/case-studies/ai-document-processing",
           "highlights": [
             "Orchestrated 11 different ML models in production pipeline",
-            "Achieved 99% accuracy in document classification and extraction",
+            "Achieved 99% accuracy in document classification and extraction", 
+            "Built innovative offline PWA for low-bandwidth ship environments",
             "Processed 1,000+ documents nightly without manual intervention",
-            "Success led to spin-off company formation"
+            "Success directly led to spin-off company Curl HG formation"
           ],
-          "demoUrl": "https://demo.ai-document-processor.com",
-          "githubUrl": "https://github.com/nextjedi/ai-document-processing"
-        }
-      }
-    },
-    "side-project": {
-      "label": "Side Projects",
-      "description": "Open-source and personal projects",
-      "icon": "code",
-      "featured": ["code-generation-framework"],
-      "projects": {
+          "impact": "Platform success led to formation of dedicated company Curl HG for this product line",
+          "architecture": "Microservices orchestration layer with Kafka message broker, 11 ML models in different languages, edge computing deployment",
+          "challenges": [
+            "Orchestrating models built in different languages (Python, Julia)",
+            "Handling damaged/torn document processing",
+            "Building offline-capable edge solution for ships",
+            "Ensuring 24/7 reliability for overnight processing"
+          ]
+        },
         "code-generation-framework": {
           "id": "code-generation-framework",
-          "title": "Code Generation Framework",
-          "description": "Created framework automating 75% of application development, enabling migration of 150+ legacy systems across 15+ teams.",
+          "title": "Java Productivity Accelerator Framework",
+          "description": "Architected framework with 22 standardized templates that automates 75% of application development, enabling migration of 150+ legacy LotusScript applications across 15+ teams.",
           "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-          "category": "side-project",
+          "category": "professional",
+          "company": "KPIT Technologies & Gartner", 
+          "duration": "Sep 2016 - Nov 2018 (Created), Used at Gartner 2023-2025",
           "metrics": {
-            "automation": "75% Automation",
-            "applications": "150+ Apps",
-            "teams": "15+ Teams"
+            "automation": "75% Code Generation",
+            "applications": "150+ Apps Migrated", 
+            "teams": "15+ Teams Adopted",
+            "templates": "22 Standardized Templates"
           },
           "techStack": [
             "Java",
-            "Templates",
+            "Template Engine",
             "Maven",
             "Spring Boot",
-            "Angular"
+            "Angular", 
+            "Node.js",
+            "OWASP Compliance"
           ],
-          "caseStudyUrl": "#code-framework-case-study",
+          "caseStudyUrl": "/case-studies/code-generation-framework",
           "highlights": [
+            "Created 22 standardized templates covering common use cases",
             "Automated 75% of standard application development workflows",
-            "Enabled migration of 150+ legacy applications to modern stack",
-            "Adopted by 15+ development teams across the organization",
-            "Reduced development time by 60% for standard enterprise applications"
+            "Enabled migration of 150+ legacy LotusScript applications",
+            "Adopted by 15+ development teams across organizations",
+            "Built-in OWASP security compliance and best practices"
           ],
-          "demoUrl": "https://demo.code-generator.com",
-          "githubUrl": "https://github.com/nextjedi/code-generation-framework"
+          "impact": "Transformed development process across multiple organizations, reducing development time significantly",
+          "architecture": "Template-based code generation with Maven integration, supports Spring Boot, Angular, Node.js outputs",
+          "challenges": [
+            "Identifying common patterns across 150+ applications",
+            "Ensuring generated code meets enterprise security standards", 
+            "Building templates flexible enough for different use cases",
+            "Training 15+ teams on framework adoption"
+          ]
         },
-        "portfolio-generator": {
-          "id": "portfolio-generator",
-          "title": "Developer Portfolio Generator",
-          "description": "Open-source tool that generates professional developer portfolios from GitHub data and resume information.",
-          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-          "category": "side-project",
+        "engineering-dashboard": {
+          "id": "engineering-dashboard",
+          "title": "Engineering Intelligence Dashboard", 
+          "description": "Built automated dashboard integrating JIRA, Confluence, Bitbucket, and Workday APIs, reducing leadership reporting from 1.5 hours to 15 minutes (90% time savings) across 24 projects.",
+          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+          "category": "professional",
+          "company": "Gartner",
+          "duration": "Feb 2023 - March 2025", 
           "metrics": {
-            "stars": "250+ GitHub Stars",
-            "downloads": "1.2K+ Downloads",
-            "contributors": "12+ Contributors"
+            "timeSaved": "90% Time Reduction (1.5hrs → 15min)",
+            "projects": "24 Projects Tracked",
+            "teams": "15+ Teams",
+            "integrations": "4+ Tool Integrations"
           },
           "techStack": [
-            "Vue.js",
-            "GitHub API",
-            "Tailwind CSS",
-            "Netlify",
-            "Node.js"
+            "Spring Boot",
+            "React",
+            "JIRA API",
+            "Confluence API", 
+            "Bitbucket API",
+            "Workday API",
+            "PostgreSQL"
           ],
           "highlights": [
-            "Open-sourced tool with 250+ GitHub stars",
-            "Automated portfolio generation from GitHub profile",
-            "Responsive templates with dark/light mode",
-            "Community-driven with 12+ contributors"
+            "Integrated 4 major enterprise tools (JIRA, Confluence, Bitbucket, Workday)",
+            "Reduced weekly leadership meetings by 90% (1.5 hours to 15 minutes)",
+            "Automated release email notifications with approval workflows",
+            "Enabled real-time visibility into 24 projects across 15+ teams",
+            "Built impact analysis for feature releases and business metrics"
           ],
-          "demoUrl": "https://portfolio-generator.dev",
-          "githubUrl": "https://github.com/nextjedi/portfolio-generator"
+          "impact": "Became integral part of team workflows for all hands meetings and release planning"
+        },
+        "enterprise-maven-libraries": {
+          "id": "enterprise-maven-libraries",
+          "title": "Enterprise Maven Libraries",
+          "description": "Architected and maintained enterprise-wide Maven libraries serving 24 applications, managing dependency versions with Snyk security compliance and common functionalities including Gartner API integrations.",
+          "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&h=600&fit=crop",
+          "category": "professional",
+          "company": "Gartner",
+          "duration": "Feb 2023 - March 2025",
+          "metrics": {
+            "applications": "24 Applications Served",
+            "developers": "45+ Developers Using",
+            "teams": "15+ Teams Across Organization",
+            "security": "Snyk Security Compliance"
+          },
+          "techStack": [
+            "Maven",
+            "Java",
+            "Spring Boot",
+            "Snyk Security Scanning",
+            "Gartner APIs",
+            "Dependency Management"
+          ],
+          "caseStudyUrl": "/case-studies/enterprise-maven-libraries",
+          "highlights": [
+            "Created standardized foundation for all 24 enterprise applications",
+            "Managed dependency versions and security compliance using Snyk",
+            "Built common functionalities including Gartner API integrations",
+            "Eliminated code duplication across applications through reusable components",
+            "Adopted by 45+ developers across 15+ teams",
+            "Established standardized practices reducing security vulnerabilities"
+          ],
+          "impact": "Became the foundation layer for all enterprise development, ensuring consistent security and reducing development time",
+          "architecture": "Centralized Maven repository with versioned artifacts, automated security scanning, and common utility libraries",
+          "challenges": [
+            "Managing dependencies across 24 different applications",
+            "Ensuring backward compatibility during updates",
+            "Coordinating releases across 15+ development teams",
+            "Maintaining security compliance across all libraries"
+          ]
+        },
+        "blockchain-practice": {
+          "id": "blockchain-practice",
+          "title": "Enterprise Blockchain Practice",
+          "description": "Built and led blockchain practice from 0 to 12 team members, architecting Hyperledger Fabric solutions for asset tokenization and self-sovereign identity.",
+          "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop", 
+          "category": "professional",
+          "company": "Curl Tech",
+          "duration": "Feb 2019 - Aug 2021",
+          "metrics": {
+            "teamGrowth": "0 → 12 Members",
+            "platforms": "4+ Blockchain Platforms",
+            "projects": "Multiple Enterprise Projects",
+            "leadership": "Reported Directly to CEO"
+          },
+          "techStack": [
+            "Hyperledger Fabric",
+            "Ethereum", 
+            "Quorum",
+            "R3 Corda",
+            "Solidity",
+            "Self-Sovereign Identity (SSI)",
+            "Zero-Knowledge Proofs"
+          ],
+          "highlights": [
+            "Built blockchain practice from inception, growing team to 12 members",
+            "Architected asset tokenization platform for real-world assets",
+            "Implemented self-sovereign identity using DIDs and Verifiable Credentials", 
+            "Led research on consensus mechanisms and enterprise adoption",
+            "Contributed to government blockchain initiative proposals"
+          ],
+          "impact": "Established company's Web3 capabilities and positioned for future blockchain opportunities"
         }
       }
     },
-    "freelance": {
-      "label": "Freelance Work",
-      "description": "Client projects and consulting work",
-      "icon": "business",
-      "featured": ["e-commerce-platform"],
+    "side-projects": {
+      "label": "Side Projects & Open Source",
+      "description": "Personal projects and open-source contributions", 
+      "icon": "code",
+      "featured": ["test-automation-framework"],
       "projects": {
-        "e-commerce-platform": {
-          "id": "e-commerce-platform",
-          "title": "E-Commerce Platform",
-          "description": "Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard for local business client.",
-          "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-          "category": "freelance",
+        "test-automation-framework": {
+          "id": "test-automation-framework",
+          "title": "AI-Powered Test Automation Framework",
+          "description": "Pioneered GenAI-powered testing using Selenium, Appium, and JUnit with automatic test case generation, achieving 85% coverage across 9 applications.",
+          "image": "https://images.unsplash.com/photo-1597733336794-12d05021d510?w=800&h=600&fit=crop",
+          "category": "side-projects",
+          "company": "Gartner (Internal Tool)",
           "metrics": {
-            "revenue": "$50K+ Generated",
-            "conversion": "3.2% Conversion Rate",
-            "orders": "500+ Monthly Orders"
+            "coverage": "85% Test Coverage",
+            "applications": "9 Applications",
+            "adoption": "15-20 Developers",
+            "maintenance": "67% Reduction in UI Test Maintenance"
           },
           "techStack": [
-            "React",
-            "Node.js",
-            "MongoDB",
-            "Stripe API",
-            "AWS"
+            "Selenium WebDriver",
+            "Appium",
+            "JUnit",
+            "GenAI/ChatGPT",
+            "Java",
+            "TestNG"
           ],
           "highlights": [
-            "Built complete e-commerce solution from scratch",
-            "Integrated Stripe payment processing with 99.9% uptime",
-            "Implemented real-time inventory tracking system",
-            "Created comprehensive analytics dashboard"
-          ],
-          "demoUrl": "https://demo.ecommerce-client.com",
-          "githubUrl": "https://github.com/nextjedi/ecommerce-platform"
-        },
-        "restaurant-management": {
-          "id": "restaurant-management",
-          "title": "Restaurant Management System",
-          "description": "Comprehensive system for restaurant operations including POS, inventory, staff management, and customer analytics for chain of restaurants.",
-          "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop",
-          "category": "freelance",
-          "metrics": {
-            "restaurants": "5 Locations",
-            "transactions": "10K+ Daily",
-            "efficiency": "40% Time Saved"
-          },
-          "techStack": [
-            "Angular",
-            "Spring Boot",
-            "PostgreSQL",
-            "Redis",
-            "Docker"
-          ],
-          "highlights": [
-            "Deployed across 5 restaurant locations",
-            "Handles 10,000+ daily transactions",
-            "Reduced operational time by 40%",
-            "Real-time inventory and analytics dashboard"
-          ],
-          "demoUrl": "https://demo.restaurant-mgmt.com",
-          "githubUrl": "https://github.com/nextjedi/restaurant-management"
+            "Pioneered AI-powered test case generation and updates",
+            "Deployed across 9 enterprise applications",
+            "Achieved 85% test coverage consistently",
+            "Reduced UI test maintenance effort by 67%",
+            "Adopted by 15-20 developers across teams"
+          ]
         }
       }
     }
@@ -270,59 +349,101 @@
     "categories": [
       {
         "name": "Backend Development",
-        "skills": ["Java", "Spring Boot", "Python", "Node.js", "Microservices"]
+        "skills": ["Java", "Spring Boot", "Python", "Node.js", "Microservices", "REST APIs", "GraphQL"]
       },
       {
         "name": "Frontend Development", 
-        "skills": ["React", "Angular", "TypeScript", "JavaScript", "HTML/CSS"]
+        "skills": ["React", "Angular", "TypeScript", "JavaScript", "HTML5", "CSS3", "Redux"]
       },
       {
         "name": "Cloud & DevOps",
-        "skills": ["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform"]
+        "skills": ["AWS (EC2, S3, Lambda)", "Docker", "Kubernetes", "Jenkins", "CI/CD", "GitHub Actions"]
       },
       {
         "name": "Databases",
-        "skills": ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch"]
+        "skills": ["PostgreSQL", "MongoDB", "MySQL", "Elasticsearch", "Redis"]
       },
       {
-        "name": "AI & ML",
-        "skills": ["OpenAI GPT", "ML Models", "TensorFlow", "Data Processing", "NLP"]
+        "name": "AI & ML Integration",
+        "skills": ["ChatGPT/OpenAI", "ML Model Orchestration", "GenAI", "Data Processing", "Kafka"]
       },
       {
-        "name": "Blockchain",
-        "skills": ["Ethereum", "Smart Contracts", "Web3", "DeFi", "Solidity"]
+        "name": "Blockchain & Web3",
+        "skills": ["Hyperledger Fabric", "Ethereum", "Solidity", "Smart Contracts", "Self-Sovereign Identity", "Zero-Knowledge Proofs"]
+      },
+      {
+        "name": "Testing & Quality",
+        "skills": ["JUnit", "Selenium", "Appium", "Test Automation", "TDD", "BDD"]
+      },
+      {
+        "name": "Architecture & Leadership",
+        "skills": ["Microservices Architecture", "System Design", "Technical Leadership", "Team Building", "Mentoring"]
       }
     ]
   },
 
+  "achievements": [
+    {
+      "title": "3x Code Gladiators National Finalist",
+      "description": "Top 300 out of 250,000+ developers (2017, 2018, 2019)",
+      "year": "2017-2019",
+      "type": "competition"
+    },
+    {
+      "title": "IBM Bluemix National Hackathon Winner", 
+      "description": "1st Place in national competition",
+      "year": "2015",
+      "type": "competition"
+    },
+    {
+      "title": "CodeChef SnackDown Global Rank 445",
+      "description": "International competitive programming achievement",
+      "year": "2019", 
+      "type": "competition"
+    },
+    {
+      "title": "Alexa Hackathon Finalist",
+      "description": "Top 25 teams nationally",
+      "year": "2018",
+      "type": "competition"
+    },
+    {
+      "title": "Genesis DevCon Speaker",
+      "description": "International Blockchain Congress speaker",
+      "year": "2019-2020",
+      "type": "speaking"
+    },
+    {
+      "title": "Microsoft Research Certification",
+      "description": "Design and Analysis of Algorithms",
+      "year": "2018",
+      "type": "certification"
+    }
+  ],
+
   "contact": {
     "title": "Let's Build Something Great Together",
     "subtitle": "Open to remote Tech Lead & Senior Architect opportunities",
-    "email": "@shared.contact.email",
-    "social": [
-      "@shared.social.linkedin",
-      "@shared.social.github", 
-      "@shared.social.medium"
-    ],
+    "email": "arunabhmaster@gmail.com",
     "cta": [
       {
         "text": "Email Me",
-        "url": "mailto:@shared.contact.email",
+        "url": "mailto:arunabhmaster@gmail.com",
         "type": "primary"
       },
       {
         "text": "LinkedIn",
-        "url": "@shared.social.linkedin.url",
+        "url": "https://linkedin.com/in/arunabhpriyadarshi",
         "type": "secondary"
       },
       {
         "text": "Schedule Call",
-        "url": "@shared.social.calendly.url",
+        "url": "https://calendly.com/nextjedi/15min",
         "type": "secondary"
       },
       {
         "text": "Download Resume",
-        "url": "@shared.contact.resume",
+        "url": "/assets/resume/Arunabh-Priyadarshi-Resume.pdf",
         "type": "secondary"
       }
     ]
@@ -355,31 +476,39 @@
     "title": "Technical Insights & Thoughts",
     "subtitle": "Sharing knowledge about architecture, AI, and engineering leadership",
     "mediumRssUrl": "https://medium.com/@ap2/feed",
-    "mediumProfileUrl": "@shared.social.medium.url",
+    "mediumProfileUrl": "https://medium.com/@ap2",
     "fallbackPosts": [
       {
-        "title": "How I Built a Code Generation Framework",
-        "excerpt": "Deep dive into the architecture decisions and design patterns that enabled 75% automation...",
-        "readTime": "5 min read",
+        "title": "How I Built a Code Generation Framework That Automates 75% of Development",
+        "excerpt": "Deep dive into the architecture decisions and design patterns that enabled massive automation in enterprise development workflows...",
+        "readTime": "8 min read",
         "publishedDate": "Jan 15, 2025",
-        "url": "https://medium.com/@arunabhpriyadarshi/code-generation-framework",
+        "url": "https://medium.com/@ap2/code-generation-framework",
         "thumbnail": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&h=400&fit=crop"
       },
       {
-        "title": "Scaling AI Systems for Enterprise",
-        "excerpt": "Lessons from processing millions of documents with 99% accuracy at enterprise scale...",
-        "readTime": "8 min read", 
+        "title": "Orchestrating 11 ML Models: Lessons from Processing 1000+ Documents Daily",
+        "excerpt": "Technical deep-dive into building production-grade AI document processing systems with 99% accuracy at enterprise scale...",
+        "readTime": "10 min read", 
         "publishedDate": "Jan 10, 2025",
-        "url": "https://medium.com/@arunabhpriyadarshi/scaling-ai-systems",
+        "url": "https://medium.com/@ap2/ai-document-processing",
         "thumbnail": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop"
       },
       {
-        "title": "Building Remote Engineering Teams",
-        "excerpt": "Best practices from leading distributed teams and scaling blockchain practices...",
+        "title": "From Code Competitions to $M+ Enterprise Products: A Technical Journey",
+        "excerpt": "How competitive programming shaped my approach to building enterprise solutions that drive real business value...",
         "readTime": "6 min read",
         "publishedDate": "Jan 5, 2025", 
-        "url": "https://medium.com/@arunabhpriyadarshi/remote-engineering-teams",
+        "url": "https://medium.com/@ap2/competitive-programming-to-enterprise",
         "thumbnail": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop"
+      },
+      {
+        "title": "Building Remote-First Engineering Teams: Lessons from Scaling Blockchain Practice",
+        "excerpt": "Best practices from growing a blockchain team from 0 to 12 members while working distributed across continents...",
+        "readTime": "7 min read",
+        "publishedDate": "Dec 28, 2024",
+        "url": "https://medium.com/@ap2/remote-engineering-teams",
+        "thumbnail": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop"
       }
     ]
   },

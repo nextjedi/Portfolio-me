@@ -202,15 +202,13 @@ import { Project } from '../models/portfolio.interface';
                 <h2>Interested in Similar Solutions?</h2>
                 <p>Let's discuss how I can help bring your project ideas to life with proven expertise and innovative approaches.</p>
                 <div class="cta-actions">
-                  <button mat-raised-button 
-                          color="accent" 
+                  <button class="btn btn-cta-primary" 
                           (click)="contactMe()"
                           type="button">
                     <mat-icon>message</mat-icon>
                     <span>Let's Talk</span>
                   </button>
-                  <button mat-outlined-button 
-                          color="primary" 
+                  <button class="btn btn-cta-secondary" 
                           (click)="viewAllProjects()"
                           type="button">
                     <mat-icon>apps</mat-icon>
@@ -531,7 +529,7 @@ import { Project } from '../models/portfolio.interface';
     .project-cta {
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
       color: white;
-      padding: 4rem 0;
+      padding: 4rem 2rem;
       border-radius: var(--border-radius);
       text-align: center;
       margin-top: 2rem;
@@ -551,6 +549,7 @@ import { Project } from '../models/portfolio.interface';
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .cta-actions {
@@ -560,10 +559,47 @@ import { Project } from '../models/portfolio.interface';
       flex-wrap: wrap;
     }
 
-    .cta-actions button {
-      display: flex;
+    .cta-actions .btn {
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .cta-actions .btn-cta-primary {
+      background: white;
+      color: var(--color-primary);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-actions .btn-cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-actions .btn-cta-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .cta-actions .btn-cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .cta-actions .btn mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
     }
 
     /* Loading State */

@@ -60,18 +60,33 @@ interface CategoryInfo {
             }
           </div>
 
-          <!-- View All Projects Button -->
-          <div class="projects-actions">
-            <button mat-outlined-button
-                    color="primary"
-                    (click)="showAllProjects()"
-                    [class.animate-fade-in-up]="isVisible"
-                    style="animation-delay: 1s;"
-                    type="button">
-              <span>View All Projects</span>
-              <mat-icon>arrow_forward</mat-icon>
-            </button>
-          </div>
+          <!-- View More Projects Button -->
+          @if (!showingAllProjects() && hasMoreProjectsToShow()) {
+            <div class="projects-actions">
+              <button class="btn btn-primary view-all-btn"
+                      (click)="showAllProjects()"
+                      [class.animate-fade-in-up]="isVisible"
+                      style="animation-delay: 1s;"
+                      type="button">
+                <span>View More</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
+          } @else if (showingAllProjects() && hasMoreProjectsToShow()) {
+            <div class="projects-actions">
+              <button class="btn btn-secondary view-less-btn"
+                      (click)="showLessProjects()"
+                      [class.animate-fade-in-up]="isVisible"
+                      type="button">
+                <span>Show Less</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+              </button>
+            </div>
+          }
 
         } @else if (portfolioService.isLoading()) {
           <!-- Loading State -->
@@ -186,22 +201,62 @@ interface CategoryInfo {
       text-align: center;
       position: relative;
       z-index: 1;
+      margin-top: 3rem;
     }
 
     .projects-actions .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       opacity: 0;
       transform: translateY(20px);
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .projects-actions .btn.animate-fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    .projects-actions .btn:hover svg {
-      transform: translateX(4px);
+    .projects-actions .btn.btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      color: white;
+      box-shadow: 0 4px 15px rgba(26, 71, 42, 0.2);
+    }
+
+    .projects-actions .btn.btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(26, 71, 42, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .projects-actions .btn.btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .projects-actions .btn.btn-secondary:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .projects-actions .btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .projects-actions .btn.view-all-btn:hover svg {
+      transform: translateY(2px);
+    }
+
+    .projects-actions .btn.view-less-btn:hover svg {
+      transform: translateY(-2px);
     }
 
     /* Loading States */
@@ -386,6 +441,7 @@ export class ProjectsComponent implements OnInit {
   protected readonly selectedCategory = signal<ProjectCategory | 'all'>('all');
   protected readonly availableCategories = signal<CategoryInfo[]>([]);
   protected readonly selectedCategoryIndex = signal<number>(0);
+  protected readonly showingAllProjects = signal<boolean>(false);
   protected isVisible = false;
 
   constructor(
@@ -500,13 +556,23 @@ export class ProjectsComponent implements OnInit {
 
   protected filteredProjects(): Project[] {
     const selectedCategory = this.selectedCategory();
+    const showingAll = this.showingAllProjects();
     
     if (selectedCategory === 'all') {
-      // Show featured projects (first 3) when "All" is selected
-      return this.portfolioService.getFeaturedProjects(3);
+      // Show all or featured projects based on state
+      if (showingAll) {
+        return this.portfolioService.getProjects();
+      } else {
+        return this.portfolioService.getFeaturedProjects(4);
+      }
     } else {
-      // Show all projects from the selected category
-      return this.portfolioService.getProjectsByCategory(selectedCategory);
+      // Show all or limited projects from the selected category
+      const categoryProjects = this.portfolioService.getProjectsByCategory(selectedCategory);
+      if (showingAll) {
+        return categoryProjects;
+      } else {
+        return categoryProjects.slice(0, 4);
+      }
     }
   }
 
@@ -516,36 +582,32 @@ export class ProjectsComponent implements OnInit {
       const selectedCategoryKey = categories[categoryIndex].key;
       this.selectedCategory.set(selectedCategoryKey);
       this.selectedCategoryIndex.set(categoryIndex);
+      // Reset showing all when category changes
+      this.showingAllProjects.set(false);
+    }
+  }
+
+  protected hasMoreProjectsToShow(): boolean {
+    const selectedCategory = this.selectedCategory();
+    
+    if (selectedCategory === 'all') {
+      // Check if there are more than 4 total projects
+      const allProjects = this.portfolioService.getProjects();
+      return allProjects.length > 4;
+    } else {
+      // Check if the selected category has more than 4 projects
+      const categoryProjects = this.portfolioService.getProjectsByCategory(selectedCategory);
+      return categoryProjects.length > 4;
     }
   }
 
   protected showAllProjects(): void {
-    // For now, show all projects in individual detail pages
-    // In the future, this could navigate to a dedicated projects listing page
-    const allProjects = this.portfolioService.getProjects();
-    
-    if (allProjects.length === 0) {
-      alert('No projects are currently available.');
-      return;
-    }
-    
-    // Create a more interactive experience
-    const projectOptions = allProjects.map((project, index) => 
-      `${index + 1}. ${project.title}`
-    ).join('\n');
-    
-    const choice = prompt(
-      `Select a project to view in detail:\n\n${projectOptions}\n\nEnter the project number (1-${allProjects.length}):`
-    );
-    
-    const projectIndex = parseInt(choice || '') - 1;
-    
-    if (projectIndex >= 0 && projectIndex < allProjects.length) {
-      const selectedProject = allProjects[projectIndex];
-      const projectSlug = this.portfolioService.generateSlug(selectedProject.title);
-      this.router.navigate([projectSlug, 'detail']);
-    } else if (choice !== null) {
-      alert('Invalid selection. Please try again.');
-    }
+    // Expand to show all projects inline without scrolling
+    this.showingAllProjects.set(true);
+  }
+
+  protected showLessProjects(): void {
+    // Collapse back to first 4 projects without scrolling
+    this.showingAllProjects.set(false);
   }
 }

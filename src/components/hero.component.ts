@@ -17,30 +17,19 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       <div class="container">
         @if (personalInfo() && metrics()) {
           <div class="hero-grid">
-            <!-- Profile Image Section -->
-            <div class="hero-image-area">
-              <div class="profile-image">
-                <img 
-                  [src]="personalInfo()!.profileImage" 
-                  [alt]="personalInfo()!.name + ' - ' + personalInfo()!.title"
-                  loading="eager"
-                  crossorigin="anonymous"
-                  (error)="onImageError($event)"
-                >
-              </div>
-              <mat-chip-set>
+            <!-- Hero Content (Left Side) -->
+            <div class="hero-content">
+              <h1 class="hero-title">{{ personalInfo()!.name }}</h1>
+              <p class="hero-subtitle">{{ personalInfo()!.title }}</p>
+              <p class="hero-tagline">"{{ personalInfo()!.tagline }}"</p>
+              
+              <!-- Availability Status -->
+              <mat-chip-set class="availability-status">
                 <mat-chip [class]="getAvailabilityClass()">
                   <span class="status-icon"></span>
                   {{ personalInfo()!.availability.message }}
                 </mat-chip>
               </mat-chip-set>
-            </div>
-            
-            <!-- Hero Content -->
-            <div class="hero-content">
-              <h1 class="hero-title">{{ personalInfo()!.name }}</h1>
-              <p class="hero-subtitle">{{ personalInfo()!.title }}</p>
-              <p class="hero-tagline">"{{ personalInfo()!.tagline }}"</p>
               
               <!-- Metrics Grid -->
               <div class="metrics-grid">
@@ -82,6 +71,19 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
                 </button>
               </div>
             </div>
+            
+            <!-- Profile Image Section (Right Side) -->
+            <div class="hero-image-area">
+              <div class="profile-image">
+                <img 
+                  [src]="personalInfo()!.profileImage" 
+                  [alt]="personalInfo()!.name + ' - ' + personalInfo()!.title"
+                  loading="eager"
+                  crossorigin="anonymous"
+                  (error)="onImageError($event)"
+                >
+              </div>
+            </div>
           </div>
         } @else if (portfolioService.isLoading()) {
           <div class="hero-loading">
@@ -98,13 +100,16 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
   `,
   styles: [`
     .hero-section {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-      color: white;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--color-text);
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       position: relative;
       overflow: hidden;
+      padding-top: 0;
+      margin-top: -70px;
+      padding-top: 70px;
     }
 
     .hero-section::before {
@@ -114,41 +119,64 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+      background: 
+        radial-gradient(circle at 80% 50%, rgba(26, 71, 42, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(231, 76, 60, 0.05) 0%, transparent 50%);
       pointer-events: none;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 400px 1fr;
-      gap: 60px;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
       position: relative;
       z-index: 1;
+      width: 100%;
+      height: 100%;
     }
 
     .hero-image-area {
+      position: relative;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: stretch;
     }
 
     .profile-image {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      min-height: calc(100vh - 70px);
       overflow: hidden;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-      margin-bottom: 20px;
-      transition: var(--transition);
       position: relative;
+      background: var(--color-primary);
     }
 
-    .profile-image:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    .profile-image::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--color-primary), transparent);
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    .profile-image::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      height: 60%;
+      background: 
+        radial-gradient(ellipse at bottom, rgba(26, 71, 42, 0.3) 0%, transparent 60%),
+        linear-gradient(135deg, transparent 30%, rgba(231, 76, 60, 0.1) 70%);
+      z-index: 2;
     }
 
     .profile-image img {
@@ -156,15 +184,24 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       height: 100%;
       object-fit: cover;
       display: block;
+      position: relative;
+      z-index: 0;
     }
 
-    mat-chip-set {
-      justify-content: center;
+    .availability-status {
+      margin-bottom: 30px;
+    }
+
+    .availability-status mat-chip {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
     }
 
     mat-chip.availability-available {
       background: var(--color-success) !important;
       color: white !important;
+      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
     }
 
     mat-chip .status-icon {
@@ -182,7 +219,25 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
     }
 
     .hero-content {
-      padding-right: 20px;
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+      position: relative;
+    }
+
+    .hero-content::after {
+      content: '';
+      position: absolute;
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+      opacity: 0.1;
+      border-radius: 50%;
     }
 
     .hero-title {
@@ -191,12 +246,13 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       margin-bottom: 16px;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      color: var(--color-text);
     }
 
     .hero-subtitle {
       font-size: 24px;
       margin-bottom: 20px;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--color-text-secondary);
       font-weight: 500;
     }
 
@@ -204,7 +260,7 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       font-size: 20px;
       margin-bottom: 40px;
       font-style: italic;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--color-text-secondary);
       line-height: 1.4;
     }
 
@@ -252,65 +308,47 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-    }
-
-    .cta-group {
       align-items: center;
+      margin-top: 40px;
     }
 
-    .cta-group button,
-    .cta-group a {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      margin-right: 8px;
-      font-family: var(--font-primary) !important;
-      font-weight: 600 !important;
-      text-transform: none !important;
-      border-radius: 8px !important;
+    .cta-group button {
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      font-family: var(--font-primary);
     }
 
-    .cta-group button:hover,
-    .cta-group a:hover {
+    .cta-group .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      color: white;
+      box-shadow: 0 4px 15px rgba(26, 71, 42, 0.2);
+    }
+
+    .cta-group .btn-primary:hover {
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26, 71, 42, 0.3);
     }
 
-    /* Specific Material Button styling for hero section */
-    .cta-group .mat-mdc-outlined-button {
-      border-color: rgba(255, 255, 255, 0.6) !important;
-      color: white !important;
+    .cta-group .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
     }
 
-    .cta-group .mat-mdc-outlined-button:hover {
-      background-color: rgba(255, 255, 255, 0.1) !important;
-      border-color: rgba(255, 255, 255, 0.8) !important;
-    }
-
-    .cta-group .mat-mdc-raised-button {
-      background-color: var(--color-accent) !important;
-      color: white !important;
-    }
-
-    .cta-group .mat-mdc-raised-button:hover {
-      background-color: #c0392b !important;
-    }
-
-    /* Fallback styling for buttons that may not get Material styles */
-    .cta-group button:not([class*="mat-mdc"]),
-    .cta-group a:not([class*="mat-mdc"]) {
-      padding: 12px 24px !important;
-      border: 2px solid rgba(255, 255, 255, 0.6) !important;
-      background-color: transparent !important;
-      color: white !important;
-      text-decoration: none !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      min-height: 48px !important;
-    }
-
-    .cta-group button:not([class*="mat-mdc"]):hover,
-    .cta-group a:not([class*="mat-mdc"]):hover {
-      background-color: rgba(255, 255, 255, 0.1) !important;
-      border-color: rgba(255, 255, 255, 0.8) !important;
+    .cta-group .btn-secondary:hover {
+      background: var(--color-primary);
+      color: white;
+      transform: translateY(-2px);
     }
 
     /* Loading and Error States */
@@ -330,19 +368,28 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
 
     /* Responsive Design */
     @media (max-width: 1024px) {
+      .hero-section {
+        margin-top: -60px;
+        padding-top: 60px;
+      }
+      
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 40px;
       }
 
       .hero-content {
-        padding-right: 0;
+        padding: 60px 40px;
+        text-align: left;
+      }
+      
+      .hero-content::after {
+        display: none;
       }
 
       .profile-image {
-        width: 250px;
-        height: 250px;
+        min-height: 400px;
+        max-height: 500px;
       }
     }
 
@@ -370,8 +417,10 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       }
 
       .profile-image {
-        width: 200px;
-        height: 200px;
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
       }
 
       .cta-group {
@@ -401,8 +450,10 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       }
 
       .profile-image {
-        width: 180px;
-        height: 180px;
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+        margin: 0 auto;
       }
 
       .metric-card {
