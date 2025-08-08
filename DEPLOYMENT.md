@@ -85,6 +85,31 @@ Value: cname.vercel-dns.com
 - Add portfolio link to GitHub profile
 - Pin repository for visibility
 
+## 🤖 GitHub Actions CI/CD
+
+### Automatic Deployment Setup
+The repository includes a GitHub Actions workflow for automatic deployment:
+
+**Required Vercel Secrets** (Add in GitHub repo → Settings → Secrets):
+```
+VERCEL_TOKEN=your_vercel_token
+VERCEL_ORG_ID=your_vercel_org_id  
+VERCEL_PROJECT_ID=your_vercel_project_id
+```
+
+### How to Get Vercel Secrets:
+1. **VERCEL_TOKEN**:
+   - Go to [Vercel Dashboard → Settings → Tokens](https://vercel.com/account/tokens)
+   - Create new token with appropriate scope
+
+2. **VERCEL_ORG_ID & VERCEL_PROJECT_ID**:
+   - Run: `npx vercel link` in project directory
+   - Check `.vercel/project.json` for the IDs
+
+### Workflow Triggers:
+- ✅ Every push to `master` branch
+- ✅ Manual trigger via GitHub Actions tab
+
 ## 🔧 Environment Variables (if needed)
 In Vercel dashboard → Settings → Environment Variables:
 ```
