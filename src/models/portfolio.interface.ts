@@ -28,6 +28,13 @@ export interface Story {
   highlight: string;
 }
 
+export interface Achievement {
+  title: string;
+  description: string;
+  year: string;
+  type: 'competition' | 'speaking' | 'certification';
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -175,6 +182,7 @@ export interface PortfolioData {
   personal: PersonalInfo;
   metrics: Metric[];
   story: Story;
+  achievements: Achievement[];
   projectCategories: ProjectCategories;
   skills: Skills;
   contact: Contact;

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://arunabh.me/sitemap.xml
+
+# Block access to sensitive files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.angular/
+Disallow: /dist/
+
+# Allow important pages
+Allow: /
+Allow: /*/detail
+Allow: /data/portfolio.json
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1

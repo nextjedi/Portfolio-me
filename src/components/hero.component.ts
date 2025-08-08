@@ -112,18 +112,6 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       padding-top: 70px;
     }
 
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 80% 50%, rgba(26, 71, 42, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(231, 76, 60, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-    }
 
     .hero-grid {
       display: grid;
@@ -223,22 +211,10 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: white;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       position: relative;
     }
 
-    .hero-content::after {
-      content: '';
-      position: absolute;
-      right: -100px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
-      opacity: 0.1;
-      border-radius: 50%;
-    }
 
     .hero-title {
       font-size: var(--font-size-hero);
@@ -272,18 +248,19 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
     }
 
     mat-card.metric-card {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      background: white !important;
+      border: 1px solid rgba(226, 232, 240, 0.8) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
       transition: var(--transition);
       cursor: help;
-      backdrop-filter: blur(10px);
       text-align: center;
     }
 
     mat-card.metric-card:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.15) !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+      background: white !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+      border-color: var(--color-primary) !important;
     }
 
     mat-card.metric-card mat-card-content {
@@ -293,21 +270,21 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
     .metric-value {
       font-size: 28px;
       font-weight: 700;
-      color: var(--color-accent);
+      color: var(--color-primary);
       margin-bottom: 5px;
       line-height: 1;
     }
 
     .metric-label {
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--color-text-secondary);
       font-weight: 500;
     }
 
     .cta-group {
       display: flex;
       gap: 16px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: center;
       margin-top: 40px;
     }
@@ -383,9 +360,6 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
         text-align: left;
       }
       
-      .hero-content::after {
-        display: none;
-      }
 
       .profile-image {
         min-height: 400px;
@@ -424,14 +398,13 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       }
 
       .cta-group {
-        flex-direction: column;
-        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
-      .cta-group button,
-      .cta-group a {
-        width: 100%;
-        margin-right: 0;
+      .cta-group button {
+        flex: 1;
+        min-width: 140px;
         margin-bottom: 8px;
       }
     }
@@ -462,6 +435,15 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
 
       .metric-value {
         font-size: 24px;
+      }
+      
+      .cta-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .cta-group button {
+        width: 100%;
       }
     }
   `]

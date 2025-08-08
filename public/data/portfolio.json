@@ -57,10 +57,10 @@
       "description": "Served Fortune 500 CISOs and enterprise executives globally"
     },
     {
-      "id": "achievement",
-      "value": "3x",
-      "label": "Code Champion",
-      "description": "National finalist in Code Gladiators - Top 300 of 250,000+"
+      "id": "achievement", 
+      "value": "Top 300",
+      "label": "of 250K+ Developers",
+      "description": "3x National Finalist in India's largest coding competition"
     }
   ],
 
@@ -519,7 +519,7 @@
     "keywords": "senior software engineer, technical leader, enterprise architecture, AI integration, blockchain, remote work, full stack developer",
     "ogImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop",
     "author": "Arunabh Priyadarshi",
-    "canonicalUrl": "https://arunabhpriyadarshi.com"
+    "canonicalUrl": "https://arunabh.me"
   },
 
   "theme": {

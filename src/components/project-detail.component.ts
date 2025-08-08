@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { PortfolioService } from '../services/portfolio.service';
+import { SEOService } from '../services/seo.service';
 import { Project } from '../models/portfolio.interface';
 
 @Component({
@@ -740,7 +741,8 @@ export class ProjectDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private portfolioService: PortfolioService
+    private portfolioService: PortfolioService,
+    private seoService: SEOService
   ) {}
 
   ngOnInit(): void {
@@ -759,6 +761,12 @@ export class ProjectDetailComponent implements OnInit {
     setTimeout(() => {
       this.project.set(foundProject);
       this.isLoading.set(false);
+      
+      // Update SEO for project page
+      if (foundProject) {
+        this.seoService.updateProjectSEO(foundProject);
+        this.seoService.addProjectStructuredData(foundProject);
+      }
     }, 500); // Small delay for better UX
   }
 
