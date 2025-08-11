@@ -66,16 +66,27 @@ interface CategoryInfo {
               <button class="btn btn-primary view-all-btn"
                       (click)="showAllProjects()"
                       [class.animate-fade-in-up]="isVisible"
+                      [disabled]="isLoadingMore()"
                       style="animation-delay: 1s;"
                       type="button">
-                <span>View More</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
+                @if (isLoadingMore()) {
+                  <div class="loading-spinner">
+                    <svg class="spinner" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"/>
+                      <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span>Loading...</span>
+                } @else {
+                  <span>View More</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                }
               </button>
             </div>
           } @else if (showingAllProjects() && hasMoreProjectsToShow()) {
-            <div class="projects-actions">
+            <div class="projects-actions" id="projects-expanded">
               <button class="btn btn-secondary view-less-btn"
                       (click)="showLessProjects()"
                       [class.animate-fade-in-up]="isVisible"
@@ -368,7 +379,37 @@ interface CategoryInfo {
       margin-right: auto;
     }
 
+    /* Loading Spinner */
+    .loading-spinner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .spinner {
+      animation: spin 1s linear infinite;
+    }
+
+    .view-all-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .view-all-btn:disabled:hover {
+      transform: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
     /* Animations */
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     @keyframes pulse {
       from {
         opacity: 1;
@@ -442,6 +483,7 @@ export class ProjectsComponent implements OnInit {
   protected readonly availableCategories = signal<CategoryInfo[]>([]);
   protected readonly selectedCategoryIndex = signal<number>(0);
   protected readonly showingAllProjects = signal<boolean>(false);
+  protected readonly isLoadingMore = signal<boolean>(false);
   protected isVisible = false;
 
   constructor(
@@ -602,12 +644,33 @@ export class ProjectsComponent implements OnInit {
   }
 
   protected showAllProjects(): void {
-    // Expand to show all projects inline without scrolling
-    this.showingAllProjects.set(true);
+    // Show loading state
+    this.isLoadingMore.set(true);
+    
+    // Simulate loading delay to show the loading spinner
+    setTimeout(() => {
+      // Expand to show all projects
+      this.showingAllProjects.set(true);
+      this.isLoadingMore.set(false);
+    }, 800); // 800ms loading delay
   }
 
   protected showLessProjects(): void {
-    // Collapse back to first 4 projects without scrolling
+    // Collapse back to first 4 projects and scroll to the expanded section
     this.showingAllProjects.set(false);
+    
+    // Scroll to the top of the projects section after collapsing
+    setTimeout(() => {
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        const navHeight = 70; // Navigation height
+        const elementPosition = projectsSection.offsetTop - navHeight;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100); // Small delay to allow DOM update
   }
 }
