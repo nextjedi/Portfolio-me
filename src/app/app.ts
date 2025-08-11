@@ -2,8 +2,9 @@ import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-// Import navigation component
+// Import navigation and footer components
 import { NavigationComponent } from '../components/navigation.component';
+import { FooterComponent } from '../components/footer.component';
 
 // Import services
 import { PortfolioService } from '../services/portfolio.service';
@@ -15,7 +16,8 @@ import { ThemeService } from '../services/theme.service';
   imports: [
     CommonModule,
     RouterOutlet,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

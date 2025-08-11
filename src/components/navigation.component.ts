@@ -475,7 +475,7 @@ export class NavigationComponent implements OnInit {
 
     // Wait for DOM to be ready and observe sections
     setTimeout(() => {
-      const sections = ['hero', 'about', 'projects', 'blog', 'contact'];
+      const sections = ['hero', 'about', 'achievements', 'projects', 'blog', 'contact'];
       sections.forEach(id => {
         const element = document.getElementById(id);
         if (element && this.intersectionObserver) {

@@ -384,21 +384,21 @@
 
   "achievements": [
     {
-      "title": "3x Code Gladiators National Finalist",
-      "description": "Top 300 out of 250,000+ developers (2017, 2018, 2019)",
-      "year": "2017-2019",
-      "type": "competition"
-    },
-    {
-      "title": "IBM Bluemix National Hackathon Winner", 
-      "description": "1st Place in national competition",
-      "year": "2015",
-      "type": "competition"
+      "title": "Genesis DevCon Speaker",
+      "description": "International Blockchain Congress speaker",
+      "year": "2019-2020",
+      "type": "speaking"
     },
     {
       "title": "CodeChef SnackDown Global Rank 445",
       "description": "International competitive programming achievement",
       "year": "2019", 
+      "type": "competition"
+    },
+    {
+      "title": "3x Code Gladiators National Finalist",
+      "description": "Top 300 out of 250,000+ developers (2017, 2018, 2019)",
+      "year": "2017-2019",
       "type": "competition"
     },
     {
@@ -408,16 +408,16 @@
       "type": "competition"
     },
     {
-      "title": "Genesis DevCon Speaker",
-      "description": "International Blockchain Congress speaker",
-      "year": "2019-2020",
-      "type": "speaking"
-    },
-    {
       "title": "Microsoft Research Certification",
       "description": "Design and Analysis of Algorithms",
       "year": "2018",
       "type": "certification"
+    },
+    {
+      "title": "IBM Bluemix National Hackathon Winner", 
+      "description": "1st Place in national competition",
+      "year": "2015",
+      "type": "competition"
     }
   ],
 
@@ -454,6 +454,11 @@
       "label": "About",
       "href": "#about",
       "section": "about"
+    },
+    {
+      "label": "Achievements",
+      "href": "#achievements",
+      "section": "achievements"
     },
     {
       "label": "Projects", 
