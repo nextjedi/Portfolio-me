@@ -46,7 +46,7 @@
   "metrics": [
     {
       "id": "revenue",
-      "value": "$M+",
+      "value": "$5m+",
       "label": "Revenue Impact",
       "description": "Built products driving millions in enterprise contract renewals"
     },
@@ -90,7 +90,7 @@
           "company": "Gartner",
           "duration": "Feb 2023 - March 2025",
           "metrics": {
-            "revenue": "$M+ Revenue Driver",
+            "revenue": "$5m+ Revenue Driver",
             "users": "720+ CISOs, 2,500+ Total Users",
             "renewals": "15+ Enterprise Renewals",
             "reports": "500+ Quarterly Reports"
@@ -107,7 +107,7 @@
           "highlights": [
             "Built complete backend infrastructure serving Fortune 500 CISOs",
             "Integrated OpenAI ChatGPT for automated security insights and recommendations",
-            "Became primary driver for $M+ enterprise contract renewals",
+            "Became primary driver for $5m+ enterprise contract renewals",
             "Dashboard delegation feature extended reach to 2,500+ users",
             "Automated 500+ quarterly reports, replacing manual processes"
           ],
@@ -500,7 +500,7 @@
         "thumbnail": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop"
       },
       {
-        "title": "From Code Competitions to $M+ Enterprise Products: A Technical Journey",
+        "title": "From Code Competitions to $5m+ Enterprise Products: A Technical Journey",
         "excerpt": "How competitive programming shaped my approach to building enterprise solutions that drive real business value...",
         "readTime": "6 min read",
         "publishedDate": "Jan 5, 2025", 
@@ -520,7 +520,7 @@
 
   "seo": {
     "title": "Arunabh Priyadarshi - Senior Software Engineer & Technical Leader",
-    "description": "Senior Software Engineer specializing in enterprise solutions, AI integration, and blockchain. Built systems serving 2,500+ users with $M+ revenue impact.",
+    "description": "Senior Software Engineer specializing in enterprise solutions, AI integration, and blockchain. Built systems serving 2,500+ users with $5m+ revenue impact.",
     "keywords": "senior software engineer, technical leader, enterprise architecture, AI integration, blockchain, remote work, full stack developer",
     "ogImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop",
     "author": "Arunabh Priyadarshi",

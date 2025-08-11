@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     // Set SEO for homepage
     this.seoService.updateSEO({
       title: 'Arunabh Priyadarshi - Senior Software Engineer & Technical Leader',
-      description: 'Senior Software Engineer specializing in enterprise solutions, AI integration, and blockchain. Built systems serving 2,500+ users with $M+ revenue impact.',
+      description: 'Senior Software Engineer specializing in enterprise solutions, AI integration, and blockchain. Built systems serving 2,500+ users with $5m+ revenue impact.',
       keywords: 'senior software engineer, technical leader, enterprise architecture, AI integration, blockchain, remote work, full stack developer, competitive programming',
       canonicalUrl: 'https://arunabh.me/'
     });
