@@ -3,10 +3,11 @@
 This file contains step-by-step instructions to complete the GitHub Actions CI/CD setup for automatic Vercel deployment.
 
 ## 🎯 Current Status
-- ✅ Portfolio deployed manually: https://portfolio-7h5q48sy2-arunabh-priyadarshis-projects.vercel.app
+- ✅ Portfolio deployed automatically: https://arunabh.me
 - ✅ GitHub Actions workflow file created (`.github/workflows/deploy.yml`)
 - ✅ Vercel project linked and configured
-- 🔑 **PENDING**: Add GitHub repository secrets for automatic deployment
+- ✅ Production deployment pipeline active on `master` branch
+- 🔑 **SETUP REQUIRED**: Add GitHub repository secrets for automatic deployment
 
 ## 🔑 Required GitHub Secrets
 

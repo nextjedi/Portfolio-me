@@ -19,7 +19,7 @@ export class AnalyticsService {
     // Add Google Analytics script
     const gaScript = document.createElement('script');
     gaScript.async = true;
-    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-20MDQWKT8T';
     document.head.appendChild(gaScript);
 
     // Add GA configuration script
@@ -28,7 +28,7 @@ export class AnalyticsService {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
+      gtag('config', 'G-20MDQWKT8T', {
         page_title: document.title,
         page_location: window.location.href
       });
@@ -41,7 +41,7 @@ export class AnalyticsService {
   // Track page views
   trackPageView(url: string, title: string): void {
     if (this.isInitialized && typeof gtag !== 'undefined') {
-      gtag('config', 'GA_MEASUREMENT_ID', {
+      gtag('config', 'G-20MDQWKT8T', {
         page_path: url,
         page_title: title
       });

@@ -8,7 +8,7 @@
    - Go to [vercel.com](https://vercel.com)
    - Click "New Project"
    - Import from GitHub: `nextjedi/Portfolio-me`
-   - Branch: `bugfix/portfolio-fixes`
+   - Branch: `master`
 
 ### Automatic Configuration
 Vercel will automatically:
