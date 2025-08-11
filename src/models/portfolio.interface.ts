@@ -33,6 +33,7 @@ export interface Achievement {
   description: string;
   year: string;
   type: 'competition' | 'speaking' | 'certification';
+  certificateUrl?: string;
 }
 
 export interface Project {
