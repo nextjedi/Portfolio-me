@@ -30,8 +30,8 @@
 
   "personal": {
     "name": "ARUNABH PRIYADARSHI",
-    "title": "Senior Software Engineer & Technical Leader",
-    "tagline": "Building enterprise products that drive revenue and scale",
+    "title": "Senior Software Engineer SDE-III (9 years of Experience)",
+    "tagline": "Developer, coder, hacker, passionate to learn and build stuff that impacts and improves the way we do things for good",
     "email": "arunabhmaster@gmail.com",
     "location": "Patna, India",
     "availability": {
@@ -71,7 +71,7 @@
       "Over 8+ years, I've evolved from writing algorithms to architecting enterprise solutions that serve Fortune 500 companies. I've led technical teams, built products from inception to acquisition, and created systems that directly drive business revenue.",
       "Today, I specialize in microservices architecture, AI integration, and blockchain solutions, helping companies scale their technology while building high-performing remote teams."
     ],
-    "highlight": "What drives me: Solving complex technical challenges that have measurable business impact, while mentoring teams and sharing knowledge through speaking and writing."
+    "highlight": "<strong>Career Highlights:</strong><ul><li>As a senior member of Gartner's Innovation Tools team, developed software products, defined best practices for efficient development, and managed and contributed to a shared code library to promote code reuse across products.</li><li>Designed, architected and lead the development of microservice based application interacting with deep learning models (AI) on multiple fronts.</li><li>Consulting Developer at KPIT centre of excellence</li><li>Secured a position in top 300 coders of India in Code Gladiators 2017,2018 and 2019, a national level competitive coding contest out of 2.5 lakhs+ competitors.</li><li>Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code in an hour, which otherwise would take over a month. (2016-2018)</li><li>Acquired certificate for Design and analysis of algorithm from Microsoft Research Bangalore.</li></ul>"
   },
 
   "projectCategories": {
@@ -384,6 +384,12 @@
 
   "achievements": [
     {
+      "title": "Guest Lecturer - Blockchain Technology",
+      "description": "Invited speaker at BVBCET Hubli & GAT Bangalore for engineering students",
+      "year": "2020",
+      "type": "speaking"
+    },
+    {
       "title": "Genesis DevCon Speaker",
       "description": "International Blockchain Congress speaker",
       "year": "2019-2020",
@@ -396,10 +402,32 @@
       "type": "competition"
     },
     {
-      "title": "3x Code Gladiators National Finalist",
-      "description": "Top 300 out of 250,000+ developers (2017, 2018, 2019)",
-      "year": "2017-2019",
-      "type": "competition"
+      "title": "3 Address Code Contest Finalist",
+      "description": "Johnson & Johnson competitive coding contest",
+      "year": "2019",
+      "type": "competition",
+      "certificateUrl": "/assets/certificates/3-address-code-2019.jpg"
+    },
+    {
+      "title": "Code Gladiators National Finalist 2019",
+      "description": "Top 300 out of 250,000+ developers",
+      "year": "2019",
+      "type": "competition",
+      "certificateUrl": "/assets/certificates/code-gladiators-2019.jpg"
+    },
+    {
+      "title": "Code Gladiators National Finalist 2018",
+      "description": "Top 300 out of 250,000+ developers",
+      "year": "2018",
+      "type": "competition",
+      "certificateUrl": "/assets/certificates/code-gladiators-2018.jpg"
+    },
+    {
+      "title": "Code Gladiators National Finalist 2017",
+      "description": "Top 300 out of 250,000+ developers",
+      "year": "2017",
+      "type": "competition",
+      "certificateUrl": "/assets/certificates/code-gladiators-2017.jpg"
     },
     {
       "title": "Alexa Hackathon Finalist",
@@ -408,16 +436,32 @@
       "type": "competition"
     },
     {
-      "title": "Microsoft Research Certification",
-      "description": "Design and Analysis of Algorithms",
-      "year": "2018",
-      "type": "certification"
-    },
-    {
       "title": "IBM Bluemix National Hackathon Winner", 
       "description": "1st Place in national competition",
       "year": "2015",
-      "type": "competition"
+      "type": "competition",
+      "certificateUrl": "/assets/certificates/ibm-bluemix-2015.jpg"
+    },
+    {
+      "title": "Microsoft Research Certification",
+      "description": "Certificate of Proficiency in Design & Analysis of Algorithms",
+      "year": "2014",
+      "type": "certification",
+      "certificateUrl": "/assets/certificates/microsoft-research-2014.jpg"
+    },
+    {
+      "title": "Intra-College Coding Contest",
+      "description": "3rd Prize winner",
+      "year": "2014",
+      "type": "competition",
+      "certificateUrl": "/assets/certificates/intra-college-contest-2014.jpg"
+    },
+    {
+      "title": "Outstanding Performance Award",
+      "description": "Data Structures & Algorithms",
+      "year": "2013",
+      "type": "academic",
+      "certificateUrl": "/assets/certificates/outstanding-performance-2013.jpg"
     }
   ],
 

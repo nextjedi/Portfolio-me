@@ -24,7 +24,7 @@ import { Achievement } from '../models/portfolio.interface';
         @if (achievements() && achievements()!.length > 0) {
           <div class="achievements-grid" 
                [class.visible]="isVisible">
-            @for (achievement of achievements(); track achievement.title) {
+            @for (achievement of getDisplayedAchievements(); track achievement.title) {
               <div class="achievement-badge"
                    [class]="'achievement-badge achievement-' + achievement.type + (achievement.certificateUrl ? ' has-certificate' : '')"
                    [class.animate-fade-in-up]="isVisible"
@@ -55,6 +55,20 @@ import { Achievement } from '../models/portfolio.interface';
               </div>
             }
           </div>
+          
+          @if (shouldShowExpandButton()) {
+            <div class="expand-button-container">
+              <button mat-raised-button 
+                      color="primary" 
+                      class="expand-button"
+                      (click)="toggleExpanded()"
+                      [class.animate-fade-in-up]="isVisible"
+                      [style.animation-delay]="(getDisplayedAchievements().length * 0.1 + 0.2) + 's'">
+                <mat-icon>{{ isExpanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+                {{ isExpanded ? 'View Less' : 'View More' }}
+              </button>
+            </div>
+          }
         } @else if (portfolioService.isLoading()) {
           <!-- Loading State -->
           <div class="achievements-loading">
@@ -519,6 +533,51 @@ import { Achievement } from '../models/portfolio.interface';
       }
     }
 
+    /* Expand Button */
+    .expand-button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .expand-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-transform: none;
+      font-size: 14px;
+      min-width: 140px;
+      box-shadow: 0 4px 15px rgba(26, 71, 42, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .expand-button.animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .expand-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(26, 71, 42, 0.4);
+    }
+
+    .expand-button mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .expand-button:hover mat-icon {
+      transform: scale(1.1);
+    }
+
     /* Intersection Observer Enhancement */
     .achievements-grid.visible .achievement-card {
       animation-play-state: running;
@@ -528,6 +587,8 @@ import { Achievement } from '../models/portfolio.interface';
 export class AchievementsComponent implements OnInit {
   protected readonly achievements = signal<Achievement[] | null>(null);
   protected isVisible = false;
+  protected isExpanded = false;
+  protected readonly initialDisplayCount = 6;
 
   constructor(
     protected portfolioService: PortfolioService,
@@ -607,6 +668,26 @@ export class AchievementsComponent implements OnInit {
       default:
         return 'Achievement';
     }
+  }
+
+  protected getDisplayedAchievements(): Achievement[] {
+    const allAchievements = this.achievements();
+    if (!allAchievements) return [];
+    
+    if (this.isExpanded) {
+      return allAchievements;
+    } else {
+      return allAchievements.slice(0, this.initialDisplayCount);
+    }
+  }
+
+  protected shouldShowExpandButton(): boolean {
+    const allAchievements = this.achievements();
+    return allAchievements ? allAchievements.length > this.initialDisplayCount : false;
+  }
+
+  protected toggleExpanded(): void {
+    this.isExpanded = !this.isExpanded;
   }
 
   protected openCertificate(achievement: Achievement): void {

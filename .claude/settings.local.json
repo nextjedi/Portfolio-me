@@ -32,7 +32,21 @@
       "Bash(taskkill:*)",
       "Bash(tasklist:*)",
       "Bash(ps:*)",
-      "Bash(kill:*)"
+      "Bash(kill:*)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)"
     ],
     "deny": []
   }
