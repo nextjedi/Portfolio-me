@@ -1,6 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PortfolioService } from '../services/portfolio.service';
+import { AnalyticsService } from '../services/analytics.service';
 import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
 
 @Component({
@@ -98,11 +100,22 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
               </div>
             </div>
 
+            <!-- GitHub Sponsors Card -->
+            @if (sponsorCardHtml()) {
+              <div class="sponsor-section"
+                   [class.animate-fade-in-up]="isVisible"
+                   style="animation-delay: 0.8s;">
+                <h3 class="sponsor-title">Support My Work</h3>
+                <p class="sponsor-subtitle">If you find my work valuable, consider sponsoring me on GitHub</p>
+                <div class="sponsor-card-wrapper" [innerHTML]="sponsorCardHtml()"></div>
+              </div>
+            }
+
             <!-- Social Links -->
             @if (contactInfo()!.social && contactInfo()!.social.length > 0) {
               <div class="social-links"
                    [class.animate-fade-in-up]="isVisible"
-                   style="animation-delay: 0.8s;">
+                   style="animation-delay: 1s;">
                 <div class="social-label">Connect with me:</div>
                 <div class="social-icons">
                   @for (social of contactInfo()!.social; track social.platform) {
@@ -152,7 +165,7 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
         <!-- Footer Info -->
         <div class="footer-info"
              [class.animate-fade-in-up]="isVisible"
-             style="animation-delay: 1s;">
+             style="animation-delay: 1.2s;">
           <p>&copy; 2025 Arunabh Priyadarshi. Built with Angular & passion for clean code.</p>
           <div class="footer-links">
             <a href="#" (click)="showPrivacyPolicy($event)">Privacy Policy</a>
@@ -315,6 +328,44 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
       flex-shrink: 0;
     }
 
+    /* Sponsor Section */
+    .sponsor-section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .sponsor-section.animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .sponsor-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .sponsor-subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+    }
+
+    .sponsor-card-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .sponsor-card-wrapper :deep(iframe) {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
     .social-links {
       opacity: 0;
       transform: translateY(30px);
@@ -472,6 +523,11 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
         height: 44px;
       }
 
+      .sponsor-card-wrapper :deep(iframe) {
+        transform: scale(0.8);
+        transform-origin: center;
+      }
+
       .footer-links {
         flex-direction: column;
         gap: 0.5rem;
@@ -500,9 +556,14 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
 })
 export class ContactComponent implements OnInit {
   protected readonly contactInfo = signal<Contact | null>(null);
+  protected readonly sponsorCardHtml = signal<SafeHtml | null>(null);
   protected isVisible = false;
 
-  constructor(protected portfolioService: PortfolioService) {}
+  constructor(
+    protected portfolioService: PortfolioService,
+    private sanitizer: DomSanitizer,
+    private analyticsService: AnalyticsService
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -515,6 +576,10 @@ export class ContactComponent implements OnInit {
     if (data && data.contact) {
       this.contactInfo.set(data.contact);
     }
+    if (data && data.shared?.social?.['sponsor']?.['cardEmbed']) {
+      const safeHtml = this.sanitizer.bypassSecurityTrustHtml(data.shared.social['sponsor']['cardEmbed']);
+      this.sponsorCardHtml.set(safeHtml);
+    }
   }
   
   private subscribeToDataChanges(): void {
@@ -522,6 +587,10 @@ export class ContactComponent implements OnInit {
       const data = this.portfolioService.data();
       if (data && data.contact) {
         this.contactInfo.set(data.contact);
+        if (data.shared?.social?.['sponsor']?.['cardEmbed']) {
+          const safeHtml = this.sanitizer.bypassSecurityTrustHtml(data.shared.social['sponsor']['cardEmbed']);
+          this.sponsorCardHtml.set(safeHtml);
+        }
         clearInterval(checkInterval);
       }
     }, 100);
@@ -546,7 +615,9 @@ export class ContactComponent implements OnInit {
   }
 
   protected trackCTAClick(ctaText: string): void {
-    console.log(`Contact CTA clicked: ${ctaText}`);
+    // Track the contact interaction
+    this.analyticsService.trackContactInteraction(ctaText);
+    
     // Check if this is an email link
     const cta = this.contactInfo()?.cta?.find(c => c.text === ctaText);
     if (cta?.url.startsWith('mailto:')) {
@@ -556,6 +627,8 @@ export class ContactComponent implements OnInit {
   }
 
   protected trackSocialClick(platform: string): void {
+    // Track social link click
+    this.analyticsService.trackContactInteraction(`Social: ${platform}`);
     console.log(`Social link clicked: ${platform}`);
   }
 

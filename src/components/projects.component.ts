@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PortfolioService } from '../services/portfolio.service';
+import { AnalyticsService } from '../services/analytics.service';
 import { Project } from '../models/portfolio.interface';
 import { ProjectCardComponent } from './project-card.component';
 
@@ -488,7 +489,8 @@ export class ProjectsComponent implements OnInit {
 
   constructor(
     protected portfolioService: PortfolioService,
-    private router: Router
+    private router: Router,
+    private analyticsService: AnalyticsService
   ) {}
 
   ngOnInit(): void {

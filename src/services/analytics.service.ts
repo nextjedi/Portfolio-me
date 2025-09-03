@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 
 declare let gtag: Function;
 
@@ -7,10 +8,13 @@ declare let gtag: Function;
 })
 export class AnalyticsService {
   private isInitialized = false;
+  private measurementId: string;
 
   constructor() {
-    // Initialize Google Analytics only in production and browser environment
-    if (this.isProd() && this.isBrowser()) {
+    this.measurementId = environment.analytics.measurementId;
+    
+    // Initialize Google Analytics only if measurement ID is provided and in browser environment
+    if (this.measurementId && this.isBrowser() && this.isProd()) {
       this.initializeGA();
     }
   }
@@ -19,7 +23,7 @@ export class AnalyticsService {
     // Add Google Analytics script
     const gaScript = document.createElement('script');
     gaScript.async = true;
-    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-20MDQWKT8T';
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${this.measurementId}`;
     document.head.appendChild(gaScript);
 
     // Add GA configuration script
@@ -28,7 +32,7 @@ export class AnalyticsService {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-20MDQWKT8T', {
+      gtag('config', '${this.measurementId}', {
         page_title: document.title,
         page_location: window.location.href
       });
@@ -41,7 +45,7 @@ export class AnalyticsService {
   // Track page views
   trackPageView(url: string, title: string): void {
     if (this.isInitialized && typeof gtag !== 'undefined') {
-      gtag('config', 'G-20MDQWKT8T', {
+      gtag('config', this.measurementId, {
         page_path: url,
         page_title: title
       });

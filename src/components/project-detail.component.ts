@@ -7,6 +7,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { PortfolioService } from '../services/portfolio.service';
 import { SEOService } from '../services/seo.service';
+import { AnalyticsService } from '../services/analytics.service';
 import { Project } from '../models/portfolio.interface';
 
 @Component({
@@ -742,7 +743,8 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private portfolioService: PortfolioService,
-    private seoService: SEOService
+    private seoService: SEOService,
+    private analyticsService: AnalyticsService
   ) {}
 
   ngOnInit(): void {
@@ -766,6 +768,10 @@ export class ProjectDetailComponent implements OnInit {
       if (foundProject) {
         this.seoService.updateProjectSEO(foundProject);
         this.seoService.addProjectStructuredData(foundProject);
+        
+        // Track project view
+        const category = foundProject.category || 'Uncategorized';
+        this.analyticsService.trackProjectView(foundProject.title, category);
       }
     }, 500); // Small delay for better UX
   }
@@ -788,6 +794,7 @@ export class ProjectDetailComponent implements OnInit {
   protected openDemo(): void {
     const demoUrl = this.project()?.demoUrl;
     if (demoUrl) {
+      this.analyticsService.trackExternalLink(demoUrl, 'Project Demo');
       window.open(demoUrl, '_blank', 'noopener,noreferrer');
     }
   }
@@ -795,6 +802,7 @@ export class ProjectDetailComponent implements OnInit {
   protected openGithub(): void {
     const githubUrl = this.project()?.githubUrl;
     if (githubUrl) {
+      this.analyticsService.trackExternalLink(githubUrl, 'Project GitHub');
       window.open(githubUrl, '_blank', 'noopener,noreferrer');
     }
   }

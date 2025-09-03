@@ -46,7 +46,9 @@
       "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
       "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
       "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
-      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)"
+      "Read(C:\\Users\\nextjedi\\Downloads\\Photos-1-001/**)",
+      "Bash(gh project item-create:*)",
+      "Bash(git grep:*)"
     ],
     "deny": []
   }

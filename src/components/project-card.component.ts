@@ -7,6 +7,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { Project } from '../models/portfolio.interface';
 import { PortfolioService } from '../services/portfolio.service';
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-project-card',
@@ -312,7 +313,8 @@ export class ProjectCardComponent {
 
   constructor(
     private router: Router,
-    private portfolioService: PortfolioService
+    private portfolioService: PortfolioService,
+    private analyticsService: AnalyticsService
   ) {}
 
   protected hasMetrics(): boolean {
@@ -335,6 +337,10 @@ export class ProjectCardComponent {
 
   protected showCaseStudy(): void {
     console.log('Case study clicked for project:', this.project.title);
+    
+    // Track project click
+    const category = this.project.category || 'Uncategorized';
+    this.analyticsService.trackEvent('click_project', 'Projects', `${category}: ${this.project.title}`);
     
     // Generate slug from project title
     const projectSlug = this.portfolioService.generateSlug(this.project.title);

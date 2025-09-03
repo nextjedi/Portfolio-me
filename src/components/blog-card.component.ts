@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogPost } from '../models/portfolio.interface';
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-blog-card',
@@ -315,6 +316,8 @@ export class BlogCardComponent {
   @Input() isVisible = false;
   @Input() animationDelay = '0s';
 
+  constructor(private analyticsService: AnalyticsService) {}
+
   protected onImageError(event: Event): void {
     const img = event.target as HTMLImageElement;
     const container = img.parentElement;
@@ -325,7 +328,9 @@ export class BlogCardComponent {
   }
 
   protected trackArticleClick(): void {
-    // Analytics tracking can be added here
+    // Track blog article click
+    this.analyticsService.trackExternalLink(this.post.url, 'Blog Article');
+    this.analyticsService.trackEvent('click_blog_article', 'Blog', this.post.title);
     console.log(`Blog article clicked: ${this.post.title}`);
   }
 }

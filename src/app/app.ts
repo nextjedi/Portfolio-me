@@ -1,6 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 // Import navigation and footer components
 import { NavigationComponent } from '../components/navigation.component';
@@ -9,6 +10,7 @@ import { FooterComponent } from '../components/footer.component';
 // Import services
 import { PortfolioService } from '../services/portfolio.service';
 import { ThemeService } from '../services/theme.service';
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -28,11 +30,14 @@ export class App implements OnInit {
 
   constructor(
     private portfolioService: PortfolioService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private analyticsService: AnalyticsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.initializeApp();
+    this.setupRouteTracking();
   }
 
   private async initializeApp(): Promise<void> {
@@ -131,5 +136,23 @@ export class App implements OnInit {
     }
     
     canonical.href = url;
+  }
+
+  private setupRouteTracking(): void {
+    // Track initial page view
+    this.analyticsService.trackPageView(
+      window.location.pathname,
+      document.title
+    );
+
+    // Track route changes
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // Small delay to ensure title is updated
+      setTimeout(() => {
+        this.analyticsService.trackPageView(event.urlAfterRedirects, document.title);
+      }, 50);
+    });
   }
 }

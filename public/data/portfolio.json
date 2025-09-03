@@ -24,6 +24,13 @@
         "url": "https://calendly.com/nextjedi/15min",
         "icon": "calendar",
         "platform": "Calendly"
+      },
+      "sponsor": {
+        "url": "https://github.com/sponsors/nextjedi",
+        "icon": "sponsor",
+        "platform": "GitHub Sponsors",
+        "cardEmbed": "<iframe src=\"https://github.com/sponsors/nextjedi/card\" title=\"Sponsor nextjedi\" height=\"225\" width=\"600\" style=\"border: 0;\"></iframe>",
+        "buttonEmbed": "<iframe src=\"https://github.com/sponsors/nextjedi/button\" title=\"Sponsor nextjedi\" height=\"32\" width=\"114\" style=\"border: 0; border-radius: 6px;\"></iframe>"
       }
     }
   },

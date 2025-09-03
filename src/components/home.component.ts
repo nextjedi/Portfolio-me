@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SEOService } from '../services/seo.service';
+import { AnalyticsService } from '../services/analytics.service';
 
 // Import all components
 import { HeroComponent } from './hero.component';
@@ -50,8 +51,13 @@ import { ContactComponent } from './contact.component';
     }
   `]
 })
-export class HomeComponent implements OnInit {
-  constructor(private seoService: SEOService) {}
+export class HomeComponent implements OnInit, AfterViewInit {
+  private sectionsObserved = new Set<string>();
+
+  constructor(
+    private seoService: SEOService,
+    private analyticsService: AnalyticsService
+  ) {}
 
   ngOnInit(): void {
     // Set SEO for homepage
@@ -64,5 +70,35 @@ export class HomeComponent implements OnInit {
     
     // Add structured data for professional profile
     this.seoService.addPersonStructuredData();
+  }
+
+  ngAfterViewInit(): void {
+    // Set up intersection observer for section tracking
+    this.setupSectionTracking();
+  }
+
+  private setupSectionTracking(): void {
+    const sections = document.querySelectorAll('section[id]');
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const sectionId = entry.target.id;
+            if (!this.sectionsObserved.has(sectionId)) {
+              this.sectionsObserved.add(sectionId);
+              this.analyticsService.trackSectionView(sectionId);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5
+      }
+    );
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   }
 }

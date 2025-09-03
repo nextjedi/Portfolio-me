@@ -160,6 +160,8 @@ export interface SharedData {
       url: string;
       icon: string;
       platform?: string;
+      cardEmbed?: string;
+      buttonEmbed?: string;
     };
   };
 }
