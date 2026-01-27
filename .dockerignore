@@ -1,0 +1,56 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn.lock
+
+# Build outputs
+dist
+.angular
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Testing
+coverage
+*.spec.ts
+karma.conf.js
+.karma
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Documentation
+README.md
+CLAUDE.md
+*.md
+docs
+
+# Docker files (no need to copy into image)
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Logs
+logs
+*.log
+
+# Misc
+.editorconfig
+.prettierrc
