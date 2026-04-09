@@ -531,8 +531,8 @@
   "blog": {
     "title": "Technical Insights & Thoughts",
     "subtitle": "Sharing knowledge about architecture, AI, and engineering leadership",
-    "mediumRssUrl": "https://medium.com/@ap2/feed",
-    "mediumProfileUrl": "https://medium.com/@ap2",
+    "mediumRssUrl": "https://blog.arunabh.me/feed.xml",
+    "mediumProfileUrl": "https://blog.arunabh.me",
     "fallbackPosts": [
       {
         "title": "How I Built a Code Generation Framework That Automates 75% of Development",

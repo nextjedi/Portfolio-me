@@ -106,7 +106,7 @@ import { BlogCardComponent } from './blog-card.component';
                class="btn btn-primary"
                target="_blank"
                rel="noopener noreferrer">
-              Follow on Medium
+              Visit Blog
             </a>
           </div>
         }
@@ -435,7 +435,7 @@ export class BlogComponent implements OnInit {
 
   protected getMediumProfileUrl(): string {
     const config = this.blogConfig();
-    return config?.mediumProfileUrl || 'https://medium.com/@arunabhpriyadarshi';
+    return config?.mediumProfileUrl || 'https://blog.arunabh.me';
   }
 
   private setupIntersectionObserver(): void {
