@@ -3,6 +3,10 @@
   "outputDirectory": "dist/portfolio-redesign/browser",
   "rewrites": [
     {
+      "source": "/holocron/:path*",
+      "destination": "https://blog.arunabh.me/holocron/:path*"
+    },
+    {
       "source": "/((?!api|_next|_static|favicon.ico|robots.txt|sitemap.xml).*)",
       "destination": "/index.html"
     }
